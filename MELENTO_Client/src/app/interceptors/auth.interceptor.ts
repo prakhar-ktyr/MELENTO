@@ -13,27 +13,23 @@ import { LocalStorageService } from "../services/local-storage.service";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-    token = "" ;
-    constructor(private localStorageService : LocalStorageService){
-        this.localStorageService.getItem('token') ; 
-    }
+  token = "";
+  constructor(private localStorageService: LocalStorageService) {
+    this.localStorageService.getItem("token");
+  }
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    
-    let authtoken = this.localStorageService.getItem('token') ;
-    if(!authtoken) authtoken = "" ;
-    this.token = authtoken ; 
-    let authreq = req ; 
-    if(authtoken){
-      authreq = authreq.clone({
-        setHeaders: {
-          authorization: `Bearer ${this.token}`,
-        },
-      });
-      return next.handle(authreq) ; 
-    }
+    let authtoken = this.localStorageService.getItem("token");
+    if (!authtoken) authtoken = "";
+    this.token = authtoken;
+
+    req = req.clone({
+      setHeaders: {
+        authorization: `Bearer ${this.token}`,
+      },
+    });
 
     // Log the modified request
     console.log("Intercepted HTTP call", req);
