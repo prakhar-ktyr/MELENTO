@@ -5,6 +5,8 @@ import { Assessment } from '../../models/assessment';
 import { Cart } from '../../models/cart';
 import { TraineeService } from '../../services/trainee.service';
 import { AssessmentTrainees } from '../../models/assessmentTrainess';
+import { loadStripe } from '@stripe/stripe-js';
+
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +16,8 @@ import { AssessmentTrainees } from '../../models/assessmentTrainess';
 export class CartComponent {
   currentUserCart: Cart = new Cart(0, 0, [], [], 0);
   loggedUserId: string = '';
+  stripePromise = loadStripe('pk_test_51PaVS0AdmJTZG1A1t6DsmTxd1RhRX4Z7yNcyZVtAw3RIqPAyPI14AfGFXLyXm0cYB1KDyOXaGtSTtSdHvUfbs7TH00nyPL9XNW');
+
   constructor(
     private traineeService: TraineeService,
     private localStorageService: LocalStorageService,
@@ -29,6 +33,7 @@ export class CartComponent {
       this.currentUserCart.total = this.calculateCost();
     });
   }
+
   calculateCost() {
     let cost = 0;
     for (let i = 0; i < this.currentUserCart.arrAssessments.length; i++) {
@@ -38,71 +43,71 @@ export class CartComponent {
     }
     return cost;
   }
+
   addQuantity(addAssessmentId: number) {
-    this.cartService
-      .getCartByID(String(this.currentUserCart.userId))
-      .subscribe((data) => {
-        this.currentUserCart.quantity = data.quantity;
-        this.currentUserCart.quantity[addAssessmentId] += 1;
-        this.currentUserCart.total = this.calculateCost();
-        this.cartService
-          .updateCartById(this.currentUserCart.userId, this.currentUserCart)
-          .subscribe((data) => {});
-      });
+    this.cartService.getCartByID(String(this.currentUserCart.userId)).subscribe((data) => {
+      this.currentUserCart.quantity = data.quantity;
+      this.currentUserCart.quantity[addAssessmentId] += 1;
+      this.currentUserCart.total = this.calculateCost();
+      this.cartService.updateCartById(this.currentUserCart.userId, this.currentUserCart).subscribe((data) => {});
+    });
   }
+
   removeQuantity(removeAssessmentId: number) {
-    this.cartService
-      .getCartByID(String(this.currentUserCart.userId))
-      .subscribe((data) => {
-        this.currentUserCart.quantity = data.quantity;
-        this.currentUserCart.quantity[removeAssessmentId] = Math.max(
-          this.currentUserCart.quantity[removeAssessmentId] - 1,
-          0
-        );
-        this.currentUserCart.total = this.calculateCost();
-        this.cartService
-          .updateCartById(this.currentUserCart.userId, this.currentUserCart)
-          .subscribe((data) => {});
-      });
+    this.cartService.getCartByID(String(this.currentUserCart.userId)).subscribe((data) => {
+      this.currentUserCart.quantity = data.quantity;
+      this.currentUserCart.quantity[removeAssessmentId] = Math.max(
+        this.currentUserCart.quantity[removeAssessmentId] - 1,
+        0
+      );
+      this.currentUserCart.total = this.calculateCost();
+      this.cartService.updateCartById(this.currentUserCart.userId, this.currentUserCart).subscribe((data) => {});
+    });
   }
+
   getTotalCost() {
     return this.currentUserCart.total;
   }
-  clearCart(){
-         // now clear cart
-         let cartId = this.currentUserCart.id;
-         this.cartService.deleteCart(cartId).subscribe((data) => {
-           console.log('deleted');
-         });
-  }
-  placeOrder() {
-    let arrAssTrainees: AssessmentTrainees[];
-    this.cartService.checkout(this.currentUserCart.arrAssessments.length) ;
 
-    
-    this.traineeService.getAssessmentTrainess().subscribe((data) => {
-      arrAssTrainees = data;
-      this.currentUserCart.arrAssessments.forEach((ass, index) => {
-        let newId = 0 ; 
-        this.traineeService.getAssessmentTrainess().subscribe(data => {
-          newId = data.length + 1 ; 
-          let newAssId = String(ass.id);
-          let newAss = new AssessmentTrainees(
-            String(newId),
-            newAssId,
-            this.loggedUserId,
-            this.currentUserCart.quantity[index].toString()
-          );
-          this.traineeService
-            .updateAssessmentTrainees(newAss)
-            .subscribe((data) => {
-              console.log('Added new entity to dashboard');
-              this.clearCart() ; 
-            });
-        })
-       
+  async placeOrder() {
+    const stripe = await this.stripePromise;
+    if (!stripe) {
+      console.error('Stripe did not load correctly.');
+      return;
+    }
+  
+    // Create a Stripe Checkout Session
+    const sessionId = await this.createCheckoutSession();
+  
+    // Redirect to Stripe Checkout
+    const { error } = await stripe.redirectToCheckout({ sessionId });
+    if (error) {
+      console.error('Error redirecting to Stripe Checkout:', error);
+    }
+  }
+  
+
+  async createCheckoutSession(): Promise<string> {
+    const items = this.currentUserCart.arrAssessments.map((assessment, index) => ({
+      name: assessment.assessmentName,
+      price: assessment.price,
+      quantity: this.currentUserCart.quantity[index]
+    }));
+
+    try {
+      const response = await fetch('http://localhost:3000/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ items })
       });
- 
-    });
+
+      const session = await response.json();
+      return session.id;
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+      return '';
+    }
   }
 }

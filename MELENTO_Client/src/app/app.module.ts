@@ -64,6 +64,8 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { ReportComponent } from './components/report/report.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor, httpInterceptorProvider } from './interceptors/auth.interceptor';
+import { SuccessComponent } from './components/success/success.component';
+import { CancelComponent } from './components/cancel/cancel.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +107,9 @@ import { AuthInterceptor, httpInterceptorProvider } from './interceptors/auth.in
     UpdateAssessmentComponent,
     ViewAssessmentComponent,
     LoginModalComponent,
-    ReportComponent
+    ReportComponent,
+    SuccessComponent,
+    CancelComponent
   ],
   imports: [
     ReactiveFormsModule,

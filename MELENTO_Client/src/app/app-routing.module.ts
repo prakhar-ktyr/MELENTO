@@ -13,6 +13,8 @@ import { AttemptAssessmentComponent } from './components/attempt-assessment/atte
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FacultyComponent } from './components/faculty/faculty.component';
 import { ReportComponent } from './components/report/report.component';
+import { SuccessComponent } from './components/success/success.component';
+import { CancelComponent } from './components/cancel/cancel.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'attemptAssessment/:id' , component:AttemptAssessmentComponent },
   { path: 'faculty', component: FacultyComponent },
   { path: 'report', component: ReportComponent },
+  { path: 'success', component: SuccessComponent },
+  { path: 'cancel', component: CancelComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
