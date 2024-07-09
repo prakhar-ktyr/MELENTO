@@ -1,4 +1,5 @@
 require('dotenv').config();
+const bcrypt = require('bcryptjs');
 const MongoClient = require('mongodb').MongoClient;
 
 async function connect(collectionName) { 
@@ -16,7 +17,33 @@ function renamekey(obj, oldkey, newkey) {
     delete obj[oldkey];
 }
 
+async function hashPassword(plainTextPassword) {
+    try {
+        const salt = await bcrypt.genSalt(5);
+        const hash = await bcrypt.hash(plainTextPassword, salt);
+        console.log("Hashed Password:", hash);
+        return hash;
+    } catch (err) {
+        console.error(err);
+        throw err; // Re-throw the error to handle it outside of this function if necessary
+    }
+}
+
+// Function to compare a plain text password with a hashed password
+async function comparePassword(plainTextPassword, hashedPassword) {
+    try {
+        const isMatch = await bcrypt.compare(plainTextPassword, hashedPassword);
+        console.log("Password Match:", isMatch);
+        return isMatch;
+    } catch (err) {
+        console.error(err);
+        throw err; // Re-throw the error to handle it outside of this function if necessary
+    }
+}
+
 module.exports = {
     connect,
-    renamekey
+    renamekey,
+    hashPassword,
+    comparePassword
 };

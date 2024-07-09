@@ -46,16 +46,28 @@ function getDocumentById(collectionName) {
 function addDocument(collectionName) {
     return (req, res) => {
         res.header("Access-Control-Allow-Origin", "*");
-        db_service.addDocument(collectionName, req.body).then(
-            (result) => {
-                res.send(result);
-            },
-            (err) => {
-                res.status(500).json({ message: err.message });
-            }
-        ).catch((error) => {
-            res.status(500).json({ message: error.message });
-        });
+        if(collectionName === 'users'){
+            console.log(req.body);
+            db_service.addUser(collectionName, req.body).then(
+                (result) => {
+                    res.send(result);
+                }
+       
+            ).catch((error) => {
+                res.status(500).json({ message: error.message });
+            });
+        }
+        else{
+           
+            db_service.addDocument(collectionName, req.body).then(
+                (result) => {
+                    res.send(result);
+                }
+       
+            ).catch((error) => {
+                res.status(500).json({ message: error.message });
+            });
+        }
     };
 }
 
@@ -122,5 +134,5 @@ module.exports = {
     addDocument,
     updateDocument,
     deleteDocument,
-    getUserByCredentials
+    getUserByCredentials,
 };

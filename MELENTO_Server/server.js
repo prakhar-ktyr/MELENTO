@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const generic_controller = require("./controller/generic_controller");
 const db_service = require("./services/db_service");
 const jwt = require("jsonwebtoken");
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Add this line
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = 3000;
 
@@ -104,18 +104,21 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
 });
 
 collections.forEach((collection) => {
-  if(collection === 'assessments'){
+  if(collection == 'assessments'){
     app.get(`/${collection}`,  generic_controller.getDocuments(collection));
+    app.get(`/${collection}/:id`, generic_controller.getDocumentById(collection));
   }
   else{
     app.get(`/${collection}`,  authenticateToken, generic_controller.getDocuments(collection));
+    app.get(`/${collection}/:id`, authenticateToken , generic_controller.getDocumentById(collection));
   }
-  app.get(`/${collection}/:id`, authenticateToken , generic_controller.getDocumentById(collection));
   app.post(`/${collection}`, authenticateToken , generic_controller.addDocument(collection));
+  
   app.put(`/${collection}/:id`, authenticateToken , generic_controller.updateDocument(collection));
   app.delete(`/${collection}/:id`, authenticateToken , generic_controller.deleteDocument(collection)
   );
 });
+
 
 app.post("/login", (req, res) => {
   const userDetails = req.body;

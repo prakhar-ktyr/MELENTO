@@ -116,7 +116,7 @@ export class AssessmentsComponent implements OnInit {
         });
       } else {
         let obj = {
-          id: this.loggedUserId,
+          _id: this.loggedUserId,
           userId: this.loggedUserId,
           quantity: [1],
           total: newAssessmentForCart.price,

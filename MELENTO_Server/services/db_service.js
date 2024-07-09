@@ -1,5 +1,5 @@
 const util = require('../util/util');
-
+const bcrypt = require('bcryptjs');
 // Helper function to add an object to the collection
 async function addObject(collection, object) {
     return new Promise((resolve, reject) => {
@@ -96,15 +96,35 @@ async function findUserByCreds(collectionName, credentials) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            const item = await coll.findOne(credentials);
+            const item = await coll.findOne({email : credentials.email});
             // console.log(item);
-            resolve(item);
+            let correctPassword = item.password ; 
+            let inputPassword = credentials.password ;
+            
+            let match = await util.comparePassword(inputPassword , correctPassword) ; 
+            if(match) resolve(item);
+            else throw new Error('Invalid credentials')
         } catch (err) {
             reject(err);
         }
     });
 }
 
+// Add a new user with password encryption 
+async function addUser(collectionName, document) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const coll = await util.connect(collectionName);
+            let password = document.password ; 
+            password = await util.hashPassword(password) ; 
+            document.password = password ; 
+            const result = await addObject(coll, document);
+            resolve(result);
+        } catch (err) {
+            reject(err);
+        }
+    });
+}
 
 module.exports = {
     findAll,
@@ -112,5 +132,6 @@ module.exports = {
     addDocument,
     updateDocument,
     deleteDocument,
-    findUserByCreds
+    findUserByCreds,
+    addUser
 };
