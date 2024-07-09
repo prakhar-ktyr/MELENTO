@@ -1,0 +1,27 @@
+<div class="container mt-4">
+    <form [formGroup]="categoryUpdateForm" (ngSubmit)="onSubmit(categoryUpdateForm.value)" class="needs-validation" novalidate>
+        <div class="form-group col-md-12">
+            <label for="id">Select a category for update:</label>
+            <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
+                <option selected>Select a category</option>
+                <option *ngFor="let category of arrCategories" [ngValue]="category.id">{{category.category}}</option>
+            </select>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('category')}">
+            <label for="category">Category Name</label>
+            <input type="text" class="form-control" id="category" formControlName="category" placeholder="Category Name">
+            <div *ngIf="isInvalid('category')" class="invalid-feedback d-block">
+                Category Name is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('categoryDescription')}">
+            <label for="categoryDescription">Category Description</label>
+            <textarea class="form-control" id="categoryDescription" formControlName="categoryDescription" placeholder="Category Description"></textarea>
+            <div *ngIf="isInvalid('categoryDescription')" class="invalid-feedback d-block">
+                Category Description is required.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Update Category</button>
+    </form>
+</div>

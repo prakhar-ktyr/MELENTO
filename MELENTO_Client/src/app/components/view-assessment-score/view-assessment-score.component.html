@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+      <div *ngFor="let score of arrAssessmentScores" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Assessment ID: {{ score.assessmentId }}</h5>
+            <p class="card-text"><strong>Trainee ID:</strong> {{ score.traineeId }}</p>
+            <p class="card-text"><strong>Score:</strong> {{ score.score }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

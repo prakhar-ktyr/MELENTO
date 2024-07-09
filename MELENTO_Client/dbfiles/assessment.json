@@ -1,0 +1,248 @@
+[
+    {
+      "_id": "1",
+      "assessmentName": "Ruby on Rails",
+      "assessmentDescription": "This assessment covers Ruby on Rails, a server-s_ide web application framework. Test your skills in MVC architecture, routing, and more.",
+      "assessmentImage": "/assets/images/ror.png",
+      "questions": [],
+      "price": 1999,
+      "facultyId": "1"
+    },
+    {
+      "_id": "2",
+      "assessmentName": "Angular",
+      "assessmentDescription": "This assessment covers Angular, a front-end web application framework. Test your skills in TypeScript, components, and more.",
+      "assessmentImage": "/assets/images/angular.png",
+      "questions": [],
+      "price": 2499,
+      "facultyId": "2"
+    },
+    {
+      "_id": "3",
+      "assessmentName": "React",
+      "assessmentDescription": "This assessment covers React, a front-end web application framework. Test your skills in JSX, components, and more.",
+      "assessmentImage": "/assets/images/react.webp",
+      "questions": [],
+      "price": 2299,
+      "facultyId": "3"
+    },
+    {
+      "_id": "4",
+      "assessmentName": "Node.js",
+      "assessmentDescription": "This assessment covers Node.js, a server-side JavaScript runtime. Test your skills in asynchronous programming, Express.js, and more.",
+      "assessmentImage": "/assets/images/node.png",
+      "questions": [],
+      "price": 2099,
+      "facultyId": "4"
+    },
+    {
+      "_id": "5",
+      "assessmentName": "Python",
+      "assessmentDescription": "This assessment covers Python, a versatile programming language. Test your skills in data types, control structures, and more.",
+      "assessmentImage": "/assets/images/python.png",
+      "questions": [],
+      "price": 1899,
+      "facultyId": "5"
+    },
+    {
+      "_id": "6",
+      "assessmentName": "Java",
+      "assessmentDescription": "This assessment covers Java, a popular object-oriented programming language. Test your skills in OOP principles, Java syntax, and more.",
+      "assessmentImage": "/assets/images/java.svg",
+      "questions": [],
+      "price": 2199,
+      "facultyId": "6"
+    },
+    {
+      "_id": "7",
+      "assessmentName": "C#",
+      "assessmentDescription": "This assessment covers C#, a language used for developing Windows applications. Test your skills in .NET framework, OOP, and more.",
+      "assessmentImage": "/assets/images/csharp.png",
+      "questions": [],
+      "price": 2399,
+      "facultyId": "7"
+    },
+    {
+      "_id": "8",
+      "assessmentName": "PHP",
+      "assessmentDescription": "This assessment covers PHP, a server-side scripting language. Test your skills in web development, database interaction, and more.",
+      "assessmentImage": "/assets/images/php.png",
+      "questions": [],
+      "price": 1999,
+      "facultyId": "8"
+    },
+    {
+      "_id": "9",
+      "assessmentName": "Swift",
+      "assessmentDescription": "This assessment covers Swift, a language used for iOS and macOS development. Test your skills in Swift syntax, Xcode, and more.",
+      "assessmentImage": "/assets/images/swift.png",
+      "questions": [],
+      "price": 2499,
+      "facultyId": "9"
+    },
+    {
+      "_id": "10",
+      "assessmentName": "Kotlin",
+      "assessmentDescription": "This assessment covers Kotlin, a language for Android development. Test your skills in Kotlin syntax, Android Studio, and more.",
+      "assessmentImage": "/assets/images/kotlin.png",
+      "questions": [],
+      "price": 2299,
+      "facultyId": "10"
+    },
+    {
+      "_id": "11",
+      "assessmentName": "HTML & CSS",
+      "assessmentDescription": "This assessment covers HTML & CSS, the building blocks of web development. Test your skills in web page structure, styling, and more.",
+      "assessmentImage": "/assets/images/html_css.png",
+      "questions": [],
+      "price": 1599,
+      "facultyId": "11"
+    },
+    {
+      "_id": "12",
+      "assessmentName": "JavaScript",
+      "assessmentDescription": "This assessment covers JavaScript, a language for web development. Test your skills in ES6 features, DOM manipulation, and more.",
+      "assessmentImage": "/assets/images/javascript.webp",
+      "questions": [],
+      "price": 1799,
+      "facultyId": "12"
+    },
+    {
+      "_id": "13",
+      "assessmentName": "SQL",
+      "assessmentDescription": "This assessment covers SQL, a language for database management. Test your skills in querying, joins, and more.",
+      "assessmentImage": "/assets/images/sql.png",
+      "questions": [],
+      "price": 1499,
+      "facultyId": "13"
+    },
+    {
+      "_id": "14",
+      "assessmentName": "TypeScript",
+      "assessmentDescription": "This assessment covers TypeScript, a superset of JavaScript. Test your skills in static typing, interfaces, and more.",
+      "assessmentImage": "/assets/images/typescript.png",
+      "questions": [],
+      "price": 1899,
+      "facultyId": "14"
+    },
+    {
+      "_id": "15",
+      "assessmentName": "Go",
+      "assessmentDescription": "This assessment covers Go, a statically typed language. Test your skills in concurrency, Go syntax, and more.",
+      "assessmentImage": "/assets/images/go.png",
+      "questions": [],
+      "price": 2099,
+      "facultyId": "15"
+    },
+    {
+      "_id": "16",
+      "assessmentName": "Django",
+      "assessmentDescription": "This assessment covers Django, a high-level Python web framework. Test your skills in MVT architecture, ORM, and more.",
+      "assessmentImage": "/assets/images/django.webp",
+      "questions": [],
+      "price": 2199,
+      "facultyId": "16"
+    },
+    {
+      "_id": "17",
+      "assessmentName": "Flask",
+      "assessmentDescription": "This assessment covers Flask, a micro web framework for Python. Test your skills in routing, Jinja2 templates, and more.",
+      "assessmentImage": "/assets/images/flask.png",
+      "questions": [],
+      "price": 1999,
+      "facultyId": "17"
+    },
+    {
+      "_id": "18",
+      "assessmentName": "Vue.js",
+      "assessmentDescription": "This assessment covers Vue.js, a progressive JavaScript framework. Test your skills in Vue components, directives, and more.",
+      "assessmentImage": "/assets/images/vue.png",
+      "questions": [],
+      "price": 2299,
+      "facultyId": "18"
+    },
+    {
+      "_id": "19",
+      "assessmentName": "ASP.NET",
+      "assessmentDescription": "This assessment covers ASP.NET, a framework for building web apps on the .NET platform. Test your skills in MVC, Razor, and more.",
+      "assessmentImage": "/assets/images/aspnet.svg",
+      "questions": [],
+      "price": 2399,
+      "facultyId": "19"
+    },
+    {
+      "_id": "20",
+      "assessmentName": "Spring",
+      "assessmentDescription": "This assessment covers Spring, a framework for building Java applications. Test your skills in Spring Boot, dependency injection, and more.",
+      "assessmentImage": "/assets/images/spring.svg",
+      "questions": [],
+      "price": 2499,
+      "facultyId": "20"
+    },
+    {
+      "_id": "21",
+      "assessmentName": "Laravel",
+      "assessmentDescription": "This assessment covers Laravel, a PHP framework for web artisans. Test your skills in Eloquent ORM, Blade templating, and more.",
+      "assessmentImage": "/assets/images/laravel.png",
+      "questions": [],
+      "price": 2199,
+      "facultyId": "21"
+    },
+    {
+      "_id": "22",
+      "assessmentName": "Scala",
+      "assessmentDescription": "This assessment covers Scala, a language for functional programming and strong static systems. Test your skills in Scala syntax, collections, and more.",
+      "assessmentImage": "/assets/images/scala.png",
+      "questions": [],
+      "price": 2299,
+      "facultyId": "22"
+    },
+    {
+      "_id": "23",
+      "assessmentName": "Rust",
+      "assessmentDescription": "This assessment covers Rust, a language empowering everyone to build reliable and efficient software. Test your skills in Rust syntax, ownership, and more.",
+      "assessmentImage": "/assets/images/rust.png",
+      "questions": [],
+      "price": 2399,
+      "facultyId": "23"
+    },
+    {
+      "_id": "24",
+      "assessmentName": "Elixir",
+      "assessmentDescription": "This assessment covers Elixir, a dynamic, functional language designed for building scalable and maintainable applications. Test your skills in Elixir syntax, concurrency, and more.",
+      "assessmentImage": "/assets/images/elixir.webp",
+      "questions": [],
+      "price": 2499,
+      "facultyId": "24"
+    },
+    {
+      "_id": "25",
+      "assessmentName": "Perl",
+      "assessmentDescription": "This assessment covers Perl, a highly capable, feature-rich programming language with over 30 years of development. Test your skills in Perl syntax, regex, and more.",
+      "assessmentImage": "/assets/images/perl.png",
+      "questions": [],
+      "price": 1899,
+      "facultyId": "25"
+    },
+    {
+      "_id": "26",
+      "assessmentName": "Shell Scripting",
+      "assessmentDescription": "This assessment covers Shell Scripting, a powerful tool for automating tasks in Unix-based systems. Test your skills in Bash syntax, scripting, and more.",
+      "assessmentImage": "/assets/images/shell_scripting.png",
+      "questions": [],
+      "price": 2099,
+      "facultyId": "26"
+    },
+    {
+      "_id": "27",
+      "assessmentName": "MATLAB",
+      "assessmentDescription": "This assessment covers MATLAB, a high-level language and interactive environment for numerical computation, visualization, and programming. Test your skills in MATLAB syntax, functions, and more.",
+      "assessmentImage": "/assets/images/matlab.png",
+      "questions": [],
+      "price": 2499,
+      "facultyId": "27"
+    }
+  ]
+
+
+

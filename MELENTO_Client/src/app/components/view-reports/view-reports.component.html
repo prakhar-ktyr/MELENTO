@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>Reports</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Assessment ID</th>
+        <th>User ID</th>
+        <th>Marks Distribution</th>
+        <th>Score</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let report of arrReports">
+        <td>{{ report.id }}</td>
+        <td>{{ report.assessmentId }}</td>
+        <td>{{ report.userId }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="openModal(report)">
+            <i class="fa fa-eye"></i>
+          </button>
+        </td>
+        <td>{{ report.score }}</td>
+        <td>{{report.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="barChartModal" tabindex="-1" aria-labelledby="barChartModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="barChartModalLabel">Marks Distribution</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-bar-chart *ngIf="selectedReport" [marks]="selectedReport.marks"></app-bar-chart>
+      </div>
+    </div>
+  </div>
+</div>

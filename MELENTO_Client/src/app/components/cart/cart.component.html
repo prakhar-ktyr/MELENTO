@@ -1,0 +1,43 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Assessment Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Add</th>
+          <th scope="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let assessment of currentUserCart.arrAssessments; let ind = index">
+         
+          <td>{{assessment.id}}</td>
+          <td>{{assessment.assessmentName}}</td>
+          <td>{{currentUserCart.quantity[ind]}}</td>
+          <td>{{assessment.price}}</td>
+          <td>
+            <button class="btn btn-success" (click)="addQuantity(ind)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="removeQuantity(ind)">
+              <mat-icon>remove</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total</td>
+          <td colspan="3">{{getTotalCost()}}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+    <button class="btn btn-primary" (click)="placeOrder()">Place Order</button>
+  </div>
+  

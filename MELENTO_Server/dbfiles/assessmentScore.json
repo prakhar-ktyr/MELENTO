@@ -1,0 +1,158 @@
+[
+    {
+      "_id": "1",
+      "assessmentId": "8",
+      "traineeId": 2,
+      "score": 4
+    },
+    {
+      "_id": "2",
+      "assessmentId": "1",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "3",
+      "assessmentId": "1",
+      "traineeId": 2,
+      "score": 7
+    },
+    {
+      "_id": "4",
+      "assessmentId": "1",
+      "traineeId": 2,
+      "score": 3
+    },
+    {
+      "_id": "5",
+      "assessmentId": "1",
+      "traineeId": 2,
+      "score": 2
+    },
+    {
+      "_id": "6",
+      "assessmentId": "1",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "7",
+      "assessmentId": "1",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "8",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 3
+    },
+    {
+      "_id": "9",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 4
+    },
+    {
+      "_id": "10",
+      "assessmentId": "2",
+      "traineeId": 4,
+      "score": 0
+    },
+    {
+      "_id": "11",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 5
+    },
+    {
+      "_id": "12",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 2
+    },
+    {
+      "_id": "13",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 4
+    },
+    {
+      "_id": "14",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 1
+    },
+    {
+      "_id": "15",
+      "assessmentId": "5",
+      "traineeId": 2,
+      "score": 1
+    },
+    {
+      "_id": "16",
+      "assessmentId": "5",
+      "traineeId": 2,
+      "score": 1
+    },
+    {
+      "_id": "17",
+      "assessmentId": "6",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "18",
+      "assessmentId": "2",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "19",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 2
+    },
+    {
+      "_id": "20",
+      "assessmentId": "3",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "21",
+      "assessmentId": "3",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "22",
+      "assessmentId": "4",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "23",
+      "assessmentId": "4",
+      "traineeId": 7,
+      "score": 10
+    },
+    {
+      "_id": "24",
+      "assessmentId": "6",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "25",
+      "assessmentId": "6",
+      "traineeId": 2,
+      "score": 0
+    },
+    {
+      "_id": "26",
+      "assessmentId": "9",
+      "traineeId": 2,
+      "score": 2
+    }
+  ]

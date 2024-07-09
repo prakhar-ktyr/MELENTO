@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Update Report</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+    <div class="mb-3">
+      <label for="id" class="form-label">Select Report ID</label>
+      <select id="id" class="form-select" formControlName="id" (change)="onSelectReport($event)">
+        <option *ngFor="let report of reports" [value]="report.id">{{ report.id }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="assessmentId" class="form-label">Assessment ID</label>
+      <input type="text" id="assessmentId" class="form-control" formControlName="assessmentId" [value]="selectedReport.assessmentId">
+    </div>
+    <div class="mb-3">
+      <label for="userId" class="form-label">User ID</label>
+      <input type="text" id="userId" class="form-control" formControlName="userId">
+    </div>
+    <div class="mb-3">
+      <label for="marks" class="form-label">Marks (comma separated true/false values)</label>
+      <input type="text" id="marks" class="form-control" formControlName="marks">
+    </div>
+    <div class="mb-3">
+      <label for="score" class="form-label">Score</label>
+      <input type="text" id="score" class="form-control" formControlName="score">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>

@@ -1,0 +1,64 @@
+.my-assessments-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+  }
+  
+  .my-assessments-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #343a40;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    //color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 1em;
+    color: #6c757d;
+  }
+  
+  .btn-primary-custom {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary-custom:hover {
+    background-color: #0056b3;
+  }
+  
+  .card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .greyed-out {
+    opacity: 0.5;
+    pointer-events: none; /* Optional: disables interactions with the card */
+  }
+  
+  

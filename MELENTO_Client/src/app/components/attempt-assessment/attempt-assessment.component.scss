@@ -1,0 +1,32 @@
+.barchart{
+    width: 70%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+mat-radio-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.laststep{
+    display: flex;
+    flex-direction: column;
+}
+
+/* attempt-assessment.component.scss */
+#pdfContent {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+ #passfail , #score{
+    font-size: xx-large;
+}

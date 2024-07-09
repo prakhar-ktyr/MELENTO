@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-item {
+    margin-bottom: -1px;
+}
+
+.nav-link {
+    color: #6BB77B;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-color: #6BB77B #6BB77B #fff;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.nav-link.active {
+    color: #fff;
+    background-color: #D76F30;
+    border-color: #D76F30 #D76F30 #fff;
+}
+
+.nav-link:hover {
+    background-color: #6BB77B;
+    border-color: #6BB77B #6BB77B #fff;
+}
+
+.tab-content {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.tab-pane {
+    padding: 20px;
+    border: 1px solid #6BB77B;
+    border-top: none;
+}
+
+.tab-pane.fade {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tab-pane.fade.show {
+    opacity: 1;
+}

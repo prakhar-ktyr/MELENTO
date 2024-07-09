@@ -1,0 +1,23 @@
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.has-error .form-control, .has-error .textarea {
+    border-color: #dc3545;
+}
+
+.has-error .invalid-feedback {
+    display: block;
+}
+
+.invalid-feedback.d-block {
+    color: #dc3545;
+}
+
+.btn {
+    margin-top: 1rem;
+}

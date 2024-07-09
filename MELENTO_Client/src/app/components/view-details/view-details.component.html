@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="assessment.assessmentImage" class="img-fluid" alt="{{assessment.assessmentName}}">
+    </div>
+    <div class="col-md-6">
+      <h1>{{assessment.assessmentName}}</h1>
+      <p>{{assessment.assessmentDescription}}</p>
+      <h3>Price: {{assessment.price | currency:'INR':'symbol'}}</h3>
+      <button class="btn btn-primary btn-primary-custom" (click)="addToCart(assessment.id)">Add to Cart</button>
+    </div>
+  </div>
+</div>

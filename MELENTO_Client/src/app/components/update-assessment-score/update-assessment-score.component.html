@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <form [formGroup]="assessmentScoreUpdateForm" (ngSubmit)="onSubmit(assessmentScoreUpdateForm.value)" class="needs-validation" novalidate>
+      <div class="form-group col-md-12">
+        <label for="id">Select an assessment score for update:</label>
+        <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
+          <option selected>Select an assessment score</option>
+          <option *ngFor="let assessmentScore of arrAssessmentScores" [ngValue]="assessmentScore.id">
+            {{ assessmentScore.assessmentId }} - {{ assessmentScore.traineeId }}
+          </option>
+        </select>
+      </div>
+  
+      <div class="form-group" [ngClass]="{'has-error': isInvalid('assessmentId')}">
+        <label for="assessmentId">Assessment ID</label>
+        <input type="number" class="form-control" id="assessmentId" formControlName="assessmentId" placeholder="Assessment ID">
+        <div *ngIf="isInvalid('assessmentId')" class="invalid-feedback d-block">
+          Assessment ID is required.
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': isInvalid('traineeId')}">
+        <label for="traineeId">Trainee ID</label>
+        <input type="number" class="form-control" id="traineeId" formControlName="traineeId" placeholder="Trainee ID">
+        <div *ngIf="isInvalid('traineeId')" class="invalid-feedback d-block">
+          Trainee ID is required.
+        </div>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': isInvalid('score')}">
+        <label for="score">Score</label>
+        <input type="number" class="form-control" id="score" formControlName="score" placeholder="Score">
+        <div *ngIf="isInvalid('score')" class="invalid-feedback d-block">
+          Score is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3">Update Assessment Score</button>
+    </form>
+  </div>
+  

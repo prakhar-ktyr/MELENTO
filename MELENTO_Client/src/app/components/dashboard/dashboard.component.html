@@ -1,0 +1,24 @@
+<div class="container my-assessments-container">
+  <h2 class="my-assessments-title">My Assessments</h2>
+  <div class="row">
+    <div  class="col-md-4 mb-4" *ngFor="let a of arrAssessments">
+      <div class="card" [ngClass]="{'greyed-out': !a.isActive}">
+        <img [src]="a.assessmentImage" class="card-img-top" alt="Image">
+        <div class="card-body">
+          <h5 class="card-title">{{a.assessmentName}}</h5>
+          <p class="card-text">{{a.assessmentDescription}}</p>
+          <p *ngIf="loggedUserRole === 'Trainee'"> Attempts Remaining: {{quantityMap.get(a.id)}}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary btn-primary-custom" (click)="displayDetails(a.id, a.assessmentName, a.assessmentDescription)">Details</button>
+          <a *ngIf="loggedUserRole === 'Trainee'" class="btn btn-primary btn-primary-custom" (click)="attemptAssessment(a.id)">Take assessment</a>
+          <mat-slide-toggle *ngIf="loggedUserRole === 'Admin'" [checked]="a.isActive" (change)="onToggleChange($event, a.id)"></mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <canvasjs-chart *ngIf="loggedUserRole === 'Trainee'" [options]="chartOptions"></canvasjs-chart>
+  </div>
+</div>

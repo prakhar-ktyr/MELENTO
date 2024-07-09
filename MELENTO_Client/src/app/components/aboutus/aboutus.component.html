@@ -1,0 +1,123 @@
+
+    
+
+    <div id="content" class="row content-section">
+        <div>
+            <p>
+                Assessments.com is an online platform that offers a wide range of computer science assessments. It provides assessments on various technologies such as Angular, Python, Node.js, and Ruby on Rails. Whether you are a beginner or an experienced developer, Assessments.com has assessments to test your knowledge and skills in these technologies. Take advantage of the platform to assess your proficiency and improve your understanding of these computer science technologies.
+            </p>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Rajesh Sharma - CEO
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body d-flex align-items-center">
+                        <img src="assets/images/ceo.jpeg" alt="Rajesh Sharma" class="img-fluid me-3" style="width: 150px; height: 150px; object-fit: cover;">
+                        <div>
+                            <p>Rajesh Sharma has over 20 years of experience in the tech industry. As the CEO of Assessments.com, he leads the company with a vision to make high-quality assessments accessible to everyone. Rajesh's expertise in software development and his passion for education have been instrumental in the company's growth.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Anjali Gupta - CTO
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body d-flex align-items-center">
+                        <img src="assets/images/cto.jpeg" alt="Jane Smith" class="img-fluid me-3" style="width: 150px; height: 150px; object-fit: cover;">
+                        <div>
+                            <p>Anjali Gupta is the Chief Technology Officer at Assessments.com. With a background in computer science and a passion for innovative technologies, Jane oversees the technical development and implementation of the platform. Her commitment to excellence ensures that Assessments.com remains at the forefront of the industry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Amit Singh - COO
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body d-flex align-items-center">
+                        <img src="assets/images/coo.jpeg" alt="Michael Brown" class="img-fluid me-3" style="width: 150px; height: 150px; object-fit: cover;">
+                        <div>
+                            <p>Amit Singh, the Chief Operating Officer, brings a wealth of experience in operations management to Assessments.com. His strategic approach and operational expertise have been key to streamlining processes and enhancing the user experience. Michael is dedicated to ensuring the platform operates smoothly and efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+    document.getElementById('darkModeToggle').addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        var icon = this.querySelector('i');
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        var form = this;
+        var requiredFields = form.querySelectorAll('input, textarea');
+        var allFilled = true;
+
+        requiredFields.forEach(function(field) {
+            if (!field.value) {
+                allFilled = false;
+                field.classList.add('is-invalid');
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+
+        var dob = document.getElementById('dob').value;
+        var dobDate = new Date(dob);
+        var today = new Date();
+        if (dobDate > today) {
+            allFilled = false;
+            document.getElementById('dob').classList.add('is-invalid');
+            alert('Date of Birth cannot be in the future.');
+        } else {
+            document.getElementById('dob').classList.remove('is-invalid');
+        }
+
+        if (!allFilled) {
+            event.preventDefault();
+            alert('Please fill in all required fields.');
+        }
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        var form = this;
+        var requiredFields = form.querySelectorAll('input');
+        var allFilled = true;
+
+        requiredFields.forEach(function(field) {
+            if (!field.value) {
+                allFilled = false;
+                field.classList.add('is-invalid');
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+
+        if (!allFilled) {
+            event.preventDefault();
+            alert('Please fill in all required fields.');
+        }
+    });
+</script>

@@ -1,0 +1,38 @@
+/* General styling for the container */
+.container {
+    margin-top: 1rem;
+}
+
+/* Styling for forms */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem; /* Adds uniform space between form fields */
+    width: 100%; /* Ensures form takes full width */
+}
+
+/* Styling for the fields in the questions form array */
+.fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem; /* Adds uniform space between question fields */
+}
+
+/* Styling for individual mat-form-field elements */
+mat-form-field {
+    width: 100%; /* Ensures all form fields take full width */
+    margin-bottom: 1rem; /* Adds space below each form field */
+}
+
+/* Additional styling for buttons */
+button {
+    margin-top: 1rem; /* Adds space above buttons */
+}
+
+/* Styling for the button container */
+button + button {
+    margin-left: 1rem; /* Adds space between buttons */
+}

@@ -1,0 +1,114 @@
+<div class="container mt-4">
+    <form [formGroup]="userAddForm" (ngSubmit)="onSubmit(userAddForm.value)" class="needs-validation" novalidate>
+
+
+        <div class="form-group" class="col-md-12">
+            <label class="form-group" for="id">Select a user for update:</label>
+            <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
+                <option selected>Select a user</option>
+                <option *ngFor="let user of arrUsers" [ngValue]="user.id">{{user.firstName}} {{user.lastName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('firstName')}">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name">
+            <div *ngIf="isInvalid('firstName')" class="invalid-feedback d-block">
+                First Name is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('lastName')}">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name">
+            <div *ngIf="isInvalid('lastName')" class="invalid-feedback d-block">
+                Last Name is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('email')}">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+            <div *ngIf="isInvalid('email')" class="invalid-feedback d-block">
+                Valid Email is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('mobile')}">
+            <label for="mobile">Mobile</label>
+            <input type="text" class="form-control" id="mobile" formControlName="mobile" placeholder="Mobile">
+            <div *ngIf="isInvalid('mobile')" class="invalid-feedback d-block">
+                Mobile is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('dob')}">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" formControlName="dob">
+            <div *ngIf="isInvalid('dob')" class="invalid-feedback d-block">
+                Date of Birth is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('role')}">
+            <label for="role">Role</label>
+            <input type="text" class="form-control" id="role" formControlName="role" placeholder="Role">
+            <div *ngIf="isInvalid('role')" class="invalid-feedback d-block">
+                Role is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('password')}">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password">
+            <div *ngIf="isInvalid('password')" class="invalid-feedback d-block">
+                Password is required.
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <div formArrayName="address">
+                <div *ngFor="let address of addressControls; let i = index" [formGroupName]="i" class="mb-2">
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'houseNo')}">
+                        <input type="number" class="form-control" formControlName="houseNo" placeholder="House No">
+                        <div *ngIf="isAddressInvalid(i, 'houseNo')" class="invalid-feedback d-block">
+                            House No is required.
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'street')}">
+                        <input type="text" class="form-control" formControlName="street" placeholder="Street">
+                        <div *ngIf="isAddressInvalid(i, 'street')" class="invalid-feedback d-block">
+                            Street is required.
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'area')}">
+                        <input type="text" class="form-control" formControlName="area" placeholder="Area">
+                        <div *ngIf="isAddressInvalid(i, 'area')" class="invalid-feedback d-block">
+                            Area is required.
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'city')}">
+                        <input type="text" class="form-control" formControlName="city" placeholder="City">
+                        <div *ngIf="isAddressInvalid(i, 'city')" class="invalid-feedback d-block">
+                            City is required.
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'state')}">
+                        <input type="text" class="form-control" formControlName="state" placeholder="State">
+                        <div *ngIf="isAddressInvalid(i, 'state')" class="invalid-feedback d-block">
+                            State is required.
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'country')}">
+                        <input type="text" class="form-control" formControlName="country" placeholder="Country">
+                        <div *ngIf="isAddressInvalid(i, 'country')" class="invalid-feedback d-block">
+                            Country is required.
+                        </div>
+                    </div>
+                    <div class="form-group" [ngClass]="{'has-error': isAddressInvalid(i, 'pincode')}">
+                        <input type="text" class="form-control" formControlName="pincode" placeholder="Pincode">
+                        <div *ngIf="isAddressInvalid(i, 'pincode')" class="invalid-feedback d-block">
+                            Pincode is required.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" (click)="addAddress()">Add Another Address</button>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Update</button>
+    </form>
+</div>

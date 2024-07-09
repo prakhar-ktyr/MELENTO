@@ -1,0 +1,34 @@
+<div class="container mt-4">
+    <form [formGroup]="courseUpdateForm" (ngSubmit)="onSubmit(courseUpdateForm.value)" class="needs-validation" novalidate>
+        <div class="form-group col-md-12">
+            <label for="id">Select a course for update:</label>
+            <select class="form-select" id="id" formControlName="id" (change)="onChangeType($event)">
+                <option selected>Select a course</option>
+                <option *ngFor="let course of arrCourses" [ngValue]="course.id">{{course.courseName}}</option>
+            </select>
+        </div>
+
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('courseName')}">
+            <label for="courseName">Course Name</label>
+            <input type="text" class="form-control" id="courseName" formControlName="courseName" placeholder="Course Name">
+            <div *ngIf="isInvalid('courseName')" class="invalid-feedback d-block">
+                Course Name is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('courseDescription')}">
+            <label for="courseDescription">Course Description</label>
+            <textarea class="form-control" id="courseDescription" formControlName="courseDescription" placeholder="Course Description"></textarea>
+            <div *ngIf="isInvalid('courseDescription')" class="invalid-feedback d-block">
+                Course Description is required.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': isInvalid('categoryId')}">
+            <label for="categoryId">Category ID</label>
+            <input type="number" class="form-control" id="categoryId" formControlName="categoryId" placeholder="Category ID">
+            <div *ngIf="isInvalid('categoryId')" class="invalid-feedback d-block">
+                Category ID is required.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Update</button>
+    </form>
+</div>

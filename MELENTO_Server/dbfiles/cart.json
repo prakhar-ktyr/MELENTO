@@ -1,0 +1,74 @@
+[
+    {
+      "_id": "1",
+      "userId": "1",
+      "quantity": [
+        6,
+        15,
+        5,
+        2,
+        8,
+        1,
+        1
+      ],
+      "total": 46190,
+      "arrAssessments": [
+        {
+          "_id": "1",
+          "assessmentName": "Ruby on Rails",
+          "assessmentDescription": "This assessment covers Ruby on Rails, a server-side web application framework. Test your skills in MVC architecture, routing, and more.",
+          "assessmentImage": "/assets/images/ror.png",
+          "questions": [],
+          "price": 1200
+        },
+        {
+          "_id": "2",
+          "assessmentName": "Angular",
+          "assessmentDescription": "This assessment covers Angular, a front-end web application framework. Test your skills in TypeScript, components, and more.",
+          "assessmentImage": "/assets/images/angular.png",
+          "questions": [],
+          "price": 1000
+        },
+        {
+          "_id": "3",
+          "assessmentName": "React",
+          "assessmentDescription": "This assessment covers React, a front-end web application framework. Test your skills in JSX, components, and more",
+          "assessmentImage": "/assets/images/react.webp",
+          "questions": [],
+          "price": 800
+        },
+        {
+          "_id": "27",
+          "assessmentName": "MATLAB",
+          "assessmentDescription": "This assessment covers MATLAB, a high-level language and interactive environment for numerical computation, visualization, and programming. Test your skills in MATLAB syntax, functions, and more.",
+          "assessmentImage": "/assets/images/matlab.png",
+          "questions": [],
+          "price": 2499
+        },
+        {
+          "_id": "26",
+          "assessmentName": "Shell Scripting",
+          "assessmentDescription": "This assessment covers Shell Scripting, a powerful tool for automating tasks in Unix-based systems. Test your skills in Bash syntax, scripting, and more.",
+          "assessmentImage": "/assets/images/shell_scripting.png",
+          "questions": [],
+          "price": 2099
+        },
+        {
+          "_id": "25",
+          "assessmentName": "Perl",
+          "assessmentDescription": "This assessment covers Perl, a highly capable, feature-rich programming language with over 30 years of development. Test your skills in Perl syntax, regex, and more.",
+          "assessmentImage": "/assets/images/perl.png",
+          "questions": [],
+          "price": 1899
+        },
+        {
+          "_id": "4",
+          "assessmentName": "Node.js",
+          "assessmentDescription": "This assessment covers Node.js, a server-side JavaScript runtime. Test your skills in asynchronous programming, Express.js, and more.",
+          "assessmentImage": "/assets/images/node.png",
+          "questions": [],
+          "price": 2099
+        }
+      ]
+    }
+  ]

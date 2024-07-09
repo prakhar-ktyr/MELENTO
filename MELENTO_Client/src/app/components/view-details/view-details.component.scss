@@ -1,0 +1,29 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .img-fluid {
+    max-width: 80%;
+    height: auto;
+  }
+  
+  h1, h3 {
+    margin-top: 10px;
+  }
+  
+  p {
+    margin-top: 20px;
+    font-size: 1.2em;
+  }
+  
+  .btn-primary-custom {
+    background-color: #D76F30 !important;
+    border-color: #D76F30 !important;
+    margin-top: 20px;
+  }
+  
+  .btn-primary-custom:hover {
+    background-color: #6BB77B !important;
+    border-color: #6BB77B !important;
+  }
+  

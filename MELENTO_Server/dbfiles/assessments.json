@@ -1,0 +1,3412 @@
+[
+  {
+    "_id": "1",
+    "assessmentName": "Ruby on Rails",
+    "assessmentDescription": "This assessment covers Ruby on Rails, a server-side web application framework. Test your skills in MVC architecture, routing, and more.",
+    "assessmentImage": "/assets/images/ror.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which design pattern does Ruby on Rails use?",
+        "type": "multiple-choice",
+        "choices": [
+          "MVC",
+          "MVVMQQ",
+          "Singleton",
+          "Observer"
+        ],
+        "correctAnswer": "MVC"
+      },
+      {
+        "_id": 2,
+        "text": "Rails is a server-side web application framework written in Ruby.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which command is used to generate a new Rails application?",
+        "type": "multiple-choice",
+        "choices": [
+          "rails new",
+          "rails generate app",
+          "rails create",
+          "rails init"
+        ],
+        "correctAnswer": "rails new"
+      },
+      {
+        "_id": 4,
+        "text": "Which file is used to configure the database in a Rails application?",
+        "type": "multiple-choice",
+        "choices": [
+          "database.yml",
+          "config.rb",
+          "database.rb",
+          "config.yml"
+        ],
+        "correctAnswer": "database.yml"
+      },
+      {
+        "_id": 5,
+        "text": "Rails uses Active Record as its ORM.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which command is used to start the Rails server?",
+        "type": "multiple-choice",
+        "choices": [
+          "rails server",
+          "rails s",
+          "start server",
+          "server start"
+        ],
+        "correctAnswer": "rails s"
+      },
+      {
+        "_id": 7,
+        "text": "What is the default web server for Rails?",
+        "type": "multiple-choice",
+        "choices": [
+          "Puma",
+          "Unicorn",
+          "Thin",
+          "WEBrick"
+        ],
+        "correctAnswer": "Puma"
+      },
+      {
+        "_id": 8,
+        "text": "Rails supports RESTful architecture.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "What is the command to generate a new controller in Rails?",
+        "type": "multiple-choice",
+        "choices": [
+          "rails generate controller",
+          "rails create controller",
+          "rails new controller",
+          "rails g controller"
+        ],
+        "correctAnswer": "rails generate controller"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is a valid Ruby on Rails callback?",
+        "type": "multiple-choice",
+        "choices": [
+          "before_save",
+          "after_create",
+          "around_destroy",
+          "all of the above"
+        ],
+        "correctAnswer": "all of the above"
+      }
+    ],
+    "price": 999,
+    "facultyId": "1",
+    "time": "8",
+    "isActive": true
+  },
+  {
+    "_id": "2",
+    "assessmentName": "Angular",
+    "assessmentDescription": "This assessment covers Angular, a front-end web application framework. Test your skills in TypeScript, components, and more.",
+    "assessmentImage": "/assets/images/angular.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Angular is a framework for building client applications in:",
+        "type": "multiple-choice",
+        "choices": [
+          "JavaScript",
+          "TypeScript",
+          "Java",
+          "C#"
+        ],
+        "correctAnswer": "TypeScript"
+      },
+      {
+        "_id": 2,
+        "text": "Angular components are the basic building blocks of Angular applications.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which directive is used to bind the application state to the view in Angular?",
+        "type": "multiple-choice",
+        "choices": [
+          "ngBind",
+          "ngModel",
+          "ngClass",
+          "ngStyle"
+        ],
+        "correctAnswer": "ngModel"
+      },
+      {
+        "_id": 4,
+        "text": "Which lifecycle hook is called after Angular has initialized all data-bound properties?",
+        "type": "multiple-choice",
+        "choices": [
+          "ngOnInit",
+          "ngAfterContentInit",
+          "ngAfterViewInit",
+          "ngDoCheck"
+        ],
+        "correctAnswer": "ngAfterContentInit"
+      },
+      {
+        "_id": 5,
+        "text": "Angular applications are structured as a tree of modules, components, and services.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which service is used to make HTTP requests in Angular?",
+        "type": "multiple-choice",
+        "choices": [
+          "HttpClient",
+          "Http",
+          "HttpService",
+          "HttpModule"
+        ],
+        "correctAnswer": "HttpClient"
+      },
+      {
+        "_id": 7,
+        "text": "What is the command to create a new Angular project?",
+        "type": "multiple-choice",
+        "choices": [
+          "ng new",
+          "ng create",
+          "ng generate",
+          "ng init"
+        ],
+        "correctAnswer": "ng new"
+      },
+      {
+        "_id": 8,
+        "text": "Angular uses the RxJS library for reactive programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which decorator is used to define a component in Angular?",
+        "type": "multiple-choice",
+        "choices": [
+          "@Component",
+          "@NgModule",
+          "@Injectable",
+          "@Directive"
+        ],
+        "correctAnswer": "@Component"
+      },
+      {
+        "_id": 10,
+        "text": "Which file is the entry point for an Angular application?",
+        "type": "multiple-choice",
+        "choices": [
+          "main.ts",
+          "index.html",
+          "app.module.ts",
+          "angular.json"
+        ],
+        "correctAnswer": "main.ts"
+      }
+    ],
+    "price": 2499,
+    "facultyId": "2",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "3",
+    "assessmentName": "React",
+    "assessmentDescription": "This assessment covers React, a front-end web application framework. Test your skills in JSX, components, and more.",
+    "assessmentImage": "/assets/images/react.webp",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "In React, what is used to pass data to a component from outside?",
+        "type": "multiple-choice",
+        "choices": [
+          "setState",
+          "render with arguments",
+          "props",
+          "propTypes"
+        ],
+        "correctAnswer": "props"
+      },
+      {
+        "_id": 2,
+        "text": "JSX stands for JavaScript XML.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which method is used to handle state in a functional component?",
+        "type": "multiple-choice",
+        "choices": [
+          "this.setState",
+          "useState",
+          "setState",
+          "setReactState"
+        ],
+        "correctAnswer": "useState"
+      },
+      {
+        "_id": 4,
+        "text": "React components can be defined as classes or functions.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 5,
+        "text": "Which lifecycle method is invoked immediately after a component is mounted?",
+        "type": "multiple-choice",
+        "choices": [
+          "componentDidMount",
+          "componentWillMount",
+          "componentDidUpdate",
+          "componentWillUpdate"
+        ],
+        "correctAnswer": "componentDidMount"
+      },
+      {
+        "_id": 6,
+        "text": "React uses a virtual DOM to improve performance.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which command is used to create a new React app?",
+        "type": "multiple-choice",
+        "choices": [
+          "npx create-react-app",
+          "npm create-react-app",
+          "create-react-app new",
+          "npm new-react-app"
+        ],
+        "correctAnswer": "npx create-react-app"
+      },
+      {
+        "_id": 8,
+        "text": "State in React can be updated using the setState method in class components.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which hook is used to perform side effects in functional components?",
+        "type": "multiple-choice",
+        "choices": [
+          "useState",
+          "useEffect",
+          "useContext",
+          "useReducer"
+        ],
+        "correctAnswer": "useEffect"
+      },
+      {
+        "_id": 10,
+        "text": "Which tool is used to take a snapshot of the DOM tree in React?",
+        "type": "multiple-choice",
+        "choices": [
+          "ReactDevTools",
+          "ReactTestUtils",
+          "Jest",
+          "Enzyme"
+        ],
+        "correctAnswer": "ReactTestUtils"
+      }
+    ],
+    "price": 2299,
+    "facultyId": "3",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "4",
+    "assessmentName": "Node.js",
+    "assessmentDescription": "This assessment covers Node.js, a server-side JavaScript runtime. Test your skills in asynchronous programming, Express.js, and more.",
+    "assessmentImage": "/assets/images/node.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Node.js is built on which JavaScript engine?",
+        "type": "multiple-choice",
+        "choices": [
+          "SpiderMonkey",
+          "JavaScriptCore",
+          "V8",
+          "Nashorn"
+        ],
+        "correctAnswer": "V8"
+      },
+      {
+        "_id": 2,
+        "text": "Node.js is single-threaded.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which module in Node.js is used for handling file system operations?",
+        "type": "multiple-choice",
+        "choices": [
+          "fs",
+          "http",
+          "path",
+          "url"
+        ],
+        "correctAnswer": "fs"
+      },
+      {
+        "_id": 4,
+        "text": "Which of the following is a core module in Node.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "events",
+          "express",
+          "lodash",
+          "request"
+        ],
+        "correctAnswer": "events"
+      },
+      {
+        "_id": 5,
+        "text": "Node.js supports non-blocking I/O operations.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which command is used to install a package globally in Node.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "npm install",
+          "npm install -g",
+          "npm add",
+          "npm add -g"
+        ],
+        "correctAnswer": "npm install -g"
+      },
+      {
+        "_id": 7,
+        "text": "Which module is used to create a web server in Node.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "http",
+          "fs",
+          "web",
+          "server"
+        ],
+        "correctAnswer": "http"
+      },
+      {
+        "_id": 8,
+        "text": "Node.js can be used for both frontend and backend development.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "false"
+      },
+      {
+        "_id": 9,
+        "text": "Which method is used to read the contents of a file in Node.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "fs.readFile",
+          "fs.read",
+          "fs.readContents",
+          "fs.readFileSync"
+        ],
+        "correctAnswer": "fs.readFileSync"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is a popular framework for Node.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "Django",
+          "Flask",
+          "Spring",
+          "Express"
+        ],
+        "correctAnswer": "Express"
+      }
+    ],
+    "price": 2099,
+    "facultyId": "4",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "5",
+    "assessmentName": "Python",
+    "assessmentDescription": "This assessment covers Python, a versatile programming language. Test your skills in data types, control structures, and more.",
+    "assessmentImage": "/assets/images/python.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which of the following is a mutable data type in Python?",
+        "type": "multiple-choice",
+        "choices": [
+          "Tuple",
+          "List",
+          "String",
+          "Integer"
+        ],
+        "correctAnswer": "List"
+      },
+      {
+        "_id": 2,
+        "text": "Python supports both procedural and object-oriented programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which keyword is used to create a function in Python?",
+        "type": "multiple-choice",
+        "choices": [
+          "function",
+          "def",
+          "fun",
+          "define"
+        ],
+        "correctAnswer": "def"
+      },
+      {
+        "_id": 4,
+        "text": "Which of the following is used to define a block of code in Python?",
+        "type": "multiple-choice",
+        "choices": [
+          "Braces",
+          "Parentheses",
+          "Indentation",
+          "Quotation"
+        ],
+        "correctAnswer": "Indentation"
+      },
+      {
+        "_id": 5,
+        "text": "Python is a dynamically-typed language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which method is used to add an element to the end of a list in Python?",
+        "type": "multiple-choice",
+        "choices": [
+          "append()",
+          "add()",
+          "insert()",
+          "extend()"
+        ],
+        "correctAnswer": "append()"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is not a built-in data type in Python?",
+        "type": "multiple-choice",
+        "choices": [
+          "List",
+          "Dictionary",
+          "Array",
+          "Tuple"
+        ],
+        "correctAnswer": "Array"
+      },
+      {
+        "_id": 8,
+        "text": "Python uses indentation to define code blocks.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which module in Python is used for regular expressions?",
+        "type": "multiple-choice",
+        "choices": [
+          "re",
+          "regex",
+          "regexp",
+          "pyre"
+        ],
+        "correctAnswer": "re"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is the correct file extension for Python files?",
+        "type": "multiple-choice",
+        "choices": [
+          ".python",
+          ".pyth",
+          ".pyt",
+          ".py"
+        ],
+        "correctAnswer": ".py"
+      }
+    ],
+    "price": 1899,
+    "facultyId": "5",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "6",
+    "assessmentName": "Java",
+    "assessmentDescription": "This assessment covers Java, a popular object-oriented programming language. Test your skills in OOP principles, Java syntax, and more.",
+    "assessmentImage": "/assets/images/java.svg",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which of the following is not a Java feature?",
+        "type": "multiple-choice",
+        "choices": [
+          "Object-oriented",
+          "Use of pointers",
+          "Platform-independent",
+          "Portable"
+        ],
+        "correctAnswer": "Use of pointers"
+      },
+      {
+        "_id": 2,
+        "text": "Java is a platform-independent language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which keyword is used to define a subclass in Java?",
+        "type": "multiple-choice",
+        "choices": [
+          "extends",
+          "implements",
+          "inherits",
+          "subclass"
+        ],
+        "correctAnswer": "extends"
+      },
+      {
+        "_id": 4,
+        "text": "Which method is the entry point for a Java application?",
+        "type": "multiple-choice",
+        "choices": [
+          "main",
+          "start",
+          "run",
+          "begin"
+        ],
+        "correctAnswer": "main"
+      },
+      {
+        "_id": 5,
+        "text": "Java supports multiple inheritance through interfaces.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is not an access modifier in Java?",
+        "type": "multiple-choice",
+        "choices": [
+          "public",
+          "private",
+          "protected",
+          "package"
+        ],
+        "correctAnswer": "package"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is used to handle exceptions in Java?",
+        "type": "multiple-choice",
+        "choices": [
+          "try-catch",
+          "if-else",
+          "for loop",
+          "switch-case"
+        ],
+        "correctAnswer": "try-catch"
+      },
+      {
+        "_id": 8,
+        "text": "Which of the following is not a valid keyword in Java?",
+        "type": "multiple-choice",
+        "choices": [
+          "final",
+          "static",
+          "abstract",
+          "const"
+        ],
+        "correctAnswer": "const"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is used to create an object in Java?",
+        "type": "multiple-choice",
+        "choices": [
+          "constructor",
+          "method",
+          "class",
+          "interface"
+        ],
+        "correctAnswer": "constructor"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is the correct syntax to create an array in Java?",
+        "type": "multiple-choice",
+        "choices": [
+          "int[] arr = new int[5];",
+          "int arr = new int[5];",
+          "int[] arr = new int(5);",
+          "int arr[] = new int[5];"
+        ],
+        "correctAnswer": "int[] arr = new int[5];"
+      }
+    ],
+    "price": 2199,
+    "facultyId": "6",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "7",
+    "assessmentName": "C#",
+    "assessmentDescription": "This assessment covers C#, a language used for developing Windows applications. Test your skills in .NET framework, OOP, and more.",
+    "assessmentImage": "/assets/images/csharp.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which of the following is the correct syntax to declare a class in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "class MyClass {}",
+          "MyClass class {}",
+          "class: MyClass {}",
+          "def class MyClass {}"
+        ],
+        "correctAnswer": "class MyClass {}"
+      },
+      {
+        "_id": 2,
+        "text": "C# is a statically-typed language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which of the following is not a data type in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "int",
+          "float",
+          "boolean",
+          "decimal"
+        ],
+        "correctAnswer": "boolean"
+      },
+      {
+        "_id": 4,
+        "text": "Which method is used to read a line of text from the console in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "ReadLine()",
+          "Read()",
+          "ReadText()",
+          "ReadInput()"
+        ],
+        "correctAnswer": "ReadLine()"
+      },
+      {
+        "_id": 5,
+        "text": "C# supports operator overloading.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which keyword is used to inherit a class in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "inherits",
+          "extends",
+          "base",
+          "super"
+        ],
+        "correctAnswer": "extends"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is used to handle exceptions in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "try-catch",
+          "if-else",
+          "for loop",
+          "switch-case"
+        ],
+        "correctAnswer": "try-catch"
+      },
+      {
+        "_id": 8,
+        "text": "C# is part of the .NET framework.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is the correct way to declare an array in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "int[] arr = new int[5];",
+          "int arr = new int[5];",
+          "int[] arr = new int(5);",
+          "int arr[] = new int[5];"
+        ],
+        "correctAnswer": "int[] arr = new int[5];"
+      },
+      {
+        "_id": 10,
+        "text": "Which method is used to start a thread in C#?",
+        "type": "multiple-choice",
+        "choices": [
+          "start()",
+          "run()",
+          "begin()",
+          "init()"
+        ],
+        "correctAnswer": "start()"
+      }
+    ],
+    "price": 2399,
+    "facultyId": "7",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "8",
+    "assessmentName": "PHP",
+    "assessmentDescription": "This assessment covers PHP, a server-side scripting language. Test your skills in web development, database interaction, and more.",
+    "assessmentImage": "/assets/images/php.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which of the following is the correct way to start a PHP tag?",
+        "type": "multiple-choice",
+        "choices": [
+          "<php>",
+          "<?php>",
+          "<?php",
+          "<php?"
+        ],
+        "correctAnswer": "<?php>"
+      },
+      {
+        "_id": 2,
+        "text": "PHP scripts are executed on the client side.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "false"
+      },
+      {
+        "_id": 3,
+        "text": "Which function is used to include a file in PHP?",
+        "type": "multiple-choice",
+        "choices": [
+          "includeFile()",
+          "requireFile()",
+          "include()",
+          "insertFile()"
+        ],
+        "correctAnswer": "include()"
+      },
+      {
+        "_id": 4,
+        "text": "Which function is used to get the length of a string in PHP?",
+        "type": "multiple-choice",
+        "choices": [
+          "strlen()",
+          "length()",
+          "size()",
+          "count()"
+        ],
+        "correctAnswer": "strlen()"
+      },
+      {
+        "_id": 5,
+        "text": "PHP stands for Hypertext Preprocessor.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is not a valid PHP variable name?",
+        "type": "multiple-choice",
+        "choices": [
+          "$var_name",
+          "$2nd_variable",
+          "$variableName",
+          "$varName123"
+        ],
+        "correctAnswer": "$2nd_variable"
+      },
+      {
+        "_id": 7,
+        "text": "Which function is used to open a file in PHP?",
+        "type": "multiple-choice",
+        "choices": [
+          "fopen()",
+          "open()",
+          "fileOpen()",
+          "openFile()"
+        ],
+        "correctAnswer": "fopen()"
+      },
+      {
+        "_id": 8,
+        "text": "PHP supports both procedural and object-oriented programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is used to connect to a MySQL database in PHP?",
+        "type": "multiple-choice",
+        "choices": [
+          "mysql_connect()",
+          "mysqlConnection()",
+          "connect_mysql()",
+          "connect()"
+        ],
+        "correctAnswer": "mysql_connect()"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is a superglobal array in PHP?",
+        "type": "multiple-choice",
+        "choices": [
+          "$_GET",
+          "$GLOBALS",
+          "$_POST",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      }
+    ],
+    "price": 1999,
+    "facultyId": "8",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "9",
+    "assessmentName": "Swift",
+    "assessmentDescription": "This assessment covers Swift, a language used for iOS and macOS development. Test your skills in Swift syntax, Xcode, and more.",
+    "assessmentImage": "/assets/images/swift.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which keyword is used to define a constant in Swift?",
+        "type": "multiple-choice",
+        "choices": [
+          "const",
+          "let",
+          "var",
+          "constant"
+        ],
+        "correctAnswer": "let"
+      },
+      {
+        "_id": 2,
+        "text": "Swift is a type-safe language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which function is used to print output to the console in Swift?",
+        "type": "multiple-choice",
+        "choices": [
+          "console.log()",
+          "print()",
+          "echo()",
+          "println()"
+        ],
+        "correctAnswer": "print()"
+      },
+      {
+        "_id": 4,
+        "text": "Which of the following is the correct way to declare an optional in Swift?",
+        "type": "multiple-choice",
+        "choices": [
+          "var name: String?",
+          "var name: String!",
+          "var name: Optional<String>",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 5,
+        "text": "Swift uses automatic reference counting (ARC) for memory management.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which keyword is used to declare a structure in Swift?",
+        "type": "multiple-choice",
+        "choices": [
+          "struct",
+          "class",
+          "enum",
+          "interface"
+        ],
+        "correctAnswer": "struct"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is used to handle errors in Swift?",
+        "type": "multiple-choice",
+        "choices": [
+          "try-catch",
+          "do-try-catch",
+          "if-else",
+          "switch-case"
+        ],
+        "correctAnswer": "do-try-catch"
+      },
+      {
+        "_id": 8,
+        "text": "Swift supports both classes and structures.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is the correct way to declare an array in Swift?",
+        "type": "multiple-choice",
+        "choices": [
+          "var arr: [Int] = []",
+          "var arr = [Int]()",
+          "var arr: Array<Int> = []",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is used to define a method in a Swift class?",
+        "type": "multiple-choice",
+        "choices": [
+          "func",
+          "method",
+          "function",
+          "define"
+        ],
+        "correctAnswer": "func"
+      }
+    ],
+    "price": 2499,
+    "facultyId": "9",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "10",
+    "assessmentName": "Kotlin",
+    "assessmentDescription": "This assessment covers Kotlin, a language for Android development. Test your skills in Kotlin syntax, Android Studio, and more.",
+    "assessmentImage": "/assets/images/kotlin.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which keyword is used to define a function in Kotlin?",
+        "type": "multiple-choice",
+        "choices": [
+          "func",
+          "function",
+          "fun",
+          "def"
+        ],
+        "correctAnswer": "fun"
+      },
+      {
+        "_id": 2,
+        "text": "Kotlin is fully interoperable with Java.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which extension is used for Kotlin files?",
+        "type": "multiple-choice",
+        "choices": [
+          ".kot",
+          ".kotlin",
+          ".kt",
+          ".kts"
+        ],
+        "correctAnswer": ".kt"
+      },
+      {
+        "_id": 4,
+        "text": "In Kotlin, which keyword is used to declare a mutable variable?",
+        "type": "multiple-choice",
+        "choices": [
+          "var",
+          "val",
+          "let",
+          "mut"
+        ],
+        "correctAnswer": "var"
+      },
+      {
+        "_id": 5,
+        "text": "Kotlin supports both object-oriented and functional programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which function is used to print output to the console in Kotlin?",
+        "type": "multiple-choice",
+        "choices": [
+          "print()",
+          "println()",
+          "console.log()",
+          "echo()"
+        ],
+        "correctAnswer": "println()"
+      },
+      {
+        "_id": 7,
+        "text": "Which keyword is used to create a class in Kotlin?",
+        "type": "multiple-choice",
+        "choices": [
+          "class",
+          "struct",
+          "object",
+          "type"
+        ],
+        "correctAnswer": "class"
+      },
+      {
+        "_id": 8,
+        "text": "Which of the following is the correct way to define an extension function in Kotlin?",
+        "type": "multiple-choice",
+        "choices": [
+          "fun String.reverse()",
+          "ext String.reverse()",
+          "def String.reverse()",
+          "fun String.reverse{}"
+        ],
+        "correctAnswer": "fun String.reverse()"
+      },
+      {
+        "_id": 9,
+        "text": "Kotlin is a statically-typed language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is used to handle null safety in Kotlin?",
+        "type": "multiple-choice",
+        "choices": [
+          "Optional",
+          "Nullable",
+          "Option",
+          "SafeCall"
+        ],
+        "correctAnswer": "Nullable"
+      }
+    ],
+    "price": 2299,
+    "facultyId": "10",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "11",
+    "assessmentName": "HTML & CSS",
+    "assessmentDescription": "This assessment covers HTML & CSS, the building blocks of web development. Test your skills in web page structure, styling, and more.",
+    "assessmentImage": "/assets/images/html_css.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "What does HTML stand for?",
+        "type": "multiple-choice",
+        "choices": [
+          "Hyper Trainer Marking Language",
+          "Hyper Text Marketing Language",
+          "Hyper Text Markup Language",
+          "Hyper Text Markup Leveler"
+        ],
+        "correctAnswer": "Hyper Text Markup Language"
+      },
+      {
+        "_id": 2,
+        "text": "Which tag is used to define an unordered list in HTML?",
+        "type": "multiple-choice",
+        "choices": [
+          "<ul>",
+          "<ol>",
+          "<li>",
+          "<list>"
+        ],
+        "correctAnswer": "<ul>"
+      },
+      {
+        "_id": 3,
+        "text": "CSS stands for Cascading Style Sheets.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which property is used to change the background color in CSS?",
+        "type": "multiple-choice",
+        "choices": [
+          "background-color",
+          "color",
+          "bgcolor",
+          "background"
+        ],
+        "correctAnswer": "background-color"
+      },
+      {
+        "_id": 5,
+        "text": "What is the correct HTML tag for inserting a line break?",
+        "type": "multiple-choice",
+        "choices": [
+          "<break>",
+          "<lb>",
+          "<br>",
+          "<line>"
+        ],
+        "correctAnswer": "<br>"
+      },
+      {
+        "_id": 6,
+        "text": "Which CSS property controls the text size?",
+        "type": "multiple-choice",
+        "choices": [
+          "font-style",
+          "text-size",
+          "font-size",
+          "text-style"
+        ],
+        "correctAnswer": "font-size"
+      },
+      {
+        "_id": 7,
+        "text": "Which HTML attribute is used to define inline styles?",
+        "type": "multiple-choice",
+        "choices": [
+          "styles",
+          "style",
+          "class",
+          "font"
+        ],
+        "correctAnswer": "style"
+      },
+      {
+        "_id": 8,
+        "text": "In HTML, which attribute is used to specify that an input field must be filled out?",
+        "type": "multiple-choice",
+        "choices": [
+          "required",
+          "validate",
+          "placeholder",
+          "formvalidate"
+        ],
+        "correctAnswer": "required"
+      },
+      {
+        "_id": 9,
+        "text": "Which CSS property is used to change the text color of an element?",
+        "type": "multiple-choice",
+        "choices": [
+          "fgcolor",
+          "color",
+          "text-color",
+          "font-color"
+        ],
+        "correctAnswer": "color"
+      },
+      {
+        "_id": 10,
+        "text": "Which HTML element is used to specify a footer for a document or section?",
+        "type": "multiple-choice",
+        "choices": [
+          "<bottom>",
+          "<footer>",
+          "<foot>",
+          "<section>"
+        ],
+        "correctAnswer": "<footer>"
+      }
+    ],
+    "price": 1599,
+    "facultyId": "11",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "12",
+    "assessmentName": "JavaScript",
+    "assessmentDescription": "This assessment covers JavaScript, a language for web development. Test your skills in ES6 features, DOM manipulation, and more.",
+    "assessmentImage": "/assets/images/javascript.webp",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which of the following is a correct way to declare a variable in JavaScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "var myVar;",
+          "let myVar;",
+          "const myVar;",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 2,
+        "text": "JavaScript is a loosely typed language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which method is used to select an element by its ID in JavaScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "getElementById()",
+          "querySelector()",
+          "getElementByClass()",
+          "getElementByTag()"
+        ],
+        "correctAnswer": "getElementById()"
+      },
+      {
+        "_id": 4,
+        "text": "Which keyword is used to define a constant in JavaScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "constant",
+          "var",
+          "let",
+          "const"
+        ],
+        "correctAnswer": "const"
+      },
+      {
+        "_id": 5,
+        "text": "Which method is used to add an element to the end of an array in JavaScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "push()",
+          "pop()",
+          "shift()",
+          "unshift()"
+        ],
+        "correctAnswer": "push()"
+      },
+      {
+        "_id": 6,
+        "text": "JavaScript supports both object-oriented and functional programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which method is used to convert a JSON string into a JavaScript object?",
+        "type": "multiple-choice",
+        "choices": [
+          "JSON.parse()",
+          "JSON.stringify()",
+          "JSON.convert()",
+          "JSON.toObject()"
+        ],
+        "correctAnswer": "JSON.parse()"
+      },
+      {
+        "_id": 8,
+        "text": "In JavaScript, '===' is used to compare both value and type.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which method is used to remove the last element from an array in JavaScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "push()",
+          "pop()",
+          "shift()",
+          "unshift()"
+        ],
+        "correctAnswer": "pop()"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is not a reserved word in JavaScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "interface",
+          "throws",
+          "program",
+          "short"
+        ],
+        "correctAnswer": "program"
+      }
+    ],
+    "price": 1799,
+    "facultyId": "12",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "13",
+    "assessmentName": "SQL",
+    "assessmentDescription": "This assessment covers SQL, a language for database management. Test your skills in querying, joins, and more.",
+    "assessmentImage": "/assets/images/sql.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which SQL statement is used to extract data from a database?",
+        "type": "multiple-choice",
+        "choices": [
+          "GET",
+          "OPEN",
+          "EXTRACT",
+          "SELECT"
+        ],
+        "correctAnswer": "SELECT"
+      },
+      {
+        "_id": 2,
+        "text": "SQL stands for Structured Query Language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which SQL statement is used to update data in a database?",
+        "type": "multiple-choice",
+        "choices": [
+          "SAVE",
+          "MODIFY",
+          "UPDATE",
+          "CHANGE"
+        ],
+        "correctAnswer": "UPDATE"
+      },
+      {
+        "_id": 4,
+        "text": "Which SQL clause is used to filter the results of a query?",
+        "type": "multiple-choice",
+        "choices": [
+          "FILTER",
+          "WHERE",
+          "SORT",
+          "ORDER BY"
+        ],
+        "correctAnswer": "WHERE"
+      },
+      {
+        "_id": 5,
+        "text": "Which SQL keyword is used to sort the results of a query?",
+        "type": "multiple-choice",
+        "choices": [
+          "SORT BY",
+          "ORDER",
+          "SORT",
+          "ORDER BY"
+        ],
+        "correctAnswer": "ORDER BY"
+      },
+      {
+        "_id": 6,
+        "text": "SQL is case-insensitive.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which SQL function is used to count the number of rows in a result set?",
+        "type": "multiple-choice",
+        "choices": [
+          "COUNT()",
+          "SUM()",
+          "NUMBER()",
+          "TOTAL()"
+        ],
+        "correctAnswer": "COUNT()"
+      },
+      {
+        "_id": 8,
+        "text": "Which SQL statement is used to delete data from a database?",
+        "type": "multiple-choice",
+        "choices": [
+          "REMOVE",
+          "DELETE",
+          "DROP",
+          "CLEAR"
+        ],
+        "correctAnswer": "DELETE"
+      },
+      {
+        "_id": 9,
+        "text": "Which SQL keyword is used to retrieve a unique value?",
+        "type": "multiple-choice",
+        "choices": [
+          "ONLY",
+          "UNIQUE",
+          "DISTINCT",
+          "SINGLE"
+        ],
+        "correctAnswer": "DISTINCT"
+      },
+      {
+        "_id": 10,
+        "text": "Which SQL statement is used to create a new table in a database?",
+        "type": "multiple-choice",
+        "choices": [
+          "MAKE TABLE",
+          "CREATE TABLE",
+          "ADD TABLE",
+          "NEW TABLE"
+        ],
+        "correctAnswer": "CREATE TABLE"
+      }
+    ],
+    "price": 1499,
+    "facultyId": "13",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "14",
+    "assessmentName": "TypeScript",
+    "assessmentDescription": "This assessment covers TypeScript, a superset of JavaScript. Test your skills in static typing, interfaces, and more.",
+    "assessmentImage": "/assets/images/typescript.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "TypeScript is a superset of which language?",
+        "type": "multiple-choice",
+        "choices": [
+          "Java",
+          "JavaScript",
+          "C#",
+          "Python"
+        ],
+        "correctAnswer": "JavaScript"
+      },
+      {
+        "_id": 2,
+        "text": "Which keyword is used to declare a variable in TypeScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "var",
+          "let",
+          "const",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 3,
+        "text": "TypeScript supports static typing.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which command is used to install TypeScript globally using npm?",
+        "type": "multiple-choice",
+        "choices": [
+          "npm install typescript",
+          "npm install -g typescript",
+          "npm add typescript",
+          "npm get typescript"
+        ],
+        "correctAnswer": "npm install -g typescript"
+      },
+      {
+        "_id": 5,
+        "text": "Which file extension is used for TypeScript files?",
+        "type": "multiple-choice",
+        "choices": [
+          ".ts",
+          ".js",
+          ".jsx",
+          ".tsx"
+        ],
+        "correctAnswer": ".ts"
+      },
+      {
+        "_id": 6,
+        "text": "Which keyword is used to define an interface in TypeScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "class",
+          "interface",
+          "type",
+          "module"
+        ],
+        "correctAnswer": "interface"
+      },
+      {
+        "_id": 7,
+        "text": "TypeScript code needs to be compiled to JavaScript.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 8,
+        "text": "Which of the following is not a valid data type in TypeScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "number",
+          "string",
+          "boolean",
+          "char"
+        ],
+        "correctAnswer": "char"
+      },
+      {
+        "_id": 9,
+        "text": "Which method is used to create a new instance of a class in TypeScript?",
+        "type": "multiple-choice",
+        "choices": [
+          "new()",
+          "create()",
+          "init()",
+          "construct()"
+        ],
+        "correctAnswer": "new()"
+      },
+      {
+        "_id": 10,
+        "text": "Which feature of TypeScript allows you to specify the type of a variable?",
+        "type": "multiple-choice",
+        "choices": [
+          "Type inference",
+          "Type declaration",
+          "Type casting",
+          "Type assertion"
+        ],
+        "correctAnswer": "Type declaration"
+      }
+    ],
+    "price": 1999,
+    "facultyId": "14",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "15",
+    "assessmentName": "Go",
+    "assessmentDescription": "This assessment covers Go, a statically typed language. Test your skills in concurrency, Go syntax, and more.",
+    "assessmentImage": "/assets/images/go.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Go is a statically typed programming language.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which keyword is used to declare a variable in Go?",
+        "type": "multiple-choice",
+        "choices": [
+          "var",
+          "let",
+          "const",
+          "define"
+        ],
+        "correctAnswer": "var"
+      },
+      {
+        "_id": 3,
+        "text": "Which function is used to print output in Go?",
+        "type": "multiple-choice",
+        "choices": [
+          "print()",
+          "fmt.Print()",
+          "console.log()",
+          "fmt.Println()"
+        ],
+        "correctAnswer": "fmt.Println()"
+      },
+      {
+        "_id": 4,
+        "text": "Go was developed at Google.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 5,
+        "text": "Which keyword is used to define a function in Go?",
+        "type": "multiple-choice",
+        "choices": [
+          "function",
+          "func",
+          "def",
+          "define"
+        ],
+        "correctAnswer": "func"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is a valid way to declare a constant in Go?",
+        "type": "multiple-choice",
+        "choices": [
+          "const PI = 3.14",
+          "let PI = 3.14",
+          "var PI = 3.14",
+          "define PI = 3.14"
+        ],
+        "correctAnswer": "const PI = 3.14"
+      },
+      {
+        "_id": 7,
+        "text": "Go supports concurrent programming using goroutines.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 8,
+        "text": "Which package in Go is used for handling HTTP requests?",
+        "type": "multiple-choice",
+        "choices": [
+          "http",
+          "net/http",
+          "http/net",
+          "web/http"
+        ],
+        "correctAnswer": "net/http"
+      },
+      {
+        "_id": 9,
+        "text": "Which command is used to initialize a new Go module?",
+        "type": "multiple-choice",
+        "choices": [
+          "go init",
+          "go start",
+          "go mod init",
+          "go new"
+        ],
+        "correctAnswer": "go mod init"
+      },
+      {
+        "_id": 10,
+        "text": "Which symbol is used for single-line comments in Go?",
+        "type": "multiple-choice",
+        "choices": [
+          "#",
+          "//",
+          "/*",
+          "<!--"
+        ],
+        "correctAnswer": "//"
+      }
+    ],
+    "price": 2099,
+    "facultyId": "15",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "16",
+    "assessmentName": "Django",
+    "assessmentDescription": "This assessment covers Django, a high-level Python web framework. Test your skills in MVT architecture, ORM, and more.",
+    "assessmentImage": "/assets/images/django.webp",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "What does MVT stand for in Django?",
+        "type": "multiple-choice",
+        "choices": [
+          "Model View Template",
+          "Model View Transmission",
+          "Model View Translator",
+          "Model View Transition"
+        ],
+        "correctAnswer": "Model View Template"
+      },
+      {
+        "_id": 2,
+        "text": "Django is a high-level Python web framework that encourages rapid development.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which of the following commands is used to create a new Django project?",
+        "type": "multiple-choice",
+        "choices": [
+          "django-admin startproject",
+          "django-admin createproject",
+          "django-admin newproject",
+          "django-admin initproject"
+        ],
+        "correctAnswer": "django-admin startproject"
+      },
+      {
+        "_id": 4,
+        "text": "Which file in a Django project is responsible for URL routing?",
+        "type": "multiple-choice",
+        "choices": [
+          "settings.py",
+          "urls.py",
+          "views.py",
+          "models.py"
+        ],
+        "correctAnswer": "urls.py"
+      },
+      {
+        "_id": 5,
+        "text": "Django uses an ORM (Object-Relational Mapping) system to interact with the database.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is the command to apply migrations in Django?",
+        "type": "multiple-choice",
+        "choices": [
+          "python manage.py runmigrations",
+          "python manage.py migrate",
+          "python manage.py applymigrations",
+          "python manage.py makemigrations"
+        ],
+        "correctAnswer": "python manage.py migrate"
+      },
+      {
+        "_id": 7,
+        "text": "Which Django template tag is used to render a variable in a template?",
+        "type": "multiple-choice",
+        "choices": [
+          "{{ }}",
+          "{% %}",
+          "{# #}",
+          "[[ ]]"
+        ],
+        "correctAnswer": "{{ }}"
+      },
+      {
+        "_id": 8,
+        "text": "What is the default database used by Django?",
+        "type": "multiple-choice",
+        "choices": [
+          "MySQL",
+          "PostgreSQL",
+          "SQLite",
+          "Oracle"
+        ],
+        "correctAnswer": "SQLite"
+      },
+      {
+        "_id": 9,
+        "text": "Which command is used to create a new Django app?",
+        "type": "multiple-choice",
+        "choices": [
+          "django-admin startapp",
+          "django-admin createapp",
+          "django-admin newapp",
+          "django-admin initapp"
+        ],
+        "correctAnswer": "django-admin startapp"
+      },
+      {
+        "_id": 10,
+        "text": "Django templates support both inheritance and inclusion.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      }
+    ],
+    "price": 2199,
+    "facultyId": "16",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "17",
+    "assessmentName": "Flask",
+    "assessmentDescription": "This assessment covers Flask, a micro web framework for Python. Test your skills in routing, Jinja2 templates, and more.",
+    "assessmentImage": "/assets/images/flask.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Flask is known as a micro web framework for Python.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which method is used to define a route in Flask?",
+        "type": "multiple-choice",
+        "choices": [
+          "@flask.route",
+          "@app.route",
+          "@route",
+          "@router"
+        ],
+        "correctAnswer": "@app.route"
+      },
+      {
+        "_id": 3,
+        "text": "Which template engine does Flask use by default?",
+        "type": "multiple-choice",
+        "choices": [
+          "Jinja2",
+          "Mako",
+          "Django",
+          "Tornado"
+        ],
+        "correctAnswer": "Jinja2"
+      },
+      {
+        "_id": 4,
+        "text": "Which of the following commands is used to run a Flask application?",
+        "type": "multiple-choice",
+        "choices": [
+          "flask run",
+          "flask start",
+          "python app.py",
+          "python flask run"
+        ],
+        "correctAnswer": "flask run"
+      },
+      {
+        "_id": 5,
+        "text": "Flask is based on WSGI (Web Server Gateway Interface).",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is the correct way to import Flask in a Python script?",
+        "type": "multiple-choice",
+        "choices": [
+          "import Flask",
+          "from flask import Flask",
+          "import flask.Flask",
+          "import flask"
+        ],
+        "correctAnswer": "from flask import Flask"
+      },
+      {
+        "_id": 7,
+        "text": "Which Flask method is used to handle HTTP POST requests?",
+        "type": "multiple-choice",
+        "choices": [
+          "@app.post",
+          "@app.route(methods=['POST'])",
+          "@app.method('POST')",
+          "@app.handle('POST')"
+        ],
+        "correctAnswer": "@app.route(methods=['POST'])"
+      },
+      {
+        "_id": 8,
+        "text": "Flask supports SQLAlchemy for database operations.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which function is used to render a template in Flask?",
+        "type": "multiple-choice",
+        "choices": [
+          "render()",
+          "render_template()",
+          "template()",
+          "render_html()"
+        ],
+        "correctAnswer": "render_template()"
+      },
+      {
+        "_id": 10,
+        "text": "Which of the following is a way to define a static file path in Flask?",
+        "type": "multiple-choice",
+        "choices": [
+          "app.static_path",
+          "app.static_folder",
+          "app.static",
+          "app.static_dir"
+        ],
+        "correctAnswer": "app.static_folder"
+      }
+    ],
+    "price": 1999,
+    "facultyId": "17",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "18",
+    "assessmentName": "Vue.js",
+    "assessmentDescription": "This assessment covers Vue.js, a progressive JavaScript framework. Test your skills in Vue components, directives, and more.",
+    "assessmentImage": "/assets/images/vue.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Vue.js is primarily used for building:",
+        "type": "multiple-choice",
+        "choices": [
+          "Server-side applications",
+          "Client-side applications",
+          "Mobile applications",
+          "Desktop applications"
+        ],
+        "correctAnswer": "Client-side applications"
+      },
+      {
+        "_id": 2,
+        "text": "Which directive is used to bind an attribute to an expression in Vue.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "v-if",
+          "v-bind",
+          "v-for",
+          "v-on"
+        ],
+        "correctAnswer": "v-bind"
+      },
+      {
+        "_id": 3,
+        "text": "Vue.js components can be defined using JavaScript or TypeScript.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which method is used to create a new Vue instance?",
+        "type": "multiple-choice",
+        "choices": [
+          "Vue.create()",
+          "new Vue()",
+          "Vue.new()",
+          "create Vue()"
+        ],
+        "correctAnswer": "new Vue()"
+      },
+      {
+        "_id": 5,
+        "text": "Which of the following is used to loop through an array in Vue.js?",
+        "type": "multiple-choice",
+        "choices": [
+          "v-if",
+          "v-bind",
+          "v-for",
+          "v-model"
+        ],
+        "correctAnswer": "v-for"
+      },
+      {
+        "_id": 6,
+        "text": "Vue.js uses a virtual DOM for better performance.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which lifecycle hook is called after the Vue instance has been mounted?",
+        "type": "multiple-choice",
+        "choices": [
+          "beforeMount",
+          "mounted",
+          "beforeUpdate",
+          "updated"
+        ],
+        "correctAnswer": "mounted"
+      },
+      {
+        "_id": 8,
+        "text": "Which Vue.js directive is used for two-way data binding?",
+        "type": "multiple-choice",
+        "choices": [
+          "v-bind",
+          "v-model",
+          "v-for",
+          "v-on"
+        ],
+        "correctAnswer": "v-model"
+      },
+      {
+        "_id": 9,
+        "text": "Vue.js templates are written using HTML.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 10,
+        "text": "Which file extension is used for single-file components in Vue.js?",
+        "type": "multiple-choice",
+        "choices": [
+          ".vue",
+          ".jsx",
+          ".component",
+          ".vuex"
+        ],
+        "correctAnswer": ".vue"
+      }
+    ],
+    "price": 2299,
+    "facultyId": "18",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "19",
+    "assessmentName": "ASP.NET",
+    "assessmentDescription": "This assessment covers ASP.NET, a framework for building web apps on the .NET platform. Test your skills in MVC, Razor, and more.",
+    "assessmentImage": "/assets/images/aspnet.svg",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "ASP.NET is a framework for building web applications on the:",
+        "type": "multiple-choice",
+        "choices": [
+          ".NET platform",
+          "Java platform",
+          "Node.js platform",
+          "Ruby on Rails"
+        ],
+        "correctAnswer": ".NET platform"
+      },
+      {
+        "_id": 2,
+        "text": "Which architectural pattern does ASP.NET MVC follow?",
+        "type": "multiple-choice",
+        "choices": [
+          "MVVM",
+          "MVP",
+          "MVC",
+          "MVT"
+        ],
+        "correctAnswer": "MVC"
+      },
+      {
+        "_id": 3,
+        "text": "Razor is a markup syntax used in ASP.NET for embedding server-based code into web pages.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which of the following is used to manage packages in ASP.NET?",
+        "type": "multiple-choice",
+        "choices": [
+          "NuGet",
+          "npm",
+          "pip",
+          "Composer"
+        ],
+        "correctAnswer": "NuGet"
+      },
+      {
+        "_id": 5,
+        "text": "ASP.NET Core is a cross-platform framework.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which method is used to start an ASP.NET application?",
+        "type": "multiple-choice",
+        "choices": [
+          "Start()",
+          "Run()",
+          "Begin()",
+          "Execute()"
+        ],
+        "correctAnswer": "Run()"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is not a valid return type of a controller action in ASP.NET MVC?",
+        "type": "multiple-choice",
+        "choices": [
+          "ViewResult",
+          "JsonResult",
+          "FileResult",
+          "PageResult"
+        ],
+        "correctAnswer": "PageResult"
+      },
+      {
+        "_id": 8,
+        "text": "ASP.NET applications can be hosted on IIS.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is a built-in middleware in ASP.NET Core?",
+        "type": "multiple-choice",
+        "choices": [
+          "Routing",
+          "Static Files",
+          "Authentication",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 10,
+        "text": "Which file is used to configure the ASP.NET application and its dependencies?",
+        "type": "multiple-choice",
+        "choices": [
+          "appsettings.json",
+          "web.config",
+          "global.asax",
+          "program.cs"
+        ],
+        "correctAnswer": "appsettings.json"
+      }
+    ],
+    "price": 2399,
+    "facultyId": "19",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "20",
+    "assessmentName": "Spring",
+    "assessmentDescription": "This assessment covers Spring, a framework for building Java applications. Test your skills in Spring Boot, dependency injection, and more.",
+    "assessmentImage": "/assets/images/spring.svg",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Spring is primarily used for building:",
+        "type": "multiple-choice",
+        "choices": [
+          "Desktop applications",
+          "Web applications",
+          "Mobile applications",
+          "Embedded systems"
+        ],
+        "correctAnswer": "Web applications"
+      },
+      {
+        "_id": 2,
+        "text": "Spring uses dependency injection to manage components.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 3,
+        "text": "Which of the following is a core module of Spring?",
+        "type": "multiple-choice",
+        "choices": [
+          "Spring MVC",
+          "Spring Boot",
+          "Spring Data",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 4,
+        "text": "Which annotation is used to enable Spring Boot's auto-configuration feature?",
+        "type": "multiple-choice",
+        "choices": [
+          "@EnableAutoConfiguration",
+          "@SpringBootApplication",
+          "@AutoConfigure",
+          "@Configuration"
+        ],
+        "correctAnswer": "@EnableAutoConfiguration"
+      },
+      {
+        "_id": 5,
+        "text": "Spring Boot is an extension of the Spring framework.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is used to configure a Spring application?",
+        "type": "multiple-choice",
+        "choices": [
+          "application.properties",
+          "config.xml",
+          "application.yml",
+          "Both application.properties and application.yml"
+        ],
+        "correctAnswer": "Both application.properties and application.yml"
+      },
+      {
+        "_id": 7,
+        "text": "Which annotation is used to define a Spring component?",
+        "type": "multiple-choice",
+        "choices": [
+          "@Component",
+          "@Bean",
+          "@Service",
+          "@Controller"
+        ],
+        "correctAnswer": "@Component"
+      },
+      {
+        "_id": 8,
+        "text": "Spring Boot applications can be run using an embedded server.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which annotation is used to map a request to a controller in Spring MVC?",
+        "type": "multiple-choice",
+        "choices": [
+          "@RequestMapping",
+          "@GetMapping",
+          "@PostMapping",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 10,
+        "text": "Spring Initializr is a web-based tool for generating Spring Boot projects.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      }
+    ],
+    "price": 2499,
+    "facultyId": "20",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "21",
+    "assessmentName": "Laravel",
+    "assessmentDescription": "This assessment covers Laravel, a PHP framework for web artisans. Test your skills in Eloquent ORM, Blade templating, and more.",
+    "assessmentImage": "/assets/images/laravel.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Laravel is a PHP framework designed for:",
+        "type": "multiple-choice",
+        "choices": [
+          "Mobile development",
+          "Desktop applications",
+          "Web applications",
+          "Game development"
+        ],
+        "correctAnswer": "Web applications"
+      },
+      {
+        "_id": 2,
+        "text": "Which ORM does Laravel use?",
+        "type": "multiple-choice",
+        "choices": [
+          "Doctrine",
+          "Eloquent",
+          "Propel",
+          "RedBeanPHP"
+        ],
+        "correctAnswer": "Eloquent"
+      },
+      {
+        "_id": 3,
+        "text": "Laravel's Blade is used for templating.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which command is used to create a new Laravel project?",
+        "type": "multiple-choice",
+        "choices": [
+          "laravel new",
+          "laravel create",
+          "php artisan new",
+          "php artisan create"
+        ],
+        "correctAnswer": "laravel new"
+      },
+      {
+        "_id": 5,
+        "text": "Which file in a Laravel project is used to define routes?",
+        "type": "multiple-choice",
+        "choices": [
+          "routes.php",
+          "web.php",
+          "app.php",
+          "config.php"
+        ],
+        "correctAnswer": "web.php"
+      },
+      {
+        "_id": 6,
+        "text": "Laravel uses Composer for dependency management.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which Artisan command is used to run database migrations in Laravel?",
+        "type": "multiple-choice",
+        "choices": [
+          "migrate:run",
+          "db:migrate",
+          "make:migrate",
+          "run:migrations"
+        ],
+        "correctAnswer": "db:migrate"
+      },
+      {
+        "_id": 8,
+        "text": "Laravel supports RESTful routing.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 9,
+        "text": "Which function is used to generate a URL in a Laravel Blade template?",
+        "type": "multiple-choice",
+        "choices": [
+          "url()",
+          "route()",
+          "path()",
+          "link()"
+        ],
+        "correctAnswer": "url()"
+      },
+      {
+        "_id": 10,
+        "text": "Which method is used to retrieve input data in a Laravel controller?",
+        "type": "multiple-choice",
+        "choices": [
+          "input()",
+          "data()",
+          "getInput()",
+          "request()"
+        ],
+        "correctAnswer": "request()"
+      }
+    ],
+    "price": 2199,
+    "facultyId": "21",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "22",
+    "assessmentName": "Scala",
+    "assessmentDescription": "This assessment covers Scala, a language for functional programming and strong static systems. Test your skills in Scala syntax, collections, and more.",
+    "assessmentImage": "/assets/images/scala.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Scala is a language that combines functional and object-oriented programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which keyword is used to define a variable in Scala?",
+        "type": "multiple-choice",
+        "choices": [
+          "var",
+          "let",
+          "def",
+          "val"
+        ],
+        "correctAnswer": "var"
+      },
+      {
+        "_id": 3,
+        "text": "Which of the following is used to create an immutable variable in Scala?",
+        "type": "multiple-choice",
+        "choices": [
+          "var",
+          "let",
+          "def",
+          "val"
+        ],
+        "correctAnswer": "val"
+      },
+      {
+        "_id": 4,
+        "text": "In Scala, which of the following is used to define a function?",
+        "type": "multiple-choice",
+        "choices": [
+          "function",
+          "def",
+          "func",
+          "fn"
+        ],
+        "correctAnswer": "def"
+      },
+      {
+        "_id": 5,
+        "text": "Which of the following collections in Scala is immutable?",
+        "type": "multiple-choice",
+        "choices": [
+          "ArrayBuffer",
+          "ListBuffer",
+          "Array",
+          "List"
+        ],
+        "correctAnswer": "List"
+      },
+      {
+        "_id": 6,
+        "text": "Scala runs on the Java Virtual Machine (JVM).",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is the correct way to create a list in Scala?",
+        "type": "multiple-choice",
+        "choices": [
+          "List(1, 2, 3)",
+          "[1, 2, 3]",
+          "{1, 2, 3}",
+          "Array(1, 2, 3)"
+        ],
+        "correctAnswer": "List(1, 2, 3)"
+      },
+      {
+        "_id": 8,
+        "text": "In Scala, which keyword is used to extend a class?",
+        "type": "multiple-choice",
+        "choices": [
+          "extend",
+          "inherit",
+          "extends",
+          "inherits"
+        ],
+        "correctAnswer": "extends"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is used for pattern matching in Scala?",
+        "type": "multiple-choice",
+        "choices": [
+          "match",
+          "switch",
+          "case",
+          "pattern"
+        ],
+        "correctAnswer": "match"
+      },
+      {
+        "_id": 10,
+        "text": "Which Scala collection type can contain duplicate elements?",
+        "type": "multiple-choice",
+        "choices": [
+          "Set",
+          "Map",
+          "List",
+          "Tuple"
+        ],
+        "correctAnswer": "List"
+      }
+    ],
+    "price": 2299,
+    "facultyId": "22",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "23",
+    "assessmentName": "Rust",
+    "assessmentDescription": "This assessment covers Rust, a language empowering everyone to build reliable and efficient software. Test your skills in Rust syntax, ownership, and more.",
+    "assessmentImage": "/assets/images/rust.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Rust is known for its strong emphasis on memory safety.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which keyword is used to define a variable in Rust?",
+        "type": "multiple-choice",
+        "choices": [
+          "let",
+          "var",
+          "def",
+          "val"
+        ],
+        "correctAnswer": "let"
+      },
+      {
+        "_id": 3,
+        "text": "Rust uses ownership with rules that the compiler checks at compile time.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which keyword is used to create an immutable variable in Rust?",
+        "type": "multiple-choice",
+        "choices": [
+          "mut",
+          "const",
+          "static",
+          "let"
+        ],
+        "correctAnswer": "let"
+      },
+      {
+        "_id": 5,
+        "text": "Which function is used to print output to the console in Rust?",
+        "type": "multiple-choice",
+        "choices": [
+          "print()",
+          "echo()",
+          "console.log()",
+          "println!()"
+        ],
+        "correctAnswer": "println!()"
+      },
+      {
+        "_id": 6,
+        "text": "In Rust, which keyword is used to declare a constant?",
+        "type": "multiple-choice",
+        "choices": [
+          "const",
+          "let",
+          "static",
+          "val"
+        ],
+        "correctAnswer": "const"
+      },
+      {
+        "_id": 7,
+        "text": "Rust has built-in support for concurrent programming.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 8,
+        "text": "Which of the following is the correct way to create a mutable variable in Rust?",
+        "type": "multiple-choice",
+        "choices": [
+          "let x: i32;",
+          "mut x: i32;",
+          "let mut x: i32;",
+          "mutable x: i32;"
+        ],
+        "correctAnswer": "let mut x: i32;"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is used to handle errors in Rust?",
+        "type": "multiple-choice",
+        "choices": [
+          "Result",
+          "Option",
+          "Error",
+          "Exception"
+        ],
+        "correctAnswer": "Result"
+      },
+      {
+        "_id": 10,
+        "text": "Which macro is used to handle pattern matching in Rust?",
+        "type": "multiple-choice",
+        "choices": [
+          "match",
+          "switch",
+          "case",
+          "pattern"
+        ],
+        "correctAnswer": "match"
+      }
+    ],
+    "price": 2399,
+    "facultyId": "23",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "24",
+    "assessmentName": "Elixir",
+    "assessmentDescription": "This assessment covers Elixir, a dynamic, functional language designed for building scalable and maintainable applications. Test your skills in Elixir syntax, concurrency, and more.",
+    "assessmentImage": "/assets/images/elixir.webp",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Elixir runs on the Erlang virtual machine (BEAM).",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which keyword is used to define a module in Elixir?",
+        "type": "multiple-choice",
+        "choices": [
+          "module",
+          "defmodule",
+          "mod",
+          "define"
+        ],
+        "correctAnswer": "defmodule"
+      },
+      {
+        "_id": 3,
+        "text": "Which macro is used to define a function in Elixir?",
+        "type": "multiple-choice",
+        "choices": [
+          "def",
+          "fun",
+          "fn",
+          "lambda"
+        ],
+        "correctAnswer": "def"
+      },
+      {
+        "_id": 4,
+        "text": "Elixir supports pattern matching.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 5,
+        "text": "Which of the following is used to start an Elixir interactive shell?",
+        "type": "multiple-choice",
+        "choices": [
+          "elixir",
+          "iex",
+          "erl",
+          "shell"
+        ],
+        "correctAnswer": "iex"
+      },
+      {
+        "_id": 6,
+        "text": "Which of the following is the correct way to define a list in Elixir?",
+        "type": "multiple-choice",
+        "choices": [
+          "[1, 2, 3]",
+          "{1, 2, 3}",
+          "(1, 2, 3)",
+          "<1, 2, 3>"
+        ],
+        "correctAnswer": "[1, 2, 3]"
+      },
+      {
+        "_id": 7,
+        "text": "Elixir uses immutability for data structures.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 8,
+        "text": "Which macro is used to spawn a new process in Elixir?",
+        "type": "multiple-choice",
+        "choices": [
+          "spawn",
+          "fork",
+          "create",
+          "process"
+        ],
+        "correctAnswer": "spawn"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is used to handle errors in Elixir?",
+        "type": "multiple-choice",
+        "choices": [
+          "try/catch",
+          "rescue",
+          "try/rescue",
+          "except"
+        ],
+        "correctAnswer": "try/rescue"
+      },
+      {
+        "_id": 10,
+        "text": "Which Elixir library is used for building concurrent and distributed applications?",
+        "type": "multiple-choice",
+        "choices": [
+          "Phoenix",
+          "Ecto",
+          "GenServer",
+          "Plug"
+        ],
+        "correctAnswer": "GenServer"
+      }
+    ],
+    "price": 2499,
+    "facultyId": "24",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "25",
+    "assessmentName": "Perl",
+    "assessmentDescription": "This assessment covers Perl, a highly capable, feature-rich programming language with over 30 years of development. Test your skills in Perl syntax, regex, and more.",
+    "assessmentImage": "/assets/images/perl.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Perl is known for its text processing capabilities.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which symbol is used to define a scalar variable in Perl?",
+        "type": "multiple-choice",
+        "choices": [
+          "$",
+          "@",
+          "%",
+          "&"
+        ],
+        "correctAnswer": "$"
+      },
+      {
+        "_id": 3,
+        "text": "Perl supports regular expressions for pattern matching.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which of the following is used to print output in Perl?",
+        "type": "multiple-choice",
+        "choices": [
+          "print",
+          "echo",
+          "console.log",
+          "println"
+        ],
+        "correctAnswer": "print"
+      },
+      {
+        "_id": 5,
+        "text": "Which operator is used to concatenate strings in Perl?",
+        "type": "multiple-choice",
+        "choices": [
+          ".",
+          "+",
+          "&",
+          "*"
+        ],
+        "correctAnswer": "."
+      },
+      {
+        "_id": 6,
+        "text": "Perl variables are dynamically typed.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is the correct way to define an array in Perl?",
+        "type": "multiple-choice",
+        "choices": [
+          "@array = (1, 2, 3);",
+          "array = [1, 2, 3];",
+          "%array = (1, 2, 3);",
+          "&array = {1, 2, 3};"
+        ],
+        "correctAnswer": "@array = (1, 2, 3);"
+      },
+      {
+        "_id": 8,
+        "text": "Which keyword is used to define a subroutine in Perl?",
+        "type": "multiple-choice",
+        "choices": [
+          "function",
+          "def",
+          "sub",
+          "fun"
+        ],
+        "correctAnswer": "sub"
+      },
+      {
+        "_id": 9,
+        "text": "Which of the following is the correct way to match a regex in Perl?",
+        "type": "multiple-choice",
+        "choices": [
+          "$var =~ /regex/",
+          "$var = /regex/",
+          "$var !~ /regex/",
+          "$var == /regex/"
+        ],
+        "correctAnswer": "$var =~ /regex/"
+      },
+      {
+        "_id": 10,
+        "text": "Perl was originally developed by Larry Wall.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      }
+    ],
+    "price": 1899,
+    "facultyId": "25",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "26",
+    "assessmentName": "Shell Scripting",
+    "assessmentDescription": "This assessment covers Shell Scripting, a powerful tool for automating tasks in Unix-based systems. Test your skills in Bash syntax, scripting, and more.",
+    "assessmentImage": "/assets/images/shell_scripting.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "Which symbol is used to comment a line in a Bash script?",
+        "type": "multiple-choice",
+        "choices": [
+          "#",
+          "//",
+          "/*",
+          "--"
+        ],
+        "correctAnswer": "#"
+      },
+      {
+        "_id": 2,
+        "text": "Which command is used to list files and directories in a Unix-based system?",
+        "type": "multiple-choice",
+        "choices": [
+          "ls",
+          "list",
+          "dir",
+          "show"
+        ],
+        "correctAnswer": "ls"
+      },
+      {
+        "_id": 3,
+        "text": "Bash stands for 'Bourne Again SHell'.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 4,
+        "text": "Which command is used to change the current directory in a Unix-based system?",
+        "type": "multiple-choice",
+        "choices": [
+          "cd",
+          "chdir",
+          "move",
+          "change"
+        ],
+        "correctAnswer": "cd"
+      },
+      {
+        "_id": 5,
+        "text": "Which command is used to display the contents of a file in a Unix-based system?",
+        "type": "multiple-choice",
+        "choices": [
+          "show",
+          "display",
+          "cat",
+          "read"
+        ],
+        "correctAnswer": "cat"
+      },
+      {
+        "_id": 6,
+        "text": "Which command is used to find a specific pattern in a file in Unix?",
+        "type": "multiple-choice",
+        "choices": [
+          "find",
+          "search",
+          "grep",
+          "locate"
+        ],
+        "correctAnswer": "grep"
+      },
+      {
+        "_id": 7,
+        "text": "Which of the following is the correct way to create a variable in Bash?",
+        "type": "multiple-choice",
+        "choices": [
+          "var=value",
+          "var: value",
+          "var = value",
+          "variable=value"
+        ],
+        "correctAnswer": "var=value"
+      },
+      {
+        "_id": 8,
+        "text": "Which of the following is used to execute a shell script?",
+        "type": "multiple-choice",
+        "choices": [
+          "run script.sh",
+          "./script.sh",
+          "sh script.sh",
+          "All of the above"
+        ],
+        "correctAnswer": "All of the above"
+      },
+      {
+        "_id": 9,
+        "text": "Shell scripts are executed sequentially line by line.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 10,
+        "text": "Which command is used to change file permissions in Unix?",
+        "type": "multiple-choice",
+        "choices": [
+          "chmod",
+          "chperm",
+          "chown",
+          "perm"
+        ],
+        "correctAnswer": "chmod"
+      }
+    ],
+    "price": 2099,
+    "facultyId": "26",
+    "time": "3600",
+    "isActive": true
+  },
+  {
+    "_id": "27",
+    "assessmentName": "MATLAB",
+    "assessmentDescription": "This assessment covers MATLAB, a high-level language and interactive environment for numerical computation, visualization, and programming. Test your skills in MATLAB syntax, functions, and more.",
+    "assessmentImage": "/assets/images/matlab.png",
+    "questions": [
+      {
+        "_id": 1,
+        "text": "MATLAB stands for 'MATrix LABoratory'.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 2,
+        "text": "Which function is used to create a 2D plot in MATLAB?",
+        "type": "multiple-choice",
+        "choices": [
+          "plot2d",
+          "plot",
+          "graph2d",
+          "graph"
+        ],
+        "correctAnswer": "plot"
+      },
+      {
+        "_id": 3,
+        "text": "Which command is used to clear all variables from the workspace in MATLAB?",
+        "type": "multiple-choice",
+        "choices": [
+          "clear all",
+          "remove all",
+          "delete all",
+          "erase all"
+        ],
+        "correctAnswer": "clear all"
+      },
+      {
+        "_id": 4,
+        "text": "In MATLAB, which symbol is used for element-wise multiplication?",
+        "type": "multiple-choice",
+        "choices": [
+          "*",
+          ".*",
+          "/",
+          "./"
+        ],
+        "correctAnswer": ".*"
+      },
+      {
+        "_id": 5,
+        "text": "Which function is used to find the size of a matrix in MATLAB?",
+        "type": "multiple-choice",
+        "choices": [
+          "length",
+          "size",
+          "dim",
+          "shape"
+        ],
+        "correctAnswer": "size"
+      },
+      {
+        "_id": 6,
+        "text": "MATLAB supports complex numbers.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 7,
+        "text": "Which function is used to save a workspace variable in MATLAB?",
+        "type": "multiple-choice",
+        "choices": [
+          "save",
+          "store",
+          "keep",
+          "persist"
+        ],
+        "correctAnswer": "save"
+      },
+      {
+        "_id": 8,
+        "text": "Which command is used to add a title to a plot in MATLAB?",
+        "type": "multiple-choice",
+        "choices": [
+          "addtitle",
+          "settitle",
+          "title",
+          "plottitle"
+        ],
+        "correctAnswer": "title"
+      },
+      {
+        "_id": 9,
+        "text": "MATLAB is primarily used for numerical computation and visualization.",
+        "type": "true-false",
+        "choices": [
+          "true",
+          "false"
+        ],
+        "correctAnswer": "true"
+      },
+      {
+        "_id": 10,
+        "text": "Which function is used to read data from a file in MATLAB?",
+        "type": "multiple-choice",
+        "choices": [
+          "fopen",
+          "readfile",
+          "load",
+          "import"
+        ],
+        "correctAnswer": "load"
+      }
+    ],
+    "price": 2499,
+    "facultyId": "27",
+    "time": "3600",
+    "isActive": true
+  }
+]

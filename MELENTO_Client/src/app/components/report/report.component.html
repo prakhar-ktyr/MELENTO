@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <h2>Trainee Performance Report</h2>
+    <form (ngSubmit)="generateReport(startDate.value, endDate.value)">
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" #startDate class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="endDate">End Date</label>
+        <input type="date" id="endDate" #endDate class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Generate Report</button>
+    </form>
+  </div>

@@ -1,0 +1,240 @@
+<ul class="nav nav-tabs mt-4 ml-0 mr-0" id="adminTabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="users-tab" data-bs-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="true">Users</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="courses-tab" data-bs-toggle="tab" href="#courses" role="tab" aria-controls="courses" aria-selected="false">Courses</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="course-category-tab" data-bs-toggle="tab" href="#course-category" role="tab" aria-controls="course-category" aria-selected="false">Course Categories</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="assessments-tab" data-bs-toggle="tab" href="#assessments" role="tab" aria-controls="assessments" aria-selected="false">Assessments</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="assessment-scores-tab" data-bs-toggle="tab" href="#assessment-scores" role="tab" aria-controls="assessment-scores" aria-selected="false">Assessment Scores</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="reports-tab" data-bs-toggle="tab" href="#reports" role="tab" aria-controls="reports" aria-selected="false">Reports</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="attendance-tab" data-bs-toggle="tab" href="#attendance" role="tab" aria-controls="attendance" aria-selected="false">Attendance</a>
+    </li>
+    
+</ul>
+<div class="tab-content" id="adminTabsContent">
+    <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
+        <ul class="nav nav-tabs" id="usersSubTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="faculty-tab" data-bs-toggle="tab" href="#faculty" role="tab" aria-controls="faculty" aria-selected="true">Faculty</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="trainee-tab" data-bs-toggle="tab" href="#trainee" role="tab" aria-controls="trainee" aria-selected="false">Trainee</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="usersSubTabsContent">
+            <div class="tab-pane fade show active" id="faculty" role="tabpanel" aria-labelledby="faculty-tab">
+                <ul class="nav nav-tabs" id="facultyCrudTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="faculty-create-tab" data-bs-toggle="tab" href="#faculty-create" role="tab" aria-controls="faculty-create" aria-selected="true">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="faculty-update-tab" data-bs-toggle="tab" href="#faculty-update" role="tab" aria-controls="faculty-update" aria-selected="false">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="faculty-view-tab" data-bs-toggle="tab" href="#faculty-view" role="tab" aria-controls="faculty-view" aria-selected="false">View</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="facultyCrudTabsContent">
+                    <div class="tab-pane fade show active" id="faculty-create" role="tabpanel" aria-labelledby="faculty-create-tab">
+                        <app-add-user></app-add-user>
+                    </div>
+                    <div class="tab-pane fade" id="faculty-update" role="tabpanel" aria-labelledby="faculty-update-tab">
+                        <app-update-user></app-update-user>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="faculty-view" role="tabpanel" aria-labelledby="faculty-view-tab">
+                        <app-view-user></app-view-user>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="trainee" role="tabpanel" aria-labelledby="trainee-tab">
+                <ul class="nav nav-tabs" id="traineeCrudTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="trainee-create-tab" data-bs-toggle="tab" href="#trainee-create" role="tab" aria-controls="trainee-create" aria-selected="true">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="trainee-update-tab" data-bs-toggle="tab" href="#trainee-update" role="tab" aria-controls="trainee-update" aria-selected="false">Update</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" id="trainee-view-tab" data-bs-toggle="tab" href="#trainee-view" role="tab" aria-controls="trainee-view" aria-selected="false">View</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="traineeCrudTabsContent">
+                    <div class="tab-pane fade show active" id="trainee-create" role="tabpanel" aria-labelledby="trainee-create-tab">
+                        <app-add-user></app-add-user>
+                    </div>
+                    <div class="tab-pane fade" id="trainee-update" role="tabpanel" aria-labelledby="trainee-update-tab">
+                        <app-update-user></app-update-user>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="trainee-view" role="tabpanel" aria-labelledby="trainee-view-tab">
+                        <app-view-user></app-view-user>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Tab -->
+    <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
+        <ul class="nav nav-tabs" id="coursesCrudTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="courses-create-tab" data-bs-toggle="tab" href="#courses-create" role="tab" aria-controls="courses-create" aria-selected="true">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="courses-update-tab" data-bs-toggle="tab" href="#courses-update" role="tab" aria-controls="courses-update" aria-selected="false">Update</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" id="courses-view-tab" data-bs-toggle="tab" href="#courses-view" role="tab" aria-controls="courses-view" aria-selected="false">View</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="coursesCrudTabsContent">
+            <div class="tab-pane fade show active" id="courses-create" role="tabpanel" aria-labelledby="courses-create-tab">
+                <app-add-course></app-add-course>
+            </div>
+            <div class="tab-pane fade" id="courses-update" role="tabpanel" aria-labelledby="courses-update-tab">
+                <app-update-course></app-update-course>
+            </div>
+            
+            <div class="tab-pane fade" id="courses-view" role="tabpanel" aria-labelledby="courses-view-tab">
+                <app-view-course/>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="course-category" role="tabpanel" aria-labelledby="course-category-tab">
+        <ul class="nav nav-tabs" id="courseCategoryCrudTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="course-category-create-tab" data-bs-toggle="tab" href="#course-category-create" role="tab" aria-controls="course-category-create" aria-selected="true">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="course-category-update-tab" data-bs-toggle="tab" href="#course-category-update" role="tab" aria-controls="course-category-update" aria-selected="false">Update</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" id="course-category-delete-tab" data-bs-toggle="tab" href="#course-category-delete" role="tab" aria-controls="course-category-delete" aria-selected="false">Delete</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" id="course-category-view-tab" data-bs-toggle="tab" href="#course-category-view" role="tab" aria-controls="course-category-view" aria-selected="false">View</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="courseCategoryCrudTabsContent">
+            <div class="tab-pane fade show active" id="course-category-create" role="tabpanel" aria-labelledby="course-category-create-tab">
+                <app-create-category/>
+            </div>
+            <div class="tab-pane fade" id="course-category-update" role="tabpanel" aria-labelledby="course-category-update-tab">
+                <app-update-category/>
+            </div>
+            <!-- <div class="tab-pane fade" id="course-category-delete" role="tabpanel" aria-labelledby="course-category-delete-tab">
+                Delete Course Category Content Here
+            </div> -->
+            <div class="tab-pane fade" id="course-category-view" role="tabpanel" aria-labelledby="course-category-view-tab">
+                <app-view-category/>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="assessments" role="tabpanel" aria-labelledby="assessments-tab">
+        <ul class="nav nav-tabs" id="assessmentsCrudTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="assessments-create-tab" data-bs-toggle="tab" href="#assessments-create" role="tab" aria-controls="assessments-create" aria-selected="true">Create</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="assessments-update-tab" data-bs-toggle="tab" href="#assessments-update" role="tab" aria-controls="assessments-update" aria-selected="false">Update</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" id="assessments-view-tab" data-bs-toggle="tab" href="#assessments-view" role="tab" aria-controls="assessments-view" aria-selected="false">View</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="assessmentsCrudTabsContent">
+            <div class="tab-pane fade show active" id="assessments-create" role="tabpanel" aria-labelledby="assessments-create-tab">
+                <app-create-assessment></app-create-assessment>
+            </div>
+            <div class="tab-pane fade" id="assessments-update" role="tabpanel" aria-labelledby="assessments-update-tab">
+                <app-update-assessment/>
+            </div>
+            
+            <div class="tab-pane fade" id="assessments-view" role="tabpanel" aria-labelledby="assessments-view-tab">
+                <app-view-assessment/>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="tab-pane fade" id="assessment-scores" role="tabpanel" aria-labelledby="assessment-scores-tab">
+        <ul class="nav nav-tabs" id="assessmentScoresCrudTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="assessment-scores-update-tab" data-bs-toggle="tab" href="#assessment-scores-update" role="tab" aria-controls="assessment-scores-update" aria-selected="true">Update</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" id="assessment-scores-view-tab" data-bs-toggle="tab" href="#assessment-scores-view" role="tab" aria-controls="assessment-scores-view" aria-selected="false">View</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="assessmentScoresCrudTabsContent">
+            <div class="tab-pane fade show active" id="assessment-scores-update" role="tabpanel" aria-labelledby="assessment-scores-update-tab">
+                <app-update-assessment-score/>
+            </div>
+            <div class="tab-pane fade" id="assessment-scores-view" role="tabpanel" aria-labelledby="assessment-scores-view-tab">
+                <app-view-assessment-score/>
+            </div>
+        </div>
+
+    </div>
+    <div class="tab-pane fade" id="reports" role="tabpanel" aria-labelledby="reports-tab">
+        <!-- Nested Tabs -->
+        <ul class="nav nav-tabs" id="nestedTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="view-tab" data-bs-toggle="tab" href="#view" role="tab" aria-controls="view" aria-selected="true">View</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="nestedTabContent">
+            <div class="tab-pane fade show active" id="view" role="tabpanel" aria-labelledby="view-tab">
+                <!-- Content for View tab goes here -->
+                <app-view-reports></app-view-reports>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tab-pane fade" id="attendance" role="tabpanel" aria-labelledby="attendance-tab">
+        <ul class="nav nav-tabs" id="attendanceCrudTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="attendance-update-tab" data-bs-toggle="tab" href="#attendance-update" role="tab" aria-controls="attendance-update" aria-selected="false">Update</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" id="attendance-view-tab" data-bs-toggle="tab" href="#attendance-view" role="tab" aria-controls="attendance-view" aria-selected="false">View</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="attendanceCrudTabsContent">
+            <!-- <div class="tab-pane fade show active" id="attendance-create" role="tabpanel" aria-labelledby="attendance-create-tab"> -->
+                <!-- Create Attendance Content Here -->
+            <!-- </div> -->
+            <div class="tab-pane fade show active" id="attendance-update" role="tabpanel" aria-labelledby="attendance-update-tab">
+                <!-- Update Attendance Content Here -->
+                 <app-update-attendance></app-update-attendance>
+            </div>
+            
+            <div class="tab-pane fade" id="attendance-view" role="tabpanel" aria-labelledby="attendance-view-tab">
+                <!-- View Attendance Content Here -->
+                <app-view-attendance></app-view-attendance>
+            </div>
+        </div>
+    </div>
+    
+</div>

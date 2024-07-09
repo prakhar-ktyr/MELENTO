@@ -1,0 +1,112 @@
+[
+    {
+      "_id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johndoe@gmail.com",
+      "phone": "1234567890",
+      "address": [
+        {
+          "id": 1,
+          "houseNo": "123",
+          "street": "Main Street",
+          "area": "Malleshwaram",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560003"
+        }
+      ],
+      "password": "password",
+      "dob": "1990-01-01",
+      "role": "Admin"
+    },
+    {
+      "_id": "2",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "janedoe@gmail.com",
+      "phone": "1234567890",
+      "address": [
+        {
+          "id": 2,
+          "houseNo": "123",
+          "street": "Main Street",
+          "area": "Malleshwaram",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560003"
+        }
+      ],
+      "password": "password",
+      "dob": "1990-01-01",
+      "role": "Trainee"
+    },
+    {
+      "_id": "3",
+      "firstName": "Alice",
+      "lastName": "Doe",
+      "email": "alicedoe@gmail.com",
+      "phone": "1234567890",
+      "address": [
+        {
+          "id": 3,
+          "houseNo": "123",
+          "street": "Main Street",
+          "area": "Malleshwaram",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560003"
+        }
+      ],
+      "password": "password",
+      "dob": "1990-01-01",
+      "role": "Faculty"
+    },
+    {
+      "_id": "4",
+      "firstName": "Prakhar",
+      "lastName": "Katiyar",
+      "email": "prakharkatiyar99@gmail.com",
+      "phone": "8299879259",
+      "dob": "2001-07-22",
+      "role": "Trainee",
+      "password": "password",
+      "address": [
+        {
+          "id": "0",
+          "houseNo": 1203,
+          "street": "7th Main Road",
+          "area": "Malleshwaram",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560003"
+        }
+      ]
+    },
+    {
+      "_id": "5",
+      "firstName": "Jai",
+      "lastName": "Goyal",
+      "email": "jaigoyal@gmail.com",
+      "phone": "8259879257",
+      "dob": "2001-11-13",
+      "role": "Trainee",
+      "password": "password",
+      "address": [
+        {
+          "id": 1,
+          "houseNo": 234,
+          "street": "40th Avenue",
+          "area": "Malleshwaram",
+          "city": "Bengaluru",
+          "state": "Karnataka",
+          "country": "India",
+          "pincode": "560003"
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,19 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let attendance of arrAttendance">
+        <td>{{ attendance.id }}</td>
+        <td>{{ attendance.userId }}</td>
+        <td>{{ attendance.date | date:'shortDate' }}</td>
+        <td>{{ attendance.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

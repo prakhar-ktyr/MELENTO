@@ -1,0 +1,121 @@
+[
+    
+
+    {
+      "_id": 1,
+      "marks": [
+        true,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true
+      ],
+      "assessmentId": "6",
+      "userId": "2",
+      "score": "6/10",
+      "date": "2024-06-01"
+    },
+    {
+      "_id": 2,
+      "marks": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "assessmentId": "6",
+      "userId": "2",
+      "score": "0/10",
+      "date": "2024-06-10"
+    },
+    {
+      "_id": 3,
+      "marks": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false
+      ],
+      "assessmentId": "7",
+      "userId": "2",
+      "score": "6/10",
+      "date": "2024-06-15"
+    },
+    {
+      "_id": 4,
+      "marks": [
+        false,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "assessmentId": "8",
+      "userId": "2",
+      "score": "5/10",
+      "date": "2024-06-20"
+    },
+    {
+      "_id": 5,
+      "marks": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "assessmentId": "9",
+      "userId": "2",
+      "score": "2/10",
+      "date": "2024-06-28"
+    },
+    {
+      "_id": 3,
+      "marks": [
+        false,
+        true,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "assessmentId": "9",
+      "userId": "2",
+      "score": "2/10",
+      "date": "2024-06-28"
+    }
+  ]

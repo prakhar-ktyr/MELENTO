@@ -1,0 +1,110 @@
+<div class="container mt-4">
+    <mat-horizontal-stepper [linear]="true" #stepper>
+      <mat-step [stepControl]="assessmentSelectionForm" label="Select Assessment">
+        <form [formGroup]="assessmentSelectionForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Select an Assessment</mat-label>
+            <mat-select formControlName="selectedAssessmentId" (selectionChange)="onAssessmentChange($event)">
+              <mat-option *ngFor="let assessment of assessments" [value]="assessment.id">{{ assessment.assessmentName }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="assessmentSelectionForm.get('selectedAssessmentId')?.hasError('required')">Selection is required.</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext [disabled]="assessmentSelectionForm.invalid">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="assessmentForm" label="Assessment Details">
+        <form [formGroup]="assessmentForm">
+          <mat-form-field appearance="fill">
+            <mat-label>Assessment Name</mat-label>
+            <input matInput placeholder="Assessment Name" formControlName="assessmentName" required>
+            <mat-error *ngIf="assessmentForm.get('assessmentName')?.hasError('required')">Name is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Description" formControlName="assessmentDescription" required></textarea>
+            <mat-error *ngIf="assessmentForm.get('assessmentDescription')?.hasError('required')">Description is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Assessment Image</mat-label>
+            <input matInput placeholder="Image Path" formControlName="assessmentImage" required>
+            <mat-error *ngIf="assessmentForm.get('assessmentImage')?.hasError('required')">Image Path is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput type="number" placeholder="Price" formControlName="price" required>
+            <mat-error *ngIf="assessmentForm.get('price')?.hasError('required')">Price is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Time (seconds)</mat-label>
+            <input matInput placeholder="Time" formControlName="time" required>
+            <mat-error *ngIf="assessmentForm.get('time')?.hasError('required')">Time is required.</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext [disabled]="assessmentForm.invalid">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="questionsForm" label="Questions">
+        <form [formGroup]="questionsForm">
+          <div formArrayName="questions" class="mt-4">
+            <div *ngFor="let question of questionControls; let i = index" [formGroupName]="i" class="mb-4 p-3 border rounded">
+              <mat-form-field appearance="fill">
+                <mat-label>Question Text</mat-label>
+                <input matInput placeholder="Question Text" formControlName="text" required>
+                <mat-error *ngIf="question.get('text')?.hasError('required')">Question Text is required.</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Question Type</mat-label>
+                <mat-select formControlName="type" required (selectionChange)="onQuestionTypeChange(i)">
+                  <mat-option value="multiple-choice">Multiple Choice</mat-option>
+                  <mat-option value="true-false">True/False</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div formArrayName="choices" *ngIf="question.get('type')?.value === 'multiple-choice'">
+                <div *ngFor="let choice of getChoices(i).controls; let j = index" [formGroupName]="j" class="form-group">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Choice {{j + 1}}</mat-label>
+                    <input matInput placeholder="Choice {{j + 1}}" formControlName="choiceText" required>
+                    <mat-error *ngIf="choice.get('choiceText')?.hasError('required')">Choice is required.</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <mat-form-field appearance="fill" *ngIf="question.get('type')?.value === 'multiple-choice'">
+                <mat-label>Correct Answer</mat-label>
+                <input matInput placeholder="Correct Answer" formControlName="correctAnswer" required>
+                <mat-error *ngIf="question.get('correctAnswer')?.hasError('required')">Correct Answer is required.</mat-error>
+              </mat-form-field>
+              <div *ngIf="question.get('type')?.value === 'true-false'">
+                <mat-form-field appearance="fill">
+                  <mat-label>Correct Answer</mat-label>
+                  <mat-select formControlName="correctAnswer" required>
+                    <mat-option value="true">True</mat-option>
+                    <mat-option value="false">False</mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="question.get('correctAnswer')?.hasError('required')">Correct Answer is required.</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div>
+            <button mat-button type="button" (click)="addQuestion()">Add Another Question</button>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="updateAssessment()">Submit</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  

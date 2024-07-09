@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <div class="row">
+      <div *ngFor="let assessment of assessments" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card h-100">
+          <img class="card-img-top" [src]="assessment.assessmentImage" alt="Assessment Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ assessment.assessmentName }}</h5>
+            <p class="card-text"><strong>Description:</strong> {{ assessment.assessmentDescription }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ assessment.price }}</p>
+            <p class="card-text"><strong>Time:</strong> {{ assessment.time }} seconds</p>
+            <div *ngIf="assessment.questions.length">
+              <h6>Questions:</h6>
+              <ul class="list-unstyled">
+                <li *ngFor="let question of assessment.questions">
+                  <p class="card-text"><strong>Question:</strong> {{ question.text }}</p>
+                  <p class="card-text"><strong>Type:</strong> {{ question.type }}</p>
+                  <div *ngIf="question.type === 'multiple-choice'">
+                    <p class="card-text"><strong>Choices:</strong></p>
+                    <ul>
+                      <li *ngFor="let choice of question.choices">{{ choice }}</li>
+                    </ul>
+                  </div>
+                  <p class="card-text"><strong>Correct Answer:</strong> {{ question.correctAnswer }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

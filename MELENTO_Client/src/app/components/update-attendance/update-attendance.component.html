@@ -1,0 +1,36 @@
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="attendanceId" class="form-label">Attendance ID</label>
+    <select id="attendanceId" class="form-select" (change)="onSelectChange($event)">
+      <option *ngFor="let attendance of arrAttendance" [value]="attendance.id">
+        {{ attendance.id }}
+      </option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="userId" class="form-label">User ID</label>
+    <input id="userId" class="form-control" formControlName="userId" type="text">
+    <div *ngIf="updateForm.controls['userId'].invalid && (updateForm.controls['userId'].dirty || updateForm.controls['userId'].touched)" class="text-danger">
+      User ID is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="date" class="form-label">Date</label>
+    <input id="date" class="form-control" formControlName="date" type="datetime-local" [max]="maxDate">
+    <div *ngIf="updateForm.controls['date'].invalid && (updateForm.controls['date'].dirty || updateForm.controls['date'].touched)" class="text-danger">
+      Valid date is required.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="status" class="form-label">Status</label>
+    <input id="status" class="form-control" formControlName="status" type="text">
+    <div *ngIf="updateForm.controls['status'].invalid && (updateForm.controls['status'].dirty || updateForm.controls['status'].touched)" class="text-danger">
+      Status is required.
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="updateForm.invalid">Update</button>
+</form>
