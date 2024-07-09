@@ -25,11 +25,15 @@ export class AuthInterceptor implements HttpInterceptor {
     let authtoken = this.localStorageService.getItem('token') ;
     if(!authtoken) authtoken = "" ;
     this.token = authtoken ; 
-    req = req.clone({
-      setHeaders: {
-        authorization: `Bearer ${this.token}`,
-      },
-    });
+    let authreq = req ; 
+    if(authtoken){
+      authreq = authreq.clone({
+        setHeaders: {
+          authorization: `Bearer ${this.token}`,
+        },
+      });
+      return next.handle(authreq) ; 
+    }
 
     // Log the modified request
     console.log("Intercepted HTTP call", req);
