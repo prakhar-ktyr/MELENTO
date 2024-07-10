@@ -112,32 +112,35 @@ async function deleteDocument(collectionName, id) {
     });
 }
 
-// Find user for authentication
+// db_service.js
 async function findUserByCreds(collectionName, credentials) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            const item = await coll.findOne({email : credentials.email});
-    
-            let correctPassword = item.password ; 
-            let inputPassword = credentials.password ;
-            let match = await util.comparePassword(inputPassword , correctPassword) ; 
-            if(match) resolve(item);
-            else throw new Error('Invalid credentials')
+            const item = await coll.findOne({ email: credentials.email });
+
+            let encryptedPassword = item.password;
+            let decryptedPassword = util.decrypt(encryptedPassword); // Decrypt the password
+            let inputPassword = credentials.password;
+
+            let match = (inputPassword === decryptedPassword);
+            if (match) resolve(item);
+            else throw new Error('Invalid credentials');
         } catch (err) {
             reject(err);
         }
     });
 }
 
+
 // Add a new user with password encryption 
 async function addUser(collectionName, document) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            let password = document.password ; 
-            password = await util.hashPassword(password) ; 
-            document.password = password ; 
+            let password = document.password; 
+            password = util.encrypt(password); // Encrypt the password
+            document.password = password; 
             const result = await addObject(coll, document);
             resolve(result);
         } catch (err) {

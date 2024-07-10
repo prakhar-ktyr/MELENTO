@@ -134,14 +134,21 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
 });
 
 collections.forEach((collection) => {
-  if (collection == 'assessments') {
+  // if (collection == 'assessments' || collection == 'users') {
     app.get(`/${collection}`, generic_controller.getDocuments(collection));
     app.get(`/${collection}/:id`, generic_controller.getDocumentById(collection));
-  } else {
-    app.get(`/${collection}`, authenticateToken, generic_controller.getDocuments(collection));
-    app.get(`/${collection}/:id`, authenticateToken, generic_controller.getDocumentById(collection));
+  // } else {
+  //   app.get(`/${collection}`, authenticateToken, generic_controller.getDocuments(collection));
+  //   app.get(`/${collection}/:id`, authenticateToken, generic_controller.getDocumentById(collection));
+  // }
+
+  if (collection == 'users') {
+    app.post(`/${collection}`, generic_controller.addDocument(collection));
   }
-  app.post(`/${collection}`, authenticateToken, generic_controller.addDocument(collection));
+  else {
+    app.post(`/${collection}`, authenticateToken, generic_controller.addDocument(collection));
+  }
+  
   
   app.put(`/${collection}/:id`, authenticateToken, generic_controller.updateDocument(collection));
   app.delete(`/${collection}/:id`, authenticateToken, generic_controller.deleteDocument(collection));

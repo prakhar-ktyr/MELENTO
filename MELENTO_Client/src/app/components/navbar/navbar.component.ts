@@ -72,7 +72,7 @@ export class NavbarComponent implements OnInit {
       .subscribe((assessments: Assessment[]) => {
         this.arrAssessments = assessments;
       });
-    this.loadUsers();
+    //this.loadUsers();
 
     this.isDarkMode = this.darkModeService.getDarkMode();
   }
@@ -215,10 +215,10 @@ export class NavbarComponent implements OnInit {
       return;
     }
 
-    const newUserId = this.getMaxId(this.arrUsers) + 1;
+    //const newUserId = this.getMaxId(this.arrUsers) + 1;
 
     const newUser: User = {
-      id: newUserId.toString(),
+      id: "11",
       firstName: this.registerForm.value.firstName,
       lastName: this.registerForm.value.lastName,
       email: this.registerForm.value.email,
