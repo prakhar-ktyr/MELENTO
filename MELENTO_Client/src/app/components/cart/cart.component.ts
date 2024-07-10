@@ -92,6 +92,7 @@ export class CartComponent {
           if(data[i].assessmentId == ass.id.toString() && data[i].traineeId == this.loggedUserId){
             data[i].quantity += this.currentUserCart.quantity[index] ; 
             // let assTraineeCopy = data[i] ; 
+            exists = true ; 
             console.log('assessment already exists') ;
             this.traineeService.updateAssessmentTraineeById(Number(data[i].id) , data[i]).subscribe(data => {
                 console.log('updated assessment that already exists') ; 
@@ -101,9 +102,11 @@ export class CartComponent {
         }
 
         if(!exists){
+          console.log('this assessment in cart doesnt exist so create new ass trainee') ;
           this.traineeService.getAssessmentTrainess().subscribe(data => {
             let newId = data.length + 1 ; 
             let newAssTrainee = new AssessmentTrainees(newId.toString() , ass.id.toString() , this.loggedUserId , this.currentUserCart.quantity[index])
+            console.log("new ass trainee" ,newAssTrainee) ; 
             this.traineeService.addAssessmentTrainee(newAssTrainee).subscribe(data => {
               console.log('add assessment trainee since it didnt exist')
             })
