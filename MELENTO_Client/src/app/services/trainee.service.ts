@@ -33,9 +33,9 @@ export class TraineeService {
   updateAssessmentTraineeById(id:number , astt:AssessmentTrainees){
     return this.httpClient.put<AssessmentTrainees>(this.baseUrl + "/assessmentTrainees/" + id , JSON.stringify(astt) , this.httpHeader).pipe(catchError(this.httpError));
   }
-  updateAssessmentTrainees(asst:AssessmentTrainees){
-    return this.httpClient.post<AssessmentTrainees[]>(this.baseUrl + "/assessmentTrainees/", JSON.stringify(asst), this.httpHeader).pipe(catchError(this.httpError));
-  }
+  // updateAssessmentTrainees(asst:AssessmentTrainees){
+  //   return this.httpClient.post<AssessmentTrainees[]>(this.baseUrl + "/assessmentTrainees/", JSON.stringify(asst), this.httpHeader).pipe(catchError(this.httpError));
+  // }
   addAssessmentTrainee(astt:AssessmentTrainees){
     return this.httpClient.post<AssessmentTrainees>(this.baseUrl + "/assessmentTrainees/" , JSON.stringify(astt) , this.httpHeader).pipe(catchError(this.httpError));
   }

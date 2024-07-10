@@ -47,7 +47,11 @@ async function addDocument(collectionName, document) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            const result = await addObject(coll, document);
+            let result = await addObject(coll, document);;
+            
+            console.log('collection name ' , collectionName) ; 
+            console.log('new document' , document) ; 
+
             resolve(result);
         } catch (err) {
             reject(err);
