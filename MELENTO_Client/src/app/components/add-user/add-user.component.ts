@@ -12,6 +12,7 @@ export class AddUserComponent implements OnInit {
 
   userAddForm: FormGroup;
   users: User[] = [];
+  roles: string[] = ['Admin', 'Trainee', 'Faculty'];
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.userAddForm = this.fb.group({

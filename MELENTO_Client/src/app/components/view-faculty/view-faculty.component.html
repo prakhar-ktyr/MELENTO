@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div *ngFor="let user of faculty" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+            <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+            <p class="card-text"><strong>Phone:</strong> {{ user.phone }}</p>
+            <p class="card-text"><strong>Date of Birth:</strong> {{ user.dob }}</p>
+            <p class="card-text"><strong>Role:</strong> {{ user.role }}</p>
+            <div *ngIf="user.address.length">
+              <h6>Address:</h6>
+              <ul class="list-unstyled">
+                <li *ngFor="let address of user.address">
+                  <p class="card-text"><strong>House No:</strong> {{ address.houseNo }}</p>
+                  <p class="card-text"><strong>Street:</strong> {{ address.street }}</p>
+                  <p class="card-text"><strong>Area:</strong> {{ address.area }}</p>
+                  <p class="card-text"><strong>City:</strong> {{ address.city }}</p>
+                  <p class="card-text"><strong>State:</strong> {{ address.state }}</p>
+                  <p class="card-text"><strong>Country:</strong> {{ address.country }}</p>
+                  <p class="card-text"><strong>Pincode:</strong> {{ address.pincode }}</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
