@@ -1,4 +1,5 @@
 const util = require('../util/util');
+const util2 = require('../util/util2')
 const bcrypt = require('bcryptjs');
 // Helper function to add an object to the collection
 async function addObject(collection, object) {
@@ -136,7 +137,9 @@ async function addUser(collectionName, document) {
         try {
             const coll = await util.connect(collectionName);
             let password = document.password ; 
-            password = await util.hashPassword(password) ; 
+            // password = await util.hashPassword(password) ; 
+            password = util2.encrypt(password) ;
+            console.log('inside add user , password : ' , password) ; 
             document.password = password ; 
             const result = await addObject(coll, document);
             resolve(result);

@@ -214,40 +214,48 @@ export class NavbarComponent implements OnInit {
       this.registerForm.markAllAsTouched();
       return;
     }
+    this.userService.getUsersNotLoggedIn().subscribe(data => {
+        console.log('got all users inside register')
+          let newUserId = data.length + 1;
+          console.log('register form value' , this.registerForm.value) ; 
+          const newUser: User = {
+            id: newUserId.toString(),
+            firstName: this.registerForm.value.firstName,
+            lastName: this.registerForm.value.lastName,
+            email: this.registerForm.value.email,
+            phone: this.registerForm.value.phone,
+            dob: this.registerForm.value.dob,
+            role: "Trainee",
+            password: this.registerForm.value.password,
+            address: this.registerForm.value.address.map(
+              (addr: any, index: number) => ({
+                id: index + 1,
+                houseNo: addr.houseNo,
+                street: addr.street,
+                area: addr.area,
+                city: addr.city,
+                state: addr.state,
+                country: addr.country,
+                pincode: addr.pincode,
+              })
+            ),
+          };
+          
+          console.log('inside register new user' , newUser) ; 
+          this.userService.registerUser(newUser).subscribe(
+            (data) => {
+              console.log("User registered successfully:", data);
+              this.loadUsers();
+            },
+            (err) => {
+              console.log("Error registering user:", err);
+            }
+          );
+    
+    
+     })
 
-    const newUserId = this.getMaxId(this.arrUsers) + 1;
 
-    const newUser: User = {
-      id: newUserId.toString(),
-      firstName: this.registerForm.value.firstName,
-      lastName: this.registerForm.value.lastName,
-      email: this.registerForm.value.email,
-      phone: this.registerForm.value.phone,
-      dob: this.registerForm.value.dob,
-      role: "Trainee",
-      password: this.registerForm.value.password,
-      address: this.registerForm.value.address.map(
-        (addr: any, index: number) => ({
-          id: index + 1,
-          houseNo: addr.houseNo,
-          street: addr.street,
-          area: addr.area,
-          city: addr.city,
-          state: addr.state,
-          country: addr.country,
-          pincode: addr.pincode,
-        })
-      ),
-    };
-
-    this.userService.addUser(newUser).subscribe(
-      (data) => {
-        console.log("User registered successfully:", data);
-        this.loadUsers();
-      },
-      (err) => {
-        console.log("Error registering user:", err);
-      }
-    );
+    
   }
 }

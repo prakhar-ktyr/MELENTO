@@ -66,6 +66,15 @@ export class UserService {
     console.log(user) ; 
     return this.httpClient.post<any>(this.baseUrl + '/login/' , user , this.httpHeader).pipe(catchError(this.httpError)) ; 
   }
+
+  registerUser(user:any){
+    return this.httpClient.post<any>(this.baseUrl + '/register' , user , this.httpHeader).pipe(catchError(this.httpError))
+  }
+
+  getUsersNotLoggedIn(){
+    return this.httpClient.get<User[]>(this.baseUrl + '/users/notLoggedIn/')
+    .pipe(catchError(this.httpError));
+  }
   httpError(error:HttpErrorResponse){
     let msg='';
     if(error.error instanceof ErrorEvent){

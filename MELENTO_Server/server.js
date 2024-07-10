@@ -149,6 +149,8 @@ collections.forEach((collection) => {
 
 app.get(`/cart/user/:id`, generic_controller.getCartByUserId('cart'));
 
+app.get('/users/notLoggedIn/' , generic_controller.getDocuments("users")) ; 
+
 app.post("/login", (req, res) => {
   const userDetails = req.body;
   const email = userDetails.email;
@@ -166,3 +168,5 @@ app.post("/login", (req, res) => {
       res.status(500).json({ message: error.message });
     });
 });
+
+app.post('/register' , generic_controller.addDocument('users'))
