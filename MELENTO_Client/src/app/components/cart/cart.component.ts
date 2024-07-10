@@ -6,6 +6,7 @@ import { Cart } from '../../models/cart';
 import { TraineeService } from '../../services/trainee.service';
 import { AssessmentTrainees } from '../../models/assessmentTrainess';
 import { loadStripe } from '@stripe/stripe-js';
+import { timeout } from 'rxjs';
 
 
 @Component({
@@ -31,6 +32,10 @@ export class CartComponent {
     this.cartService.getCartByUserId(this.loggedUserId).subscribe((data) => { 
       this.currentUserCart = JSON.parse(data.cart) ; 
     });
+  }
+
+  delay(ms: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   calculateCost() {
@@ -118,7 +123,7 @@ export class CartComponent {
   async placeOrder() {
     // put things in dashbooard
     await this.addAssessmentsToDashboard() ;
-
+    await this.delay(3000);
     this.stripePromise = loadStripe('pk_test_51PaVS0AdmJTZG1A1t6DsmTxd1RhRX4Z7yNcyZVtAw3RIqPAyPI14AfGFXLyXm0cYB1KDyOXaGtSTtSdHvUfbs7TH00nyPL9XNW')
     const stripe = await this.stripePromise;
     if (!stripe) {
