@@ -19,6 +19,7 @@
   </div>
 
   <div class="row mt-4">
-    <canvasjs-chart *ngIf="loggedUserRole === 'Trainee'" [options]="chartOptions"></canvasjs-chart>
+    <canvasjs-chart class="col-7" *ngIf="loggedUserRole == 'Trainee' && hasLoaded" [options]="chartOptions"></canvasjs-chart>
+    <canvasjs-chart class="col-5" *ngIf="loggedUserRole == 'Trainee' && hasLoaded" [options]="pieChartOptions"></canvasjs-chart>
   </div>
 </div>
