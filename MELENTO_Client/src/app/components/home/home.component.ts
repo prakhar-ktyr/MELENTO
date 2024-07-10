@@ -54,56 +54,53 @@ export class HomeComponent {
   openLoginModal(): void {
     this.dialog.open(LoginModalComponent); // Open the Angular Material Dialog for login
   }
-
-  addToCart(newAssessmentForCart: Assessment): void {
-    let cartExists = false;
-    let arrCart: Cart[] = [];
-    let cartId = this.localStorageService.getItem('loggedUserId');
-
-    if (cartId === null) {
-      console.log("User not logged in , can't add to cart");
-      return;
+  calculateCost(currentUserCart:any) {
+    let cost = 0;
+    for (let i = 0; i < currentUserCart.arrAssessments.length; i++) {
+      cost +=
+        currentUserCart.quantity[i] *
+        currentUserCart.arrAssessments[i].price;
     }
+    return cost;
+  }
+  addToCart(newAssessmentForCart: Assessment): void {
+    // check if cart exists 
+    let userId = this.loggedUserId ; 
+    this.cartService.getCartByUserId(userId).subscribe(data => { 
+       console.log(data);
+       if(data.found){
+         // cart exists        
+         let currentCart = JSON.parse(data.cart) ; 
+         console.log(typeof data)
+         console.log(data)
+         // check if new assessment exists in arrAssessments 
+         let assessmentExists = false ; 
+         for(let i = 0 ; i < currentCart.arrAssessments.length ; i++){
+           if(currentCart.arrAssessments[i].id == newAssessmentForCart.id){
+             currentCart.quantity[i] += 1 ;
+             assessmentExists = true ; 
+             break ; 
+           }
+         }
+         console.log('***** ok2 ***********')
+         if(!assessmentExists){
+           currentCart.arrAssessments.push(newAssessmentForCart) ; 
+           currentCart.quantity.push(1) ; 
+         }
 
-    this.cartService.getCarts().subscribe(data => {
-      arrCart = data;
-      for (let i = 0; i < arrCart.length; i++) {
-        if (String(arrCart[i].userId) === this.loggedUserId) {
-          cartExists = true;
-          break;
-        }
-      }
-
-      if (cartExists) {
-        this.cartService.getCartByID(String(cartId)).subscribe((data) => {
-          let assessmentExistsInCart = false;
-          for (let i = 0; i < data.arrAssessments.length; i++) {
-            if (data.arrAssessments[i].id === newAssessmentForCart.id) {
-              data.quantity[i] += 1;
-              assessmentExistsInCart = true;
-              this.cartService.updateCartById(data.id, data).subscribe(data => { });
-              break;
-            }
-          }
-
-          if (!assessmentExistsInCart) {
-            data.arrAssessments.push(newAssessmentForCart);
-            data.quantity.push(1);
-            this.cartService.updateCartById(Number(cartId), data).subscribe((data) => { });
-          }
-        });
-      } else {
-        let obj = {
-          id: this.loggedUserId,
-          userId: this.loggedUserId,
-          quantity: [1],
-          total: newAssessmentForCart.price,
-          arrAssessments: [newAssessmentForCart]
-        }
-        this.cartService.addNewCart(obj).subscribe(data => {
-          console.log("added cart")
-        })
-      }
+         currentCart.total = this.calculateCost(currentCart) ; 
+         // update cart
+         this.cartService.updateCartById(currentCart._id , currentCart).subscribe(data => {
+           console.log('updated cart') ; 
+         })
+       }
+       else{
+         // create new cart 
+         let newCart: Cart = new Cart(Number(userId) ,Number( userId ), [newAssessmentForCart] , [1] , newAssessmentForCart.price) ; 
+           this.cartService.addNewCart(newCart).subscribe(data => {
+             console.log('Data added to cart') ;
+           })
+       }
     })
   }
 

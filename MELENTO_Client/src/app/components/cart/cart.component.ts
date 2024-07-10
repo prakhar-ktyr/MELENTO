@@ -18,6 +18,7 @@ export class CartComponent {
   currentUserCart: Cart = new Cart(0, 0, [], [], 0);
   loggedUserId: string = '';
   stripePromise : any ;
+  matBadgeCount : number = 0 ;
 
   constructor(
     private traineeService: TraineeService,
@@ -86,7 +87,7 @@ export class CartComponent {
     return this.currentUserCart.total;
   }
   async addAssessmentsToDashboard(){
-    console.log('addassessments to dashboard')
+    console.log('addassessments to dashboard') ; 
     this.traineeService.getAssessmentTrainess().subscribe(data => {
       // search for every assessment in cart in the directory
       let arrAss = this.currentUserCart.arrAssessments ; 
@@ -113,12 +114,13 @@ export class CartComponent {
             let newAssTrainee = new AssessmentTrainees(newId.toString() , ass.id.toString() , this.loggedUserId , this.currentUserCart.quantity[index])
             console.log("new ass trainee" ,newAssTrainee) ; 
             this.traineeService.addAssessmentTrainee(newAssTrainee).subscribe(data => {
-              console.log('add assessment trainee since it didnt exist')
+              console.log('add assessment trainee since it didnt exist');
             })
           })
         }
       })
     })
+  
   }
   async placeOrder() {
     // put things in dashbooard
@@ -133,13 +135,14 @@ export class CartComponent {
   
     // Create a Stripe Checkout Session
     const sessionId = await this.createCheckoutSession();
-  
+    
     // Redirect to Stripe Checkout
+    
     const { error } = await stripe.redirectToCheckout({ sessionId });
     if (error) {
       console.error('Error redirecting to Stripe Checkout:', error);
-    }
-
+    } 
+    this.matBadgeCount = 0 ; 
   }
   
 
