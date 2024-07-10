@@ -72,7 +72,7 @@ export class CartComponent {
       } 
       this.currentUserCart.total = this.calculateCost();
       this.cartService.updateCartById(this.currentUserCart.id , this.currentUserCart).subscribe((data) => {
-        'updated cart on increment'
+        'updated cart on decrement'
       });
     });
   }
@@ -80,8 +80,42 @@ export class CartComponent {
   getTotalCost() {
     return this.currentUserCart.total;
   }
+  addAssessmentsToDashboard(){
+    console.log('addassessments to dashboard')
+    this.traineeService.getAssessmentTrainess().subscribe(data => {
+      // search for every assessment in cart in the directory
+      let arrAss = this.currentUserCart.arrAssessments ; 
+      arrAss.forEach((ass , index) => {
+        // check if it exists already 
+        let exists = false ; 
+        for(let i = 0 ; i < data.length ; i++){
+          if(data[i].assessmentId == ass.id.toString() && data[i].traineeId == this.loggedUserId){
+            data[i].quantity += this.currentUserCart.quantity[index] ; 
+            // let assTraineeCopy = data[i] ; 
+            console.log('assessment already exists') ;
+            this.traineeService.updateAssessmentTraineeById(Number(data[i].id) , data[i]).subscribe(data => {
+                console.log('updated assessment that already exists')
+            })
+            break ; 
+          }
+        }
 
+        if(!exists){
+          this.traineeService.getAssessmentTrainess().subscribe(data => {
+            let newId = data.length + 1 ; 
+            let newAssTrainee = new AssessmentTrainees(newId.toString() , ass.id.toString() , this.loggedUserId , this.currentUserCart.quantity[index])
+            this.traineeService.addAssessmentTrainee(newAssTrainee).subscribe(data => {
+              console.log('add assessment trainee since it didnt exist')
+            })
+          })
+        }
+      })
+    })
+  }
   async placeOrder() {
+    // put things in dashbooard
+    this.addAssessmentsToDashboard() ;
+
     const stripe = await this.stripePromise;
     if (!stripe) {
       console.error('Stripe did not load correctly.');
@@ -96,6 +130,7 @@ export class CartComponent {
     if (error) {
       console.error('Error redirecting to Stripe Checkout:', error);
     }
+
   }
   
 

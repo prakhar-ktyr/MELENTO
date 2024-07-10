@@ -119,13 +119,10 @@ export class AssessmentsComponent implements OnInit {
         }
         else{
           // create new cart 
-          this.cartService.getCarts().subscribe(data => {
-            let newCartId = data.length + 1 ; 
-            let newCart: Cart = new Cart(Number(newCartId) ,Number( userId ), [newAssessmentForCart] , [1] , newAssessmentForCart.price) ; 
+          let newCart: Cart = new Cart(Number(userId) ,Number( userId ), [newAssessmentForCart] , [1] , newAssessmentForCart.price) ; 
             this.cartService.addNewCart(newCart).subscribe(data => {
               console.log('Data added to cart') ;
             })
-          })
         }
      })
   }

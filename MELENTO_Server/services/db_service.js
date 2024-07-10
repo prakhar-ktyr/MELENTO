@@ -60,10 +60,15 @@ async function updateDocument(collectionName, id, updatedDocument) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            console.log(updatedDocument) ; 
+            console.log( 'update document', updatedDocument) ; 
             console.log(collectionName);
-            console.log('typeof id ' , typeof id)
-            const result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
+          
+            if(collectionName == 'assessmentTrainees'){
+                const result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
+            }
+            else{
+                const result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
+            }
             if (result.matchedCount > 0) {
                 console.log("Document updated");
                 resolve(result);
@@ -81,12 +86,20 @@ async function updateDocument(collectionName, id, updatedDocument) {
 async function deleteDocument(collectionName, id) {
     return new Promise(async (resolve, reject) => {
         try {
+            console.log('delete document called')
             const coll = await util.connect(collectionName);
-            const result = await coll.deleteOne({ _id: id });
+            let result ;
+            if(collectionName == 'cart'){
+                result = await coll.deleteOne({ _id: Number(id) });
+            }
+            else{
+                result =  await coll.deleteOne({ _id: String(id) });
+            }
             if (result.deletedCount > 0) {
                 console.log("Document deleted");
                 resolve(result);
             } else {
+                console.log('could not delete')
                 resolve(null);
             }
         } catch (err) {

@@ -99,7 +99,7 @@ export class DashboardComponent implements OnInit {
     this.traineeService.getAssessmentTrainess().subscribe(data => {
       this.arrAssessmentTrainees = data;
       this.arrAssessmentTrainees.forEach((asst) => {
-        let q = parseInt(asst.quantity) ; 
+        let q = asst.quantity ; 
         let aid = parseInt(asst.assessmentId ); 
         
         if(q > 0 && asst.traineeId === this.loggedUserId){

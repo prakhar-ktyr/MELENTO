@@ -113,14 +113,15 @@ export class AttemptAssessmentComponent implements OnInit {
 
     this.traineeService.getAssessmentTrainess().subscribe((data) => {
       let updateId = -1;
-      let newAssessmentTrainee = new AssessmentTrainees('0', '0', '0', '0');
+      let newAssessmentTrainee = new AssessmentTrainees('0', '0', '0', 0);
       data.forEach((ass) => {
         if (
           ass.assessmentId === String(this.assessmentId) &&
           ass.traineeId === this.loggedUserId
         ) {
-          let q = parseInt(ass.quantity);
-          ass.quantity = String(Math.max(q - 1, 0));
+          // let q = parseInt(ass.quantity);
+          // ass.quantity = String(Math.max(q - 1, 0));
+          ass.quantity -= 1 ; 
           updateId = Number(ass.id);
           newAssessmentTrainee = ass;
         }
