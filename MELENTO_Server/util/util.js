@@ -1,6 +1,11 @@
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const MongoClient = require('mongodb').MongoClient;
+const crypto = require('crypto');
+
+// Encryption and Decryption settings
+const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY; // Must be 256 bits (32 characters)
+const IV_LENGTH = 16; // For AES, this is always 16
 
 async function connect(collectionName) { 
     const conn = new MongoClient(process.env.MONGO_URI);
@@ -16,6 +21,20 @@ function renamekey(obj, oldkey, newkey) {
     obj[newkey] = obj[oldkey];
     delete obj[oldkey];
 }
+
+function encrypt(text) {
+    const cipher = crypto.createCipheriv('aes-256-cbc', Buffer.from(process.env.ENCRYPTION_KEY), Buffer.from(process.env.IV));
+    let encrypted = cipher.update(text, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    return encrypted;
+  }
+  
+  function decrypt(text) {
+    const decipher = crypto.createDecipheriv('aes-256-cbc', Buffer.from(process.env.ENCRYPTION_KEY), Buffer.from(process.env.IV));
+    let decrypted = decipher.update(text, 'hex', 'utf8');
+    decrypted += decipher.final('utf8');
+    return decrypted;
+  }
 
 async function hashPassword(plainTextPassword) {
     try {
@@ -45,5 +64,7 @@ module.exports = {
     connect,
     renamekey,
     hashPassword,
-    comparePassword
+    comparePassword,
+    encrypt,
+    decrypt
 };

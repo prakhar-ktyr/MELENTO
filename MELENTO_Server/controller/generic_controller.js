@@ -8,6 +8,9 @@ function getDocuments(collectionName) {
                 const objArr = items;
                 objArr.forEach((obj) => {
                     util.renamekey(obj, "_id", "id");
+                    if (collectionName === 'users' && obj.password) {
+                        obj.password = util.decrypt(obj.password); // Decrypt the password
+                    }
                 });
                 const updatedItems = JSON.stringify(objArr);
                 res.setHeader('Content-Type', 'application/json');
@@ -22,12 +25,16 @@ function getDocuments(collectionName) {
     };
 }
 
+
 function getDocumentById(collectionName) {
     return (req, res) => {
         db_service.findById(collectionName, req.params.id).then(
             (item) => {
                 if (item) {
                     util.renamekey(item, "_id", "id");
+                    if (collectionName === 'users' && item.password) {
+                        item.password = util.decrypt(item.password); // Decrypt the password
+                    }
                     res.setHeader('Content-Type', 'application/json');
                     res.send(JSON.stringify(item));
                 } else {
@@ -42,6 +49,7 @@ function getDocumentById(collectionName) {
         });
     };
 }
+
 
 function addDocument(collectionName) {
     return (req, res) => {
@@ -72,17 +80,16 @@ function addDocument(collectionName) {
     };
 }
 
+// generic_controller.js
 function updateDocument(collectionName) {
     return (req, res) => {
         res.header("Access-Control-Allow-Origin", "*");
+        if (collectionName === 'users' && req.body.password) {
+            req.body.password = util.encrypt(req.body.password); // Encrypt the password
+        }
         db_service.updateDocument(collectionName, req.params.id, req.body).then(
             (result) => {
-                // if (result) {
-                //     res.send(result);
-                // } else {
-                //     res.status(404).json({ message: 'Document not found' });
-                // }
-                res.send(result)
+                res.send(result);
             },
             (err) => {
                 res.status(500).json({ message: err.message });
@@ -92,6 +99,7 @@ function updateDocument(collectionName) {
         });
     };
 }
+
 
 function deleteDocument(collectionName) {
     return (req, res) => {

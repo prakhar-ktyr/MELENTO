@@ -28,14 +28,14 @@ export class AddUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadUsers();
+    // this.loadUsers();
   }
 
-  loadUsers(): void {
-    this.userService.getUsers().subscribe((users: User[]) => {
-      this.users = users;
-    });
-  }
+  // loadUsers(): void {
+  //   this.userService.getUsers().subscribe((users: User[]) => {
+  //     this.users = users;
+  //   });
+  // }
 
   createAddress(): FormGroup {
     return this.fb.group({
@@ -67,9 +67,9 @@ export class AddUserComponent implements OnInit {
     return control!.invalid && (control!.touched || !control!.pristine);
   }
 
-  getMaxId(users: User[]): number {
-    return users.reduce((max, user) => (parseInt(user.id) > max ? parseInt(user.id) : max), 0);
-  }
+  // getMaxId(users: User[]): number {
+  //   return users.reduce((max, user) => (parseInt(user.id) > max ? parseInt(user.id) : max), 0);
+  // }
 
   dateValidator(control: AbstractControl): ValidationErrors | null {
     const today = new Date();
@@ -110,7 +110,7 @@ export class AddUserComponent implements OnInit {
       this.userService.addUser(tempUser).subscribe(
         (data) => {
           console.log('User Added:' + data);
-          this.loadUsers();  // Reload users to get the latest list
+          // this.loadUsers();  // Reload users to get the latest list
         },
         (err) => {
           console.log('Error:', err);
