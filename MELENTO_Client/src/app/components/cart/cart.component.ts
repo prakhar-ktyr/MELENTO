@@ -94,7 +94,7 @@ export class CartComponent {
             // let assTraineeCopy = data[i] ; 
             console.log('assessment already exists') ;
             this.traineeService.updateAssessmentTraineeById(Number(data[i].id) , data[i]).subscribe(data => {
-                console.log('updated assessment that already exists')
+                console.log('updated assessment that already exists') ; 
             })
             break ; 
           }

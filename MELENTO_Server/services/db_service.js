@@ -62,12 +62,12 @@ async function updateDocument(collectionName, id, updatedDocument) {
             const coll = await util.connect(collectionName);
             console.log( 'update document', updatedDocument) ; 
             console.log(collectionName);
-          
+            let result ;
             if(collectionName == 'assessmentTrainees'){
-                const result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
+                result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
             }
             else{
-                const result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
+                result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
             }
             if (result.matchedCount > 0) {
                 console.log("Document updated");
