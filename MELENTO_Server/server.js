@@ -6,13 +6,28 @@ const generic_controller = require("./controller/generic_controller");
 const db_service = require("./services/db_service");
 const jwt = require("jsonwebtoken");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
 
 // Load environment variables
 require('dotenv').config();
 
-app.use(cors());
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+// CORS configuration
+const corsOptions = {
+  origin: 'http://localhost:4200', 
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,6 +35,24 @@ const server = app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
+// Route to send email
+app.post('/send-email', (req, res) => {
+  const { name, email, message } = req.body;
+
+  const mailOptions = {
+    from: email,
+    to: process.env.EMAIL_USER,
+    subject: `Enquiry from ${name}`,
+    text: message
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return res.status(500).send(error.toString());
+    }
+    res.status(200).send('Email sent: ' + info.response);
+  });
+});
 
 // Define routes for each collection
 const collections = [
@@ -37,21 +70,19 @@ const collections = [
 // Middleware to protect routes
 const authenticateToken = (req, res, next) => {
   const token = req.headers['authorization'].split(' ')[1];
-  //  res.send(token)
   if (!token) {
-    console.log('Invalid bearer token', token)
     return res.status(401).json({
-        error : 'Bearer token invalid'
+      error: 'Bearer token invalid'
     });
   }
   
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) {
       return res.status(403).json({
-        error : 'Token did not match , verification failed '
-      })
+        error: 'Token did not match, verification failed'
+      });
     }
-    req.user = decoded ;
+    req.user = decoded;
     next();
   });
 };
@@ -79,7 +110,7 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // Stripe webhook to handle checkout session completion
-app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
+app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
 
@@ -93,33 +124,30 @@ app.post('/webhook', express.raw({type: 'application/json'}), (req, res) => {
   switch (event.type) {
     case 'checkout.session.completed':
       const session = event.data.object;
-      // Update the order status in your database here
       console.log(`Payment for session ${session.id} was successful!`);
       break;
     default:
       console.log(`Unhandled event type ${event.type}`);
   }
 
-  res.json({received: true});
+  res.json({ received: true });
 });
 
 collections.forEach((collection) => {
-  if(collection == 'assessments'){
-    app.get(`/${collection}`,  generic_controller.getDocuments(collection));
+  if (collection == 'assessments') {
+    app.get(`/${collection}`, generic_controller.getDocuments(collection));
     app.get(`/${collection}/:id`, generic_controller.getDocumentById(collection));
+  } else {
+    app.get(`/${collection}`, authenticateToken, generic_controller.getDocuments(collection));
+    app.get(`/${collection}/:id`, authenticateToken, generic_controller.getDocumentById(collection));
   }
-  else{
-    app.get(`/${collection}`,  authenticateToken, generic_controller.getDocuments(collection));
-    app.get(`/${collection}/:id`, authenticateToken , generic_controller.getDocumentById(collection));
-  }
-  app.post(`/${collection}`, authenticateToken , generic_controller.addDocument(collection));
+  app.post(`/${collection}`, authenticateToken, generic_controller.addDocument(collection));
   
-  app.put(`/${collection}/:id`, authenticateToken , generic_controller.updateDocument(collection));
-  app.delete(`/${collection}/:id`, authenticateToken , generic_controller.deleteDocument(collection)
-  );
+  app.put(`/${collection}/:id`, authenticateToken, generic_controller.updateDocument(collection));
+  app.delete(`/${collection}/:id`, authenticateToken, generic_controller.deleteDocument(collection));
 });
 
-app.get(`/cart/user/:id` , generic_controller.getCartByUserId('cart')) ; 
+app.get(`/cart/user/:id`, generic_controller.getCartByUserId('cart'));
 
 app.post("/login", (req, res) => {
   const userDetails = req.body;
@@ -128,16 +156,13 @@ app.post("/login", (req, res) => {
   generic_controller
     .getUserByCredentials("users", userDetails)
     .then((foundUser) => {
-      console.log('inside server js login route' ,foundUser)
-        const token =  jwt.sign(foundUser , process.env.JWT_SECRET, { expiresIn: '24h' });
-        console.log('token' , token) ; 
-        res.json({
-            user : foundUser,
-            token : token
-        })
+      const token = jwt.sign(foundUser, process.env.JWT_SECRET, { expiresIn: '24h' });
+      res.json({
+        user: foundUser,
+        token: token
+      });
     })
     .catch((error) => {
       res.status(500).json({ message: error.message });
     });
 });
-

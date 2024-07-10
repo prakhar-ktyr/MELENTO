@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contactus',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactusComponent implements OnInit {
   enquiryForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.enquiryForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -30,6 +31,16 @@ export class ContactusComponent implements OnInit {
       return;
     }
 
-    console.log('Form Submitted', this.enquiryForm.value);
+    this.http.post('http://localhost:3000/send-email', this.enquiryForm.value).subscribe(
+      (response) => {
+        console.log('Email sent successfully', response);
+        alert('Your enquiry has been sent successfully.');
+        this.enquiryForm.reset();
+      },
+      (error) => {
+        console.error('Error sending email', error);
+        alert('There was an error sending your enquiry. Please try again later.');
+      }
+    );
   }
 }
