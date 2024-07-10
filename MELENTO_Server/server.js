@@ -133,14 +133,23 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   res.json({ received: true });
 });
 
+app.get(`/fetchUsers`, 
+  
+  generic_controller.getDocuments( "users")
+  // (req , res) => {
+  //   res.send('Called fetch users')
+  // }
+
+);
+
 collections.forEach((collection) => {
-  // if (collection == 'assessments' || collection == 'users') {
+  if (collection == 'assessments' || collection == 'users') {
     app.get(`/${collection}`, generic_controller.getDocuments(collection));
     app.get(`/${collection}/:id`, generic_controller.getDocumentById(collection));
-  // } else {
-  //   app.get(`/${collection}`, authenticateToken, generic_controller.getDocuments(collection));
-  //   app.get(`/${collection}/:id`, authenticateToken, generic_controller.getDocumentById(collection));
-  // }
+  } else {
+    app.get(`/${collection}`, authenticateToken, generic_controller.getDocuments(collection));
+    app.get(`/${collection}/:id`, authenticateToken, generic_controller.getDocumentById(collection));
+  }
 
   if (collection == 'users') {
     app.post(`/${collection}`, generic_controller.addDocument(collection));
@@ -156,7 +165,7 @@ collections.forEach((collection) => {
 
 app.get(`/cart/user/:id`, generic_controller.getCartByUserId('cart'));
 
-app.get('/users/notLoggedIn/' , generic_controller.getDocuments("users")) ; 
+
 
 app.post("/login", (req, res) => {
   const userDetails = req.body;

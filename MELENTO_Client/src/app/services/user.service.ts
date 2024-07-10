@@ -72,7 +72,7 @@ export class UserService {
   }
 
   getUsersNotLoggedIn(){
-    return this.httpClient.get<User[]>(this.baseUrl + '/users/notLoggedIn/')
+    return this.httpClient.get<User[]>(this.baseUrl + '/fetchUsers')
     .pipe(catchError(this.httpError));
   }
   httpError(error:HttpErrorResponse){

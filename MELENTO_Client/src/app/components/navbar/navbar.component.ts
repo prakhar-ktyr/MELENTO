@@ -147,9 +147,9 @@ export class NavbarComponent implements OnInit {
       .subscribe((data) => {
         const user = data.user;
         const token = data.token;
-        console.log('user inside client userauth ' , user)
-        if(user && token){
-          console.log('Got user and token')
+        console.log("user inside client userauth ", user);
+        if (user && token) {
+          console.log("Got user and token");
           this.localStorageService.setItem("token", token);
           this.localStorageService.setItem(
             "username",
@@ -159,10 +159,9 @@ export class NavbarComponent implements OnInit {
           this.localStorageService.setItem("loggedUserId", user._id);
           this.isLoggedIn = true;
           this.userRole = user.role;
-          this.router.navigate(['/dashboard']);
-        }
-        else{
-          console.log('Invalid credentials')
+          this.router.navigate(["/dashboard"]);
+        } else {
+          console.log("Invalid credentials");
         }
       });
   }
@@ -216,38 +215,42 @@ export class NavbarComponent implements OnInit {
     }
 
     //const newUserId = this.getMaxId(this.arrUsers) + 1;
+    this.userService.getUsersNotLoggedIn().subscribe((data) => {
+      console.log("called get users not logged in", data);
+      let newUserId = data.length + 1;
+      console.log(newUserId);
+      const newUser: User = {
+        id: newUserId.toString(),
+        firstName: this.registerForm.value.firstName,
+        lastName: this.registerForm.value.lastName,
+        email: this.registerForm.value.email,
+        phone: this.registerForm.value.phone,
+        dob: this.registerForm.value.dob,
+        role: "Trainee",
+        password: this.registerForm.value.password,
+        address: this.registerForm.value.address.map(
+          (addr: any, index: number) => ({
+            id: index + 1,
+            houseNo: addr.houseNo,
+            street: addr.street,
+            area: addr.area,
+            city: addr.city,
+            state: addr.state,
+            country: addr.country,
+            pincode: addr.pincode,
+          })
+        ),
+      };
 
-    const newUser: User = {
-      id: "11",
-      firstName: this.registerForm.value.firstName,
-      lastName: this.registerForm.value.lastName,
-      email: this.registerForm.value.email,
-      phone: this.registerForm.value.phone,
-      dob: this.registerForm.value.dob,
-      role: "Trainee",
-      password: this.registerForm.value.password,
-      address: this.registerForm.value.address.map(
-        (addr: any, index: number) => ({
-          id: index + 1,
-          houseNo: addr.houseNo,
-          street: addr.street,
-          area: addr.area,
-          city: addr.city,
-          state: addr.state,
-          country: addr.country,
-          pincode: addr.pincode,
-        })
-      ),
-    };
-
-    this.userService.addUser(newUser).subscribe(
-      (data) => {
-        console.log("User registered successfully:", data);
-        this.loadUsers();
-      },
-      (err) => {
-        console.log("Error registering user:", err);
-      }
-    );
+      this.userService.addUser(newUser).subscribe(
+        (data) => {
+          console.log("User registered successfully:", data);
+          this.loadUsers();
+        },
+        (err) => {
+          console.log("Error registering user:", err);
+        }
+      );
+    });
   }
 }
