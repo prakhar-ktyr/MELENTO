@@ -28,10 +28,10 @@ export class CartService {
       .pipe(catchError(this.httpError));
   }
 
-  addAssessmentToCart(cartId: number, updatedCart: Cart) {
-    return this.httpClient.put<Cart>(this.baseUrl + "/cart/" + cartId, updatedCart, this.httpHeader).pipe(catchError(this.httpError));
+  getCartByUserId(id:any){
+    return this.httpClient.get<any>(this.baseUrl + '/cart/user/' + id, this.httpHeader)
+    .pipe(catchError(this.httpError));
   }
-
   updateCartById(cartId: number, newCart: Cart) {
     return this.httpClient.put<Cart>(this.baseUrl + "/cart/" + cartId, newCart, this.httpHeader).pipe(catchError(this.httpError));
   }

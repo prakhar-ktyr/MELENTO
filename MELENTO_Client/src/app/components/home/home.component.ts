@@ -89,7 +89,7 @@ export class HomeComponent {
           if (!assessmentExistsInCart) {
             data.arrAssessments.push(newAssessmentForCart);
             data.quantity.push(1);
-            this.cartService.addAssessmentToCart(Number(cartId), data).subscribe((data) => { });
+            this.cartService.updateCartById(Number(cartId), data).subscribe((data) => { });
           }
         });
       } else {

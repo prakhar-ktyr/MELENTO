@@ -119,6 +119,7 @@ collections.forEach((collection) => {
   );
 });
 
+app.get(`/cart/user/:id` , generic_controller.getCartByUserId('cart')) ; 
 
 app.post("/login", (req, res) => {
   const userDetails = req.body;
@@ -127,8 +128,9 @@ app.post("/login", (req, res) => {
   generic_controller
     .getUserByCredentials("users", userDetails)
     .then((foundUser) => {
-        
+      console.log('inside server js login route' ,foundUser)
         const token =  jwt.sign(foundUser , process.env.JWT_SECRET, { expiresIn: '24h' });
+        console.log('token' , token) ; 
         res.json({
             user : foundUser,
             token : token

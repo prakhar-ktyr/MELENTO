@@ -15,7 +15,7 @@ import { LocalStorageService } from "../services/local-storage.service";
 export class AuthInterceptor implements HttpInterceptor {
   token = "";
   constructor(private localStorageService: LocalStorageService) {
-    this.localStorageService.getItem("token");
+    // this.localStorageService.getItem("token");
   }
   intercept(
     req: HttpRequest<any>,

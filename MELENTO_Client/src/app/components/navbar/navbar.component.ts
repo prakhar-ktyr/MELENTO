@@ -142,52 +142,27 @@ export class NavbarComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
 
-    // this.userService.getUsers().subscribe((users: User[]) => {
-    //   const user = users.find(u => u.email === email && u.password === password);
-
-    //   if (user) {
-    //     this.localStorageService.setItem('username', `${user.firstName} ${user.lastName}`);
-    //     this.localStorageService.setItem('role', user.role);
-    //     this.localStorageService.setItem('loggedUserId', user.id);
-    //     this.isLoggedIn = true;
-    //     this.userRole = user.role;
-    //     console.log('Login successful');
-    //     // this.userService.userAuth(user).subscribe((data) => {
-    //     //   console.log("Sent user data to server")
-    //     // })
-    //     this.userService.userAuth({email : email , password : password}).subscribe((data) => {
-    //       console.log("Sent user login data to server") ;
-    //       console.log(data) ;
-    //       this.localStorageService.setItem('token' , data.token) ;
-    //     })
-    //     this.router.navigate(['/dashboard']);
-    //   } else {
-    //     console.log('Invalid credentials');
-    //   }
-    // });
-
     this.userService
       .userAuth({ email: email, password: password })
       .subscribe((data) => {
-        console.log("Sent user login data to server");
-        console.log(data);
         const user = data.user;
         const token = data.token;
-        console.log("user" , user , "token" , token) ; 
+        console.log('user inside client userauth ' , user)
         if(user && token){
+          console.log('Got user and token')
           this.localStorageService.setItem("token", token);
           this.localStorageService.setItem(
             "username",
             `${user.firstName} ${user.lastName}`
           );
           this.localStorageService.setItem("role", user.role);
-          this.localStorageService.setItem("loggedUserId", user.id);
+          this.localStorageService.setItem("loggedUserId", user._id);
           this.isLoggedIn = true;
           this.userRole = user.role;
           this.router.navigate(['/dashboard']);
         }
         else{
-          window.alert('Invalid credentials') ; 
+          console.log('Invalid credentials')
         }
       });
   }

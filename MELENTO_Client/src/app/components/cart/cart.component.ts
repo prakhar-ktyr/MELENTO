@@ -28,9 +28,8 @@ export class CartComponent {
       loggedId = '0';
     }
     this.loggedUserId = loggedId;
-    this.cartService.getCartByID(this.loggedUserId).subscribe((data) => {
-      this.currentUserCart = data;
-      this.currentUserCart.total = this.calculateCost();
+    this.cartService.getCartByUserId(this.loggedUserId).subscribe((data) => { 
+      this.currentUserCart = JSON.parse(data.cart) ; 
     });
   }
 
@@ -43,25 +42,38 @@ export class CartComponent {
     }
     return cost;
   }
-
+  
+  renamekey(obj:any, oldkey:any, newkey:any) {
+    obj[newkey] = obj[oldkey];
+    delete obj[oldkey];
+  }
   addQuantity(addAssessmentId: number) {
-    this.cartService.getCartByID(String(this.currentUserCart.userId)).subscribe((data) => {
-      this.currentUserCart.quantity = data.quantity;
-      this.currentUserCart.quantity[addAssessmentId] += 1;
+    this.cartService.getCartByUserId(this.loggedUserId).subscribe((data) => {
+      let currentCart = JSON.parse(data.cart) ; 
+      this.renamekey(currentCart , '_id' , 'id') ;
+      this.currentUserCart = currentCart;
+      this.currentUserCart.quantity[addAssessmentId] += 1 ; 
       this.currentUserCart.total = this.calculateCost();
-      this.cartService.updateCartById(this.currentUserCart.userId, this.currentUserCart).subscribe((data) => {});
+      this.cartService.updateCartById(this.currentUserCart.id , this.currentUserCart).subscribe((data) => {
+        'updated cart on increment'
+      });
     });
   }
 
   removeQuantity(removeAssessmentId: number) {
-    this.cartService.getCartByID(String(this.currentUserCart.userId)).subscribe((data) => {
-      this.currentUserCart.quantity = data.quantity;
-      this.currentUserCart.quantity[removeAssessmentId] = Math.max(
-        this.currentUserCart.quantity[removeAssessmentId] - 1,
-        0
-      );
+    this.cartService.getCartByUserId(this.loggedUserId).subscribe((data) => {
+      let currentCart = JSON.parse(data.cart) ; 
+      this.renamekey(currentCart , '_id' , 'id') ;
+      this.currentUserCart = currentCart;
+      this.currentUserCart.quantity[removeAssessmentId] -= 1 ;
+      if(  this.currentUserCart.quantity[removeAssessmentId] == 0){
+        this.currentUserCart.quantity.splice(removeAssessmentId , 1) ; 
+        this.currentUserCart.arrAssessments.splice(removeAssessmentId , 1) ; 
+      } 
       this.currentUserCart.total = this.calculateCost();
-      this.cartService.updateCartById(this.currentUserCart.userId, this.currentUserCart).subscribe((data) => {});
+      this.cartService.updateCartById(this.currentUserCart.id , this.currentUserCart).subscribe((data) => {
+        'updated cart on increment'
+      });
     });
   }
 

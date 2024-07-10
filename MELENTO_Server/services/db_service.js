@@ -60,11 +60,15 @@ async function updateDocument(collectionName, id, updatedDocument) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            const result = await coll.updateOne({ _id: id }, { $set: updatedDocument });
+            console.log(updatedDocument) ; 
+            console.log(collectionName);
+            console.log('typeof id ' , typeof id)
+            const result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
             if (result.matchedCount > 0) {
                 console.log("Document updated");
                 resolve(result);
             } else {
+                console.log('Could not update')
                 resolve(null);
             }
         } catch (err) {
@@ -97,10 +101,9 @@ async function findUserByCreds(collectionName, credentials) {
         try {
             const coll = await util.connect(collectionName);
             const item = await coll.findOne({email : credentials.email});
-            // console.log(item);
+    
             let correctPassword = item.password ; 
             let inputPassword = credentials.password ;
-            
             let match = await util.comparePassword(inputPassword , correctPassword) ; 
             if(match) resolve(item);
             else throw new Error('Invalid credentials')
@@ -126,6 +129,17 @@ async function addUser(collectionName, document) {
     });
 }
 
+async function getCartByUserId(collectionName , userIdInput){
+    return new Promise(async (resolve, reject) => {
+        try {
+            const coll = await util.connect(collectionName);
+            const cart = await coll.findOne({ userId : Number(userIdInput) });
+            resolve(cart);
+        } catch (err) {
+            reject(err);
+        }
+    });
+}
 module.exports = {
     findAll,
     findById,
@@ -133,5 +147,6 @@ module.exports = {
     updateDocument,
     deleteDocument,
     findUserByCreds,
-    addUser
+    addUser , 
+    getCartByUserId
 };

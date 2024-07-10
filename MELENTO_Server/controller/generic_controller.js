@@ -46,8 +46,8 @@ function getDocumentById(collectionName) {
 function addDocument(collectionName) {
     return (req, res) => {
         res.header("Access-Control-Allow-Origin", "*");
+        util.renamekey(req.body , "id" , "_id")
         if(collectionName === 'users'){
-            console.log(req.body);
             db_service.addUser(collectionName, req.body).then(
                 (result) => {
                     res.send(result);
@@ -76,11 +76,12 @@ function updateDocument(collectionName) {
         res.header("Access-Control-Allow-Origin", "*");
         db_service.updateDocument(collectionName, req.params.id, req.body).then(
             (result) => {
-                if (result) {
-                    res.send(result);
-                } else {
-                    res.status(404).json({ message: 'Document not found' });
-                }
+                // if (result) {
+                //     res.send(result);
+                // } else {
+                //     res.status(404).json({ message: 'Document not found' });
+                // }
+                res.send(result)
             },
             (err) => {
                 res.status(500).json({ message: err.message });
@@ -116,7 +117,8 @@ const getUserByCredentials = (collectionName, credentials) => {
         db_service.findUserByCreds(collectionName, credentials)
             .then(foundUser => {
                 if (foundUser) {
-                    util.renamekey(foundUser, "_id", "id");
+                    // util.renamekey(foundUser, "_id", "id");
+                    console.log('generic controller get user by creds' ,foundUser)
                     resolve(foundUser);
                 } else {
                     reject(new Error('Document not found'));
@@ -128,6 +130,29 @@ const getUserByCredentials = (collectionName, credentials) => {
     });
 };
 
+const getCartByUserId = (collectionName) => {
+    return (req, res) => {
+        db_service.getCartByUserId(collectionName, req.params.id).then(
+            (item) => {
+                if (item) {
+                    // util.renamekey(item, "_id", "id");
+                    res.setHeader('Content-Type', 'application/json');
+                    res.send({
+                        cart : JSON.stringify(item) , 
+                        found : true 
+                    });
+                } else {
+                    // res.status(404).json({ message: 'Document not found' });
+                    res.send({
+                        found : false 
+                    })
+                }
+            }
+        ).catch((error) => {
+            res.status(500).json({ message: error.message });
+        });
+    };
+}
 module.exports = {
     getDocuments,
     getDocumentById,
@@ -135,4 +160,5 @@ module.exports = {
     updateDocument,
     deleteDocument,
     getUserByCredentials,
+    getCartByUserId
 };
