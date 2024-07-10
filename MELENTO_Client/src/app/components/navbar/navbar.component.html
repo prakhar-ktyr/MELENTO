@@ -27,7 +27,7 @@
           <a class="nav-link" [routerLink]="['/contactus']">Contact Us</a>
         </li>
         <li class="nav-item" *ngIf="isLoggedIn">
-          <div *ngIf="newAssessmentCount >= 0" matBadge="{{newAssessmentCount}}" matBadgeSize="large" class="demo-section"></div>
+          <div *ngIf="newAssessmentCount > 0" matBadge="{{newAssessmentCount}}" matBadgeSize="large" class="demo-section"></div>
           <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
         </li>
         <form class="d-flex ms-3 me-2" (ngSubmit)="onSearch()">
