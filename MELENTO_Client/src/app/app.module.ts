@@ -66,6 +66,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor, httpInterceptorProvider } from './interceptors/auth.interceptor';
 import { SuccessComponent } from './components/success/success.component';
 import { CancelComponent } from './components/cancel/cancel.component';
+import { ViewTraineeComponent } from './components/view-trainee/view-trainee.component';
+import { ViewFacultyComponent } from './components/view-faculty/view-faculty.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +111,9 @@ import { CancelComponent } from './components/cancel/cancel.component';
     LoginModalComponent,
     ReportComponent,
     SuccessComponent,
-    CancelComponent
+    CancelComponent,
+    ViewTraineeComponent,
+    ViewFacultyComponent
   ],
   imports: [
     ReactiveFormsModule,
