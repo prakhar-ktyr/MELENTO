@@ -47,7 +47,11 @@ async function addDocument(collectionName, document) {
     return new Promise(async (resolve, reject) => {
         try {
             const coll = await util.connect(collectionName);
-            const result = await addObject(coll, document);
+            let result = await addObject(coll, document);;
+            
+            console.log('collection name ' , collectionName) ; 
+            console.log('new document' , document) ; 
+
             resolve(result);
         } catch (err) {
             reject(err);
@@ -62,12 +66,12 @@ async function updateDocument(collectionName, id, updatedDocument) {
             const coll = await util.connect(collectionName);
             console.log( 'update document', updatedDocument) ; 
             console.log(collectionName);
-          
+            let result ;
             if(collectionName == 'assessmentTrainees'){
-                const result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
+                result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
             }
             else{
-                const result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
+                result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
             }
             if (result.matchedCount > 0) {
                 console.log("Document updated");

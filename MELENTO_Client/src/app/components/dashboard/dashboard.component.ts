@@ -103,12 +103,13 @@ export class DashboardComponent implements OnInit {
         let aid = parseInt(asst.assessmentId ); 
         
         if(q > 0 && asst.traineeId === this.loggedUserId){
-          let a : Assessment ; 
+          
           this.assessmentService.getAssessmentById(aid).subscribe((data) => {
             this.arrAssessments.push(data) ; 
             this.quantityMap.set(asst.assessmentId , q) ;
             this.cdr.detectChanges();
           })
+
         }
       })
     });

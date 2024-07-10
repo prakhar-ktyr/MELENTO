@@ -16,7 +16,7 @@ import { loadStripe } from '@stripe/stripe-js';
 export class CartComponent {
   currentUserCart: Cart = new Cart(0, 0, [], [], 0);
   loggedUserId: string = '';
-  stripePromise = loadStripe('pk_test_51PaVS0AdmJTZG1A1t6DsmTxd1RhRX4Z7yNcyZVtAw3RIqPAyPI14AfGFXLyXm0cYB1KDyOXaGtSTtSdHvUfbs7TH00nyPL9XNW');
+  stripePromise : any ;
 
   constructor(
     private traineeService: TraineeService,
@@ -80,7 +80,7 @@ export class CartComponent {
   getTotalCost() {
     return this.currentUserCart.total;
   }
-  addAssessmentsToDashboard(){
+  async addAssessmentsToDashboard(){
     console.log('addassessments to dashboard')
     this.traineeService.getAssessmentTrainess().subscribe(data => {
       // search for every assessment in cart in the directory
@@ -92,18 +92,21 @@ export class CartComponent {
           if(data[i].assessmentId == ass.id.toString() && data[i].traineeId == this.loggedUserId){
             data[i].quantity += this.currentUserCart.quantity[index] ; 
             // let assTraineeCopy = data[i] ; 
+            exists = true ; 
             console.log('assessment already exists') ;
             this.traineeService.updateAssessmentTraineeById(Number(data[i].id) , data[i]).subscribe(data => {
-                console.log('updated assessment that already exists')
+                console.log('updated assessment that already exists') ; 
             })
             break ; 
           }
         }
 
         if(!exists){
+          console.log('this assessment in cart doesnt exist so create new ass trainee') ;
           this.traineeService.getAssessmentTrainess().subscribe(data => {
             let newId = data.length + 1 ; 
             let newAssTrainee = new AssessmentTrainees(newId.toString() , ass.id.toString() , this.loggedUserId , this.currentUserCart.quantity[index])
+            console.log("new ass trainee" ,newAssTrainee) ; 
             this.traineeService.addAssessmentTrainee(newAssTrainee).subscribe(data => {
               console.log('add assessment trainee since it didnt exist')
             })
@@ -114,8 +117,9 @@ export class CartComponent {
   }
   async placeOrder() {
     // put things in dashbooard
-    this.addAssessmentsToDashboard() ;
+    await this.addAssessmentsToDashboard() ;
 
+    this.stripePromise = loadStripe('pk_test_51PaVS0AdmJTZG1A1t6DsmTxd1RhRX4Z7yNcyZVtAw3RIqPAyPI14AfGFXLyXm0cYB1KDyOXaGtSTtSdHvUfbs7TH00nyPL9XNW')
     const stripe = await this.stripePromise;
     if (!stripe) {
       console.error('Stripe did not load correctly.');

@@ -61,6 +61,7 @@ function addDocument(collectionName) {
            
             db_service.addDocument(collectionName, req.body).then(
                 (result) => {
+                    console.log('generic controller add document called')
                     res.send(result);
                 }
        
