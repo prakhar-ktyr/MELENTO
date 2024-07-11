@@ -12,46 +12,41 @@ const port = 3000;
 
 // Load environment variables
 require('dotenv').config();
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  }
-});
-
-// CORS configuration
-const corsOptions = {
-  origin: 'http://localhost:4200', 
-  optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
-app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 const server = app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-// Route to send email
-app.post('/send-email', (req, res) => {
-  const { name, email, message } = req.body;
+app.use(bodyParser.json());
+app.use(cors());
 
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
-    subject: `Enquiry from ${name}`,
-    text: message
-  };
-
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return res.status(500).send(error.toString());
+// Nodemailer configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
-    res.status(200).send('Email sent: ' + info.response);
-  });
+});
+
+// Endpoint to send email
+app.post('/send-email', (req, res) => {
+    const { name, email, message } = req.body;
+    console.log(req.body) ;
+    const mailOptions = {
+        from: email,  // sender address
+        to: email,  // receiver address
+        subject: `Message from ${name}`,  // Subject line
+        text: message  // plain text body
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return res.status(500).send(error.toString());
+        }
+        res.status(200).send('Email sent: ' + info.response);
+    });
 });
 
 // Define routes for each collection

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { EmailService } from '../../services/email.service';
 
 @Component({
   selector: 'app-contactus',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ContactusComponent implements OnInit {
   enquiryForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient , private emailService : EmailService) {
     this.enquiryForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -30,17 +31,17 @@ export class ContactusComponent implements OnInit {
       this.enquiryForm.markAllAsTouched();
       return;
     }
+    console.log(this.enquiryForm.value) ; 
+    const {name , email , message} = this.enquiryForm.value ; 
+    console.log(name , email , message) ; 
+    const info = {
+      name : name ,
+      email : email , 
+      message : message 
+    }
+    this.emailService.sendEmail(info).subscribe(data => {
+      console.log('Email sent successfully') ; 
+    })
 
-    this.http.post('http://localhost:3000/send-email', this.enquiryForm.value).subscribe(
-      (response) => {
-        console.log('Email sent successfully', response);
-        alert('Your enquiry has been sent successfully.');
-        this.enquiryForm.reset();
-      },
-      (error) => {
-        console.error('Error sending email', error);
-        alert('There was an error sending your enquiry. Please try again later.');
-      }
-    );
   }
 }
