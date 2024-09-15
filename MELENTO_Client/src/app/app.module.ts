@@ -142,7 +142,7 @@ import { ViewFacultyComponent } from './components/view-faculty/view-faculty.com
     provideClientHydration(),
     LocalStorageService,
     provideAnimationsAsync(),
-    httpInterceptorProvider
+    // httpInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })
