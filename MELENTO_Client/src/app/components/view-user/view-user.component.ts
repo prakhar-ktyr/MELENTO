@@ -12,7 +12,7 @@ export class ViewUserComponent {
   constructor(private userService: UserService) {
     this.userService.getUsers().subscribe(data => {
       this.arrUsers = data;
-      console.log(data);
+      console.log(this.arrUsers);
     });
   }
 }

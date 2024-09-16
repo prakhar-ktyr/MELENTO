@@ -25,9 +25,10 @@ async function findAll(collectionName) {
         return items;
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Find document by ID in a collection
@@ -39,9 +40,10 @@ async function findById(collectionName, id) {
         return item;
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Add a new document to a collection
@@ -55,9 +57,10 @@ async function addDocument(collectionName, document) {
         return result;
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Update a document in a collection
@@ -68,10 +71,10 @@ async function updateDocument(collectionName, id, updatedDocument) {
         console.log('update document', updatedDocument);
         console.log(collectionName);
         let result;
-        if (collectionName === 'assessmentTrainees') {
-            result = await coll.updateOne({ _id: String(id) }, { $set: updatedDocument });
+        if (collectionName === "cart" || collectionName === "reports") {
+            result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
         } else {
-            result = await coll.updateOne({ _id: Number(id) }, { $set: updatedDocument });
+            result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
         }
         if (result.matchedCount > 0) {
             console.log("Document updated");
@@ -82,9 +85,10 @@ async function updateDocument(collectionName, id, updatedDocument) {
         }
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Delete a document in a collection
@@ -108,9 +112,10 @@ async function deleteDocument(collectionName, id) {
         }
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Find user by credentials
@@ -129,9 +134,10 @@ async function findUserByCreds(collectionName, credentials) {
         else throw new Error('Invalid credentials');
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Add a new user with password encryption
@@ -146,9 +152,10 @@ async function addUser(collectionName, document) {
         return result;
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 // Get cart by userId
@@ -160,9 +167,10 @@ async function getCartByUserId(collectionName, userIdInput) {
         return cart;
     } catch (err) {
         throw err;
-    } finally {
-        await util.disconnect(); // Close connection
-    }
+    } 
+    // finally {
+    //     await util.disconnect(); // Close connection
+    // }
 }
 
 module.exports = {

@@ -167,7 +167,7 @@ export class DashboardComponent implements OnInit {
           console.log("assessment toggled");
         });
     });
-    window.location.reload();
+    // window.location.reload();
     // Handle the toggle change event here
   }
 }

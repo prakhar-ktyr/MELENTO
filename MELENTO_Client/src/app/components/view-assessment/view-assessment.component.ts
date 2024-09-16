@@ -18,7 +18,7 @@ export class ViewAssessmentComponent implements OnInit {
 
   loadAssessments(): void {
     this.assessmentService.getAssessments().subscribe(
-      (assessments: Assessment[]) => {
+      (assessments: any) => {
         this.assessments = assessments;
         console.log('Assessments Loaded:', this.assessments);
       },
