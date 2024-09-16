@@ -1,6 +1,7 @@
 const util = require('../util/util');
-const util2 = require('../util/util2')
+const util2 = require('../util/util2');
 const bcrypt = require('bcryptjs');
+
 // Helper function to add an object to the collection
 async function addObject(collection, object) {
     return new Promise((resolve, reject) => {
@@ -17,150 +18,153 @@ async function addObject(collection, object) {
 
 // Find all documents in a collection
 async function findAll(collectionName) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            const items = await coll.find().toArray();
-            // console.log(items);
-            resolve(items);
-        } catch (err) {
-            reject(err);
-        }
-    });
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        const items = await coll.find().toArray();
+        return items;
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
 // Find document by ID in a collection
 async function findById(collectionName, id) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            const item = await coll.findOne({ _id: id });
-            // console.log(item);
-            resolve(item);
-        } catch (err) {
-            reject(err);
-        }
-    });
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        const item = await coll.findOne({ _id: id });
+        return item;
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
 // Add a new document to a collection
 async function addDocument(collectionName, document) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            let result = await addObject(coll, document);;
-            
-            console.log('collection name ' , collectionName) ; 
-            console.log('new document' , document) ; 
-
-            resolve(result);
-        } catch (err) {
-            reject(err);
-        }
-    });
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        let result = await addObject(coll, document);
+        console.log('collection name ', collectionName);
+        console.log('new document', document);
+        return result;
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
 // Update a document in a collection
 async function updateDocument(collectionName, id, updatedDocument) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            console.log( 'update document', updatedDocument) ; 
-            console.log(collectionName);
-            let result ;
-            if(collectionName == 'assessmentTrainees'){
-                result = await coll.updateOne({ _id: String(id)}, { $set: updatedDocument });
-            }
-            else{
-                result = await coll.updateOne({ _id: Number(id)}, { $set: updatedDocument });
-            }
-            if (result.matchedCount > 0) {
-                console.log("Document updated");
-                resolve(result);
-            } else {
-                console.log('Could not update')
-                resolve(null);
-            }
-        } catch (err) {
-            reject(err);
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        console.log('update document', updatedDocument);
+        console.log(collectionName);
+        let result;
+        if (collectionName === 'assessmentTrainees') {
+            result = await coll.updateOne({ _id: String(id) }, { $set: updatedDocument });
+        } else {
+            result = await coll.updateOne({ _id: Number(id) }, { $set: updatedDocument });
         }
-    });
+        if (result.matchedCount > 0) {
+            console.log("Document updated");
+            return result;
+        } else {
+            console.log('Could not update');
+            return null;
+        }
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
 // Delete a document in a collection
 async function deleteDocument(collectionName, id) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            console.log('delete document called')
-            const coll = await util.connect(collectionName);
-            let result ;
-            if(collectionName == 'cart'){
-                result = await coll.deleteOne({ _id: Number(id) });
-            }
-            else{
-                result =  await coll.deleteOne({ _id: String(id) });
-            }
-            if (result.deletedCount > 0) {
-                console.log("Document deleted");
-                resolve(result);
-            } else {
-                console.log('could not delete')
-                resolve(null);
-            }
-        } catch (err) {
-            reject(err);
+    let coll;
+    try {
+        console.log('delete document called');
+        coll = await util.connect(collectionName);
+        let result;
+        if (collectionName === 'cart') {
+            result = await coll.deleteOne({ _id: Number(id) });
+        } else {
+            result = await coll.deleteOne({ _id: String(id) });
         }
-    });
+        if (result.deletedCount > 0) {
+            console.log("Document deleted");
+            return result;
+        } else {
+            console.log('Could not delete');
+            return null;
+        }
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
-// db_service.js
+// Find user by credentials
 async function findUserByCreds(collectionName, credentials) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            const item = await coll.findOne({ email: credentials.email });
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        const item = await coll.findOne({ email: credentials.email });
 
-            let encryptedPassword = item.password;
-            let decryptedPassword = util.decrypt(encryptedPassword); // Decrypt the password
-            let inputPassword = credentials.password;
+        let encryptedPassword = item.password;
+        let decryptedPassword = util.decrypt(encryptedPassword); // Decrypt the password
+        let inputPassword = credentials.password;
 
-            let match = (inputPassword === decryptedPassword);
-            if (match) resolve(item);
-            else throw new Error('Invalid credentials');
-        } catch (err) {
-            reject(err);
-        }
-    });
+        let match = (inputPassword === decryptedPassword);
+        if (match) return item;
+        else throw new Error('Invalid credentials');
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
-
-// Add a new user with password encryption 
+// Add a new user with password encryption
 async function addUser(collectionName, document) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            let password = document.password; 
-            password = util.encrypt(password); // Encrypt the password
-            document.password = password; 
-            const result = await addObject(coll, document);
-            resolve(result);
-        } catch (err) {
-            reject(err);
-        }
-    });
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        let password = document.password;
+        password = util.encrypt(password); // Encrypt the password
+        document.password = password;
+        const result = await addObject(coll, document);
+        return result;
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
 
-async function getCartByUserId(collectionName , userIdInput){
-    return new Promise(async (resolve, reject) => {
-        try {
-            const coll = await util.connect(collectionName);
-            const cart = await coll.findOne({ userId : Number(userIdInput) });
-            resolve(cart);
-        } catch (err) {
-            reject(err);
-        }
-    });
+// Get cart by userId
+async function getCartByUserId(collectionName, userIdInput) {
+    let coll;
+    try {
+        coll = await util.connect(collectionName);
+        const cart = await coll.findOne({ userId: Number(userIdInput) });
+        return cart;
+    } catch (err) {
+        throw err;
+    } finally {
+        await util.disconnect(); // Close connection
+    }
 }
+
 module.exports = {
     findAll,
     findById,
@@ -168,6 +172,6 @@ module.exports = {
     updateDocument,
     deleteDocument,
     findUserByCreds,
-    addUser , 
+    addUser,
     getCartByUserId
 };

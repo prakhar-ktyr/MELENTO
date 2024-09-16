@@ -7,14 +7,25 @@ const crypto = require('crypto');
 const ENCRYPTION_KEY = process.env.ENCRYPTION_KEY; // Must be 256 bits (32 characters)
 const IV_LENGTH = 16; // For AES, this is always 16
 
-async function connect(collectionName) { 
-    const conn = new MongoClient(process.env.MONGO_URI);
-    await conn.connect();
-    console.log("Connected to database");
-    const myDB = conn.db('MELENTO_Mongodb');
-    // const myDB = conn.db('assessments');
+let conn;  // Global variable to hold the MongoClient instance
+
+async function connect(collectionName) {
+    if (!conn) {
+        conn = new MongoClient(process.env.MONGO_URI); // Create new connection only if one doesn't exist
+        await conn.connect();
+        console.log("Connected to database");
+    }
+    const myDB = conn.db('MELENTO_Mongodb'); // Replace with your desired database
     const coll = myDB.collection(collectionName);
     return coll;
+}
+
+async function disconnect() {
+    if (conn) {
+        await conn.close();  // Close the MongoDB connection
+        console.log("Disconnected from database");
+        conn = null;  // Reset the connection variable
+    }
 }
 
 function renamekey(obj, oldkey, newkey) {
@@ -66,5 +77,6 @@ module.exports = {
     hashPassword,
     comparePassword,
     encrypt,
-    decrypt
+    decrypt,
+    disconnect
 };

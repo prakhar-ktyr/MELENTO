@@ -125,23 +125,23 @@ export class CartComponent {
   async placeOrder() {
     // put things in dashbooard
     await this.addAssessmentsToDashboard() ;
-    await this.delay(3000);
-    this.stripePromise = loadStripe('pk_test_51PaVS0AdmJTZG1A1t6DsmTxd1RhRX4Z7yNcyZVtAw3RIqPAyPI14AfGFXLyXm0cYB1KDyOXaGtSTtSdHvUfbs7TH00nyPL9XNW')
-    const stripe = await this.stripePromise;
-    if (!stripe) {
-      console.error('Stripe did not load correctly.');
-      return;
-    }
+    // await this.delay(3000);
+    // this.stripePromise = loadStripe('pk_test_51PaVS0AdmJTZG1A1t6DsmTxd1RhRX4Z7yNcyZVtAw3RIqPAyPI14AfGFXLyXm0cYB1KDyOXaGtSTtSdHvUfbs7TH00nyPL9XNW')
+    // const stripe = await this.stripePromise;
+    // if (!stripe) {
+    //   console.error('Stripe did not load correctly.');
+    //   return;
+    // }
   
-    // Create a Stripe Checkout Session
-    const sessionId = await this.createCheckoutSession();
+    // // Create a Stripe Checkout Session
+    // const sessionId = await this.createCheckoutSession();
     
-    // Redirect to Stripe Checkout
+    // // Redirect to Stripe Checkout
     
-    const { error } = await stripe.redirectToCheckout({ sessionId });
-    if (error) {
-      console.error('Error redirecting to Stripe Checkout:', error);
-    } 
+    // const { error } = await stripe.redirectToCheckout({ sessionId });
+    // if (error) {
+    //   console.error('Error redirecting to Stripe Checkout:', error);
+    // } 
     this.matBadgeCount = 0 ; 
   }
   

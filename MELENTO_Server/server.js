@@ -21,33 +21,6 @@ const server = app.listen(port, () => {
 app.use(bodyParser.json());
 app.use(cors());
 
-// Nodemailer configuration
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
-
-// Endpoint to send email
-app.post('/send-email', (req, res) => {
-    const { name, email, message } = req.body;
-    console.log(req.body) ;
-    const mailOptions = {
-        from: email,  // sender address
-        to: email,  // receiver address
-        subject: `Message from ${name}`,  // Subject line
-        text: message  // plain text body
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return res.status(500).send(error.toString());
-        }
-        res.status(200).send('Email sent: ' + info.response);
-    });
-});
 
 // Define routes for each collection
 const collections = [
@@ -142,19 +115,19 @@ collections.forEach((collection) => {
     app.get(`/${collection}`, generic_controller.getDocuments(collection));
     app.get(`/${collection}/:id`, generic_controller.getDocumentById(collection));
   } else {
-    app.get(`/${collection}`, authenticateToken, generic_controller.getDocuments(collection));
-    app.get(`/${collection}/:id`, authenticateToken, generic_controller.getDocumentById(collection));
+    app.get(`/${collection}`, generic_controller.getDocuments(collection));
+    app.get(`/${collection}/:id`, generic_controller.getDocumentById(collection));
   }
 
   if (collection == 'users') {
     app.post(`/${collection}`, generic_controller.addDocument(collection));
   }
   else {
-    app.post(`/${collection}`, authenticateToken, generic_controller.addDocument(collection));
+    app.post(`/${collection}`, generic_controller.addDocument(collection));
   }
   
   
-  app.put(`/${collection}/:id`, authenticateToken, generic_controller.updateDocument(collection));
+  app.put(`/${collection}/:id`, generic_controller.updateDocument(collection));
   app.delete(`/${collection}/:id`, authenticateToken, generic_controller.deleteDocument(collection));
 });
 
