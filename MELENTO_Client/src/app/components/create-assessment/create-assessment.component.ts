@@ -97,57 +97,21 @@ export class CreateAssessmentComponent implements OnInit {
     return assessments.reduce((max, assessment) => (assessment.id > max ? assessment.id : max), 0);
   }
 
-  // submitAssessment(): void {
-  //   console.log('Form Value:', this.assessmentForm.value);
-
-  //   const newAssessmentId = this.getMaxId(this.assessments) + 1;
-
-  //   const assessmentData = this.assessmentForm.value;
-  //   const questionsData = this.questionsForm.value.questions.map((question: any, index: number) => ({
-  //     ...question,
-  //     id: index + 1,
-  //     choices: question.type === 'true-false' ? ['true', 'false'] : question.choices.map((choice: any) => choice.choiceText)
-  //   }));
-
-  //   const newAssessment = new Assessment(
-  //     newAssessmentId,
-  //     assessmentData.assessmentName,
-  //     assessmentData.assessmentDescription,
-  //     assessmentData.assessmentImage,
-  //     questionsData,
-  //     assessmentData.price,
-  //     parseInt(this.loggedUserId),
-  //     assessmentData.time,
-  //     true
-  //   );
-
-  //   this.assessmentService.addAssessment(newAssessment).subscribe(
-  //     response => {
-  //       console.log('Assessment created successfully:', response);
-  //       this.loadAssessments();  // Reload assessments to get the latest list
-  //     },
-  //     error => {
-  //       console.error('Error creating assessment:', error);
-  //     }
-  //   );
-  // }
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
     this.fileError = !this.selectedFile;  // Set error if no file selected
   }
+  
   submitAssessment(): void {
     if (!this.selectedFile) {
       this.fileError = true;
       return;
     }
-  
-    // Create FormData object to send file
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
-    console.log("form data" , formData) ;  
+
     // Call the service to upload the file (which in turn calls Cloudinary)
-    this.fileUploadService.uploadImage(formData).subscribe(
-      (response: any) => {
+    this.fileUploadService.uploadImage(this.selectedFile).subscribe(
+      (response: any) => 
+      {
         const imageUrl = response.url;  // The URL returned from Cloudinary
   
         // Now submit the assessment with the image URL
@@ -182,7 +146,8 @@ export class CreateAssessmentComponent implements OnInit {
             console.error('Error creating assessment:', error);
           }
         );
-      },
+      }
+      ,
       error => {
         console.error('Error uploading image:', error);
       }

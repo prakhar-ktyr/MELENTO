@@ -7,9 +7,11 @@ const db_service = require("./services/db_service");
 const jwt = require("jsonwebtoken");
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const nodemailer = require('nodemailer');
+
 const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
+const { v2: cloudinary } = require('cloudinary');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
 const app = express();
 const port = 3000;
 
@@ -23,25 +25,40 @@ const server = app.listen(port, () => {
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:4200', // Replace with your frontend origin
+  origin: '*', // Replace with your frontend origin
 }));
 
-// Configure Cloudinary with your credentials
+// Cloudinary configuration
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Configure Multer to use Cloudinary
+// Multer Storage configuration with Cloudinary
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: 'uploads',  // Optional: Specify a folder in Cloudinary
-    allowed_formats: ['jpg', 'png', 'jpeg'], // Specify allowed file formats
+    folder: 'uploads', // Folder where files will be stored in Cloudinary
+    allowed_formats: ['jpg', 'png', 'jpeg'], // Allowed image formats
   },
 });
 
+const upload = multer({ storage: storage });
+
+
+// Route to handle file upload
+app.post('/upload', upload.single('file'), (req, res) => {
+  if (!req.file) {
+    console.log("req.file" , req.file)
+    return res.status(400).send('No file uploaded.');
+  }
+  
+  // File is successfully uploaded to Cloudinary
+  const fileUrl = req.file.path;  // Cloudinary URL
+
+  res.json({ url: fileUrl });
+});
 
 // Define routes for each collection
 const collections = [
@@ -177,18 +194,3 @@ app.post("/login", (req, res) => {
 
 app.post('/register' , generic_controller.addDocument('users'));
 
-const upload = multer({ storage });
-
-// Route to handle file upload
-app.post('/upload', upload.single('file'), (req, res) => {
-  // if (!req.file) {
-  //   console.log(req.file)
-  //   return res.status(400).send('No file uploaded.');
-  // }
-  
-  // // File is successfully uploaded to Cloudinary
-  // const fileUrl = req.file.path;  // Cloudinary URL
-
-  // res.json({ url: fileUrl });
-  res.json({url : "None"})
-});

@@ -11,7 +11,7 @@ let conn;  // Global variable to hold the MongoClient instance
 
 async function connect(collectionName) {
     if (!conn) {
-        conn = new MongoClient(process.env.MONGO_URI); // Create new connection only if one doesn't exist
+        conn = new MongoClient(process.env.MONGO_URI_LOCAL); // Create new connection only if one doesn't exist
         await conn.connect();
         console.log("Connected to database");
     }

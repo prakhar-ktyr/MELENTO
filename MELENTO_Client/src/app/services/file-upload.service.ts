@@ -13,8 +13,10 @@ export class FileUploadService {
     }),
   };
   constructor(private httpClient : HttpClient) { }
-  uploadImage(fileData: FormData): Observable<any> {
-    return this.httpClient.post<{ url: string }>(this.baseUrl + "/upload", fileData , this.httpHeader).pipe(catchError(this.httpError));  // Adjust the URL to your backend
+  uploadImage(uploadedFile: any): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('file', uploadedFile); // Append the image to FormData
+    return this.httpClient.post(this.baseUrl + "/upload/", formData); 
   }
   
   httpError(error: HttpErrorResponse) {
