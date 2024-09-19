@@ -4,6 +4,7 @@ import { LocalStorageService } from "../../services/local-storage.service";
 import { TraineeService } from "../../services/trainee.service";
 import { AssessmentTrainees } from "../../models/assessmentTrainess";
 import { Cart } from "../../models/cart";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-success",
@@ -15,7 +16,8 @@ export class SuccessComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private localStorageService: LocalStorageService,
-    private traineeService: TraineeService
+    private traineeService: TraineeService , 
+    private toastr : ToastrService
   ) {
     this.loggedUserId = this.localStorageService.getItem("loggedUserId") || "0";
   }
@@ -27,6 +29,7 @@ export class SuccessComponent implements OnInit {
        this.cartService.clearCart(id).subscribe(
         () => {
           console.log("Cart cleared successfully");
+          this.toastr.success('Added assessments to dashboard successfully' , 'Success') ; 
         },
         (error) => {
           console.error("Error clearing cart:", error);

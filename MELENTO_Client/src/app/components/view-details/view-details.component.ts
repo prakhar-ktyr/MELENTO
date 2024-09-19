@@ -20,7 +20,7 @@ export class ViewDetailsComponent implements OnInit {
     });
   }
 
-  loadAssessmentDetails(id: number): void {
+  loadAssessmentDetails(id: any): void {
     this.assessmentService.getAssessmentById(id).subscribe((assessment: Assessment) => {
       this.assessment = assessment;
     }, error => {
@@ -28,7 +28,7 @@ export class ViewDetailsComponent implements OnInit {
     });
   }
 
-  addToCart(assessmentId: number): void {
+  addToCart(assessmentId: any): void {
     console.log(`Adding assessment with ID ${assessmentId} to cart`);
     // Implement add to cart functionality here
   }

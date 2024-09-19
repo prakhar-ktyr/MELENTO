@@ -9,6 +9,7 @@ import { CartService } from '../../services/cart.service';
 import { Cart } from '../../models/cart';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomeComponent {
     private assessmentService: AssessmentService,
     private localStorageService: LocalStorageService,
     private cartService: CartService,
-    private dialog: MatDialog
+    private dialog: MatDialog , 
+    private toastr : ToastrService
   ) {
     this.assessmentService.getAssessments().subscribe((data) => {
       for (let i = data.length - 1; i >= data.length - 3; i--) {
@@ -66,6 +68,8 @@ export class HomeComponent {
   addToCart(newAssessmentForCart: Assessment): void {
     // check if cart exists 
     let userId = this.loggedUserId ; 
+    this.toastr.success("Added to cart successfully" , 'Success') ; 
+
     this.cartService.getCartByUserId(userId).subscribe(data => { 
        console.log(data);
        if(data.found){
@@ -106,5 +110,9 @@ export class HomeComponent {
 
   viewMore(): void {
     this.router.navigate(['/assessments']);
+  }
+
+  showSuccess(message:string) {
+    this.toastr.success(message , 'Success');
   }
 }

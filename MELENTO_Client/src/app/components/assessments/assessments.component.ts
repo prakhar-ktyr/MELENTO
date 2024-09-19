@@ -7,6 +7,7 @@ import { LocalStorageService } from '../../services/local-storage.service';
 import { Cart } from '../../models/cart';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginModalComponent } from '../login-modal/login-modal.component'; 
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-assessments',
@@ -28,7 +29,8 @@ export class AssessmentsComponent implements OnInit {
     private router: Router,
     private localStorageService: LocalStorageService,
     private cartService: CartService,
-    private dialog: MatDialog // Add this
+    private dialog: MatDialog , 
+    private toastr : ToastrService
   ) {
     let loginId = this.localStorageService.getItem("loggedUserId");
     this.loggedUserId = loginId === null ? "0" : loginId;
@@ -89,6 +91,7 @@ export class AssessmentsComponent implements OnInit {
   addToCart(newAssessmentForCart: Assessment): void {
      // check if cart exists 
      let userId = this.loggedUserId ; 
+     this.toastr.success("Added to cart successfully" , 'Success') ; 
      this.cartService.getCartByUserId(userId).subscribe(data => { 
         console.log(data);
         if(data.found){

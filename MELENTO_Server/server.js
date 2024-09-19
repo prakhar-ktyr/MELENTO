@@ -75,7 +75,7 @@ const collections = [
 
 
 // Middleware to protect routes
-const authenticateToken = (req, res, next) => {
+cons = (req, res, next) => {
   const token = req.headers['authorization'].split(' ')[1];
   if (!token) {
     return res.status(401).json({
@@ -140,14 +140,7 @@ app.post('/webhook', express.raw({ type: 'application/json' }), (req, res) => {
   res.json({ received: true });
 });
 
-app.get(`/fetchUsers`, 
-  
-  generic_controller.getDocuments( "users")
-  // (req , res) => {
-  //   res.send('Called fetch users')
-  // }
-
-);
+app.get(`/fetchUsers`, generic_controller.getDocuments("users"));
 
 collections.forEach((collection) => {
   if (collection == 'assessments' || collection == 'users') {
@@ -167,7 +160,7 @@ collections.forEach((collection) => {
   
   
   app.put(`/${collection}/:id`, generic_controller.updateDocument(collection));
-  app.delete(`/${collection}/:id`, authenticateToken, generic_controller.deleteDocument(collection));
+  app.delete(`/${collection}/:id`, generic_controller.deleteDocument(collection));
 });
 
 app.get(`/cart/user/:id`, generic_controller.getCartByUserId('cart'));

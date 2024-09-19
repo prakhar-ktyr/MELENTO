@@ -106,7 +106,7 @@ export class UpdateUserComponent implements OnInit {
     console.log(this.idUpdated);
 
     for (var i = 0; i < this.arrUsers.length; i++) {
-      if (this.idUpdated === this.arrUsers[i].id) {
+      if (Number(this.idUpdated )=== Number(this.arrUsers[i].id)) {
         this.userAddForm.patchValue({
           id: this.arrUsers[i].id,
           firstName: this.arrUsers[i].firstName,

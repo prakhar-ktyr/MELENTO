@@ -12,7 +12,7 @@
           <textarea matInput placeholder="Description" formControlName="assessmentDescription" required></textarea>
           <mat-error *ngIf="assessmentForm.get('assessmentDescription')?.hasError('required')">Description is required.</mat-error>
         </mat-form-field>
-
+        
         <div class="file-input-container">
           <label>Assessment Image</label>
           <input type="file" (change)="onFileSelected($event)" required>

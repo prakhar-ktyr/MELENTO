@@ -2,7 +2,7 @@ import { Question } from './questions';
 
 export class Assessment {
     id: number;
-    assessmentName: string;
+    assessmentName: string ;
     assessmentDescription: string;
     assessmentImage: string;
     questions: Question[];
@@ -10,7 +10,7 @@ export class Assessment {
     facultyId: number;
     time: string;
     isActive:boolean = true;
-    constructor(id: number, name: string, description: string, assessmentImage: string, questions: Question[], price: number , facultyId:number, time: string , isActive:boolean=true) {
+    constructor(id: number , name: string, description: string, assessmentImage: string, questions: Question[], price: number , facultyId:number, time: string , isActive:boolean=true) {
         this.id = id;
         this.assessmentName = name;
         this.assessmentDescription = description;

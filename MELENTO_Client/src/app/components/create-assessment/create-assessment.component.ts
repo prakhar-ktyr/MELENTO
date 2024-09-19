@@ -94,7 +94,7 @@ export class CreateAssessmentComponent implements OnInit {
   }
 
   getMaxId(assessments: Assessment[]): number {
-    return assessments.reduce((max, assessment) => (assessment.id > max ? assessment.id : max), 0);
+    return this.assessments.length ; 
   }
 
   onFileSelected(event: any): void {
@@ -115,8 +115,9 @@ export class CreateAssessmentComponent implements OnInit {
         const imageUrl = response.url;  // The URL returned from Cloudinary
   
         // Now submit the assessment with the image URL
-        const newAssessmentId = this.getMaxId(this.assessments) + 1;
-  
+        const newAssessmentId = Number(this.getMaxId(this.assessments)) + 1;
+        console.log("MaxId = " , this.getMaxId(this.assessments)) ; 
+        
         const assessmentData = this.assessmentForm.value;
         const questionsData = this.questionsForm.value.questions.map((question: any, index: number) => ({
           ...question,
@@ -124,18 +125,18 @@ export class CreateAssessmentComponent implements OnInit {
           choices: question.type === 'true-false' ? ['true', 'false'] : question.choices.map((choice: any) => choice.choiceText)
         }));
   
-        const newAssessment = new Assessment(
-          newAssessmentId,
-          assessmentData.assessmentName,
-          assessmentData.assessmentDescription,
-          imageUrl,  // Use the Cloudinary URL
-          questionsData,
-          assessmentData.price,
-          parseInt(this.loggedUserId),
-          assessmentData.time,
-          true
-        );
-  
+        const newAssessment = {
+          id:newAssessmentId,
+          assessmentName : assessmentData.assessmentName,
+          assessmentDescription: assessmentData.assessmentDescription,
+          assessmentImage :imageUrl,  // Use the Cloudinary URL
+          questions: questionsData,
+          price: assessmentData.price,
+          facultyId:parseInt(this.loggedUserId),
+          time:assessmentData.time,
+          isActive: true
+      };
+        console.log("New assessment = " , newAssessment) ; 
         // Call service to add the assessment
         this.assessmentService.addAssessment(newAssessment).subscribe(
           response => {
