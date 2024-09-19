@@ -27,58 +27,84 @@
     color: #343a40;
   }
   
-  .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
+// Enhanced card styling with more intense shadows and borders
+.card {
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border around the card */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More intense shadow for non-hovered state */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Smooth transition for shadow and border */
+  margin-top:30px ;
+  width:300px ; 
+  &:hover {
     transform: scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4); /* Deeper and darker shadow on hover */
+    border: 2px solid rgba(0, 0, 0, 0.3); /* Darker border on hover */
   }
-  
-  .card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
-  .card-title {
-    font-size: 1.5em;
-    //color: #007bff;
-  }
-  
-  .card-text {
-    font-size: 1em;
-    color: #6c757d;
-  }
-  
-  .btn-primary-custom {
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    transition: background-color 0.2s;
-  }
-  
-  .btn-primary-custom:hover {
+}
+
+// Image styling within the card
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 300px;
+  width:100% ; 
+}
+
+// Card title and text
+.card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.card-text {
+  font-size: 1em;
+  color: #6c757d;
+}
+
+// Custom button styles
+.btn-primary-custom {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
     background-color: #0056b3;
-  }
-  
-  .card-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    transform: translateY(-3px); /* Lifted effect on hover */
   }
 
-  .greyed-out {
-    opacity: 0.5;
-    pointer-events: none; /* Optional: disables interactions with the card */
+  &:active {
+    background-color: #004494;
   }
-  
-  
+}
 
-  .card-footer{
-    display: flex;
-    justify-content: space-around;
+// Footer layout for buttons within the card
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+// Disabled or greyed-out card styling
+.greyed-out {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+// Responsive tweaks for smaller screens
+@media (max-width: 768px) {
+  .card-title {
+    font-size: 1.25em;
   }
+
+  .btn-primary-custom {
+    font-size: 0.9em;
+  }
+}

@@ -10,6 +10,7 @@ import { Address } from "../../models/address";
 import { CartService } from "../../services/cart.service";
 import { DarkModeService } from "../../services/dark-mode.service";
 import { Renderer2 } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-navbar",
@@ -35,7 +36,8 @@ export class NavbarComponent implements OnInit {
     private assessmentService: AssessmentService,
     private cartService: CartService,
     private darkModeService: DarkModeService,
-    private renderer: Renderer2
+    private renderer: Renderer2 , 
+    private toastr : ToastrService
   ) {
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
@@ -159,10 +161,14 @@ export class NavbarComponent implements OnInit {
           this.localStorageService.setItem("loggedUserId", user._id);
           this.isLoggedIn = true;
           this.userRole = user.role;
+          this.toastr.success("Login successful") ; 
           this.router.navigate(["/dashboard"]);
         } else {
           console.log("Invalid credentials");
+          this.toastr.error("Invalid Credentials") ; 
         }
+      } , (err) => {
+        this.toastr.error("Invalid Credentials") ; 
       });
   }
 
@@ -244,10 +250,12 @@ export class NavbarComponent implements OnInit {
 
       this.userService.addUser(newUser).subscribe(
         (data) => {
+          this.toastr.success("Registration successful") ; 
           console.log("User registered successfully:", data);
           this.loadUsers();
         },
         (err) => {
+          this.toastr.error("Registration failed") ; 
           console.log("Error registering user:", err);
         }
       );
