@@ -6,7 +6,7 @@
         <img [src]="a.assessmentImage" class="card-img-top" alt="Image">
         <div class="card-body">
           <h5 class="card-title">{{a.assessmentName}}</h5>
-          <p class="card-text">{{a.assessmentDescription}}</p>
+          <p class="card-text">{{a.assessmentDescription | truncate:100}}</p>
           <p *ngIf="loggedUserRole === 'Trainee'"> Attempts Remaining: {{quantityMap.get(a.id)}}</p>
         </div>
         <div class="card-footer">

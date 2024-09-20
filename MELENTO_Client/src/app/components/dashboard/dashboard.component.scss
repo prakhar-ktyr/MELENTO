@@ -1,64 +1,108 @@
 .my-assessments-container {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-  }
-  
-  .my-assessments-title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-    color: #343a40;
-  }
-  
-  .card {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-  }
-  
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow around the container */
+}
+
+.my-assessments-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #343a40;
+  letter-spacing: 1px;
+  text-transform: uppercase; /* More emphasis on the title */
+}
+
+/* Enhanced card styling */
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* More intense shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  background-color: #ffffff;
+}
+
+.card:hover {
+  transform: scale(1.07) translateY(-10px); /* Adding slight lift effect */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  background-color: #f1f1f1; /* Slight background color change on hover */
+}
+
+/* Image within the card */
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  height: 300px;
+  transition: transform 0.3s ease; /* Smooth image animation */
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05); /* Slight zoom on the image when hovering over the card */
+}
+
+/* Title and text styling */
+.card-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #343a40;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-title {
+  color: #007bff; /* Changing title color on hover */
+}
+
+.card-text {
+  font-size: 1em;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+/* Buttons */
+.btn-primary-custom {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px); /* Slight lift effect on button hover */
+}
+
+.btn-primary-custom:active {
+  background-color: #004494;
+}
+
+/* Footer */
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+/* Greyed out card (disabled state) */
+.greyed-out {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
   .card-title {
-    font-size: 1.5em;
-    //color: #007bff;
-  }
-  
-  .card-text {
-    font-size: 1em;
-    color: #6c757d;
-  }
-  
-  .btn-primary-custom {
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    transition: background-color 0.2s;
-  }
-  
-  .btn-primary-custom:hover {
-    background-color: #0056b3;
-  }
-  
-  .card-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    font-size: 1.25em;
   }
 
-  .greyed-out {
-    opacity: 0.5;
-    pointer-events: none; /* Optional: disables interactions with the card */
+  .btn-primary-custom {
+    font-size: 0.9em;
   }
-  
-  
+}
