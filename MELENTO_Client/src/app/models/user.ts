@@ -1,7 +1,6 @@
 import { Address } from './address';
 
 export class User {
-    id: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -10,8 +9,7 @@ export class User {
     password: string;
     dob: string;
     role: string;
-    constructor(id: string, fName: string, lName: string, email: string, phone: string, address: Address[], password: string, dob: string, role: string) {
-        this.id = id;
+    constructor(fName: string, lName: string, email: string, phone: string, address: Address[], password: string, dob: string, role: string) {
         this.firstName = fName;
         this.lastName = lName;
         this.email = email;

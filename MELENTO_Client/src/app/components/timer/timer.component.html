@@ -1,4 +1,15 @@
-<div class="timer">
+<div class="timer-container">
+  <div class="timer">
     <p>Time Remaining: {{ formatTime(remainingTime) }}</p>
   </div>
-  
+
+  <div class="progress-bar">
+    <div
+      class="progress"
+      [ngStyle]="{
+        width: getProgressWidth() + '%',
+        backgroundColor: getProgressColor()
+      }"
+    ></div>
+  </div>
+</div>

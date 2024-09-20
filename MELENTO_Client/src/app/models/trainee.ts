@@ -1,10 +1,6 @@
 export class Trainee {
-    id: number;
     userId: number;
-    constructor(id: number, userId: number) {
-        this.id = id;
+    constructor(userId: number) {
         this.userId = userId;
-        
     }
-
 }

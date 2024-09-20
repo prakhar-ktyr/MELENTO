@@ -135,9 +135,6 @@ async function findUserByCreds(collectionName, credentials) {
     } catch (err) {
         throw err;
     } 
-    // finally {
-    //     await util.disconnect(); // Close connection
-    // }
 }
 
 // Add a new user with password encryption

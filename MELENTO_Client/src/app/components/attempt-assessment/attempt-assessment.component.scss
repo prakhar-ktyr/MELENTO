@@ -1,23 +1,12 @@
-.barchart{
-    width: 70%;
-}
-form{
-    display: flex;
-    flex-direction: column;
-}
-
-mat-radio-group{
-    display: flex;
-    flex-direction: column;
-}
-
-.laststep{
-    display: flex;
-    flex-direction: column;
-}
-
-/* attempt-assessment.component.scss */
-#pdfContent {
+.my-assessments-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  #pdfContent {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -27,6 +16,122 @@ mat-radio-group{
     width: 100% !important;
     height: auto !important;
   }
- #passfail , #score{
-    font-size: xx-large;
-}
+  
+  #passfail,
+  #score {
+    font-size: 2.5rem; /* Larger font for a bolder result display */
+    font-weight: bold;
+    color: #343a40;
+  }
+  
+  .barchart {
+    width: 70%;
+    margin: 20px auto; /* Centering the chart */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between form elements */
+  }
+  
+  /* Stepper styles */
+  mat-horizontal-stepper {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-step {
+    margin: 10px 0;
+  }
+  
+  .laststep {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  mat-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Better spacing between radio buttons */
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  button:hover {
+    background-color: #007bff;
+    transform: translateY(-3px); /* Lift effect on hover */
+    color:#fff ; 
+  }
+  
+  button:active {
+    transform: translateY(1px); /* Button press effect */
+  }
+  
+  .mat-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .mat-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .mat-stepper-horizontal .mat-horizontal-stepper-header-container {
+    justify-content: space-around; /* Evenly distribute stepper headers */
+  }
+  
+  .mat-horizontal-stepper-header {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .mat-horizontal-stepper-header:hover {
+    background-color: #f1f1f1;
+    color: #007bff; /* Color change on hover */
+  }
+  
+  /* Chart Title */
+  canvasjs-chart .chart-title {
+    font-size: 1.5rem;
+    color: #343a40;
+    font-weight: bold;
+  }
+  
+  /* Spacing and layout for final step */
+  .laststep #pdfContent {
+    margin-top: 30px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .barchart {
+      width: 90%;
+    }
+  
+    #passfail,
+    #score {
+      font-size: 1.8rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  
+    .mat-horizontal-stepper-header-container {
+      flex-wrap: wrap; /* Allow stepper to wrap on small screens */
+    }
+  }
+  

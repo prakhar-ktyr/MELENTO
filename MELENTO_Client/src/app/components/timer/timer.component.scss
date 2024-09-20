@@ -1,6 +1,50 @@
+.timer-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .timer {
-    font-size: 2em;
-    text-align: center;
-    margin: 20px 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px auto;
+  max-width: 400px; /* To limit the progress bar size */
+}
+
+.progress {
+  height: 100%;
+  width: 0; /* This will be dynamically updated */
+  background-color: #28a745; /* Default progress color */
+  transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Visual change when time is running out */
+.warning {
+  background-color: #ffc107;
+}
+
+.danger {
+  background-color: #dc3545;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .timer {
+    font-size: 1.5rem;
   }
-  
+
+  .progress-bar {
+    max-width: 100%;
+  }
+}
